@@ -3,7 +3,7 @@
 ```
 Vamos a trabajar en el portal ORINOCO BUSINESS & INVESTMENT, hecho con Wakoo/Elementor.
 
-1. El repositorio es github.com/muonunziata/wakoo (rama main). Todo el portal está en .
+1. El repositorio es github.com/muonunziata/orinocobiz (rama main). Todo el portal está en la raíz de este repositorio.
 2. Antes de hacer nada, lee entera BITACORA.md (qué es, cómo está hecho, pendientes e historial),
    el CLAUDE.md de la raíz (reglas de Wakoo) y los documentos de docs/.
 3. Regla fija: TODO cambio se anota en BITACORA.md en el mismo commit: una entrada nueva arriba del
