@@ -1931,6 +1931,12 @@
   "it": "Aumentare il valore aggiunto del legno e dei suoi coprodotti.",
   "zh-tw": "提高木材及其副產品的附加價值。"
  },
+ "Autor de las fotos (opcional)": {
+  "en": "Photographer (optional)",
+  "fr": "Auteur des photos (facultatif)",
+  "it": "Autore delle foto (facoltativo)",
+  "zh-tw": "攝影者（選填）"
+ },
  "Autorizaciones de los organismos competentes": {
   "en": "Authorisations from the competent bodies",
   "fr": "Autorisations des organismes compétents",
@@ -2489,6 +2495,18 @@
   "it": "Collegamento con i corridoi terrestri",
   "zh-tw": "與陸路廊道連接"
  },
+ "Confirme que la empresa tiene derecho a publicar estas fotos.": {
+  "en": "Please confirm the company has the right to publish these photos.",
+  "fr": "Confirmez que l'entreprise a le droit de publier ces photos.",
+  "it": "Confermate che l'azienda ha il diritto di pubblicare queste foto.",
+  "zh-tw": "請確認貴公司有權公開這些相片。"
+ },
+ "Confirmo que estas fotos son de la empresa y que tenemos derecho a publicarlas.": {
+  "en": "I confirm these photos belong to the company and that we have the right to publish them.",
+  "fr": "Je confirme que ces photos appartiennent à l'entreprise et que nous avons le droit de les publier.",
+  "it": "Confermo che queste foto appartengono all'azienda e che abbiamo il diritto di pubblicarle.",
+  "zh-tw": "本人確認這些相片屬於本公司，且我們有權公開。"
+ },
  "Conocer la institución": {
   "en": "About the institution",
   "fr": "Découvrir l’institution",
@@ -2632,6 +2650,12 @@
   "fr": "Mot de passe temporaire",
   "it": "Password temporanea",
   "zh-tw": "臨時密碼"
+ },
+ "Contraseñas temporales: al entrar por primera vez, cada cuenta debe elegir la suya. Borre este archivo cuando las haya entregado.": {
+  "en": "Temporary passwords: at first sign-in, each account must choose its own. Delete this file once you have handed them over.",
+  "fr": "Mots de passe temporaires : à la première connexion, chaque compte doit choisir le sien. Supprimez ce fichier une fois les accès remis.",
+  "it": "Password temporanee: al primo accesso ogni account deve sceglierne una propria. Eliminate questo file dopo averle consegnate.",
+  "zh-tw": "臨時密碼：首次登入時，每個帳號都必須自行設定密碼。交付後請刪除此檔案。"
  },
  "Convenios educativos y perfiles de contratación.": {
   "en": "Education agreements and hiring profiles.",
@@ -2794,6 +2818,12 @@
   "fr": "Calendriers et jalons vérifiables",
   "it": "Cronoprogrammi e tappe verificabili",
   "zh-tw": "可驗證的時程與里程碑"
+ },
+ "Créditos de las fotos": {
+  "en": "Photo credits",
+  "fr": "Crédits photo",
+  "it": "Crediti fotografici",
+  "zh-tw": "相片來源"
  },
  "Cualquier inversión": {
   "en": "Any investment",
@@ -3101,6 +3131,12 @@
   "it": "Scarica",
   "zh-tw": "下載"
  },
+ "Descargar las credenciales (.txt)": {
+  "en": "Download the credentials (.txt)",
+  "fr": "Télécharger les identifiants (.txt)",
+  "it": "Scarica le credenziali (.txt)",
+  "zh-tw": "下載帳號資訊（.txt）"
+ },
  "Descripción": {
   "en": "Description",
   "fr": "Description",
@@ -3178,6 +3214,12 @@
   "fr": "Annuaire B2B | ORINOCO BUSINESS & INVESTMENT",
   "it": "Elenco B2B | ORINOCO BUSINESS & INVESTMENT",
   "zh-tw": "B2B 名錄 | ORINOCO BUSINESS & INVESTMENT"
+ },
+ "Directorio de empresas": {
+  "en": "Company directory",
+  "fr": "Annuaire des entreprises",
+  "it": "Elenco delle aziende",
+  "zh-tw": "企業名錄"
  },
  "Directorio empresarial B2B": {
   "en": "B2B business directory",
@@ -3785,6 +3827,12 @@
   "it": "Ingresso graduale",
   "zh-tw": "漸進式進入"
  },
+ "Entrada gradual según la demanda real": {
+  "en": "Gradual entry according to real demand",
+  "fr": "Entrée progressive selon la demande réelle",
+  "it": "Ingresso graduale secondo la domanda reale",
+  "zh-tw": "依實際需求逐步投入"
+ },
  "Entrada gradual: alquiler de equipos y servicios especializados": {
   "en": "Gradual entry: equipment rental and specialised services",
   "fr": "Entrée progressive : location d’équipements et services spécialisés",
@@ -4391,6 +4439,30 @@
   "it": "Rafforzare le filiere agroindustriali, forestali e ittiche",
   "zh-tw": "強化農產加工、林業與漁業產業鏈"
  },
+ "Foto quitada de la galería.": {
+  "en": "Photo removed from the gallery.",
+  "fr": "Photo retirée de la galerie.",
+  "it": "Foto rimossa dalla galleria.",
+  "zh-tw": "相片已從相片集移除。"
+ },
+ "Foto: %s": {
+  "en": "Photo: %s",
+  "fr": "Photo : %s",
+  "it": "Foto: %s",
+  "zh-tw": "相片：%s"
+ },
+ "Fotos": {
+  "en": "Photos",
+  "fr": "Photos",
+  "it": "Foto",
+  "zh-tw": "相片"
+ },
+ "Fotos añadidas a la galería de su perfil.": {
+  "en": "Photos added to your profile gallery.",
+  "fr": "Photos ajoutées à la galerie de votre profil.",
+  "it": "Foto aggiunte alla galleria del vostro profilo.",
+  "zh-tw": "相片已加入貴公司檔案的相片集。"
+ },
  "Francisco de Miranda": {
   "en": "Francisco de Miranda",
   "fr": "Francisco de Miranda",
@@ -4438,6 +4510,12 @@
   "fr": "Fabriques de glace",
   "it": "Fabbriche di ghiaccio",
   "zh-tw": "製冰廠"
+ },
+ "Galería de fotos": {
+  "en": "Photo gallery",
+  "fr": "Galerie de photos",
+  "it": "Galleria fotografica",
+  "zh-tw": "相片集"
  },
  "Galpones": {
   "en": "Warehouses",
@@ -4666,6 +4744,12 @@
   "fr": "Heures de formation technique financées par les projets",
   "it": "Ore di formazione tecnica finanziate dai progetti",
   "zh-tw": "由專案出資的技術培訓時數"
+ },
+ "Hub": {
+  "en": "Hub",
+  "fr": "Hub",
+  "it": "Hub",
+  "zh-tw": "管理中心"
  },
  "Hub administrativo": {
   "en": "Admin hub",
@@ -5213,6 +5297,12 @@
   "it": "L’impresa non ha pubblicato recapiti. Le scriva con il modulo: il suo messaggio arriverà nel suo pannello.",
   "zh-tw": "此企業未公開聯絡資料。請使用表單留言，訊息會送到該企業的面板。"
  },
+ "La galería está completa. Quite una foto para subir otra.": {
+  "en": "The gallery is full. Remove a photo to upload another.",
+  "fr": "La galerie est complète. Retirez une photo pour en ajouter une autre.",
+  "it": "La galleria è completa. Rimuovete una foto per caricarne un’altra.",
+  "zh-tw": "相片集已滿。請先移除一張再上傳。"
+ },
  "La gobernanza se mide por resultados": {
   "en": "Governance is measured by results",
   "fr": "La gouvernance se mesure aux résultats",
@@ -5266,6 +5356,12 @@
   "fr": "Les deux mots de passe ne correspondent pas.",
   "it": "Le due password non coincidono.",
   "zh-tw": "兩次輸入的密碼不一致。"
+ },
+ "Las fotos se muestran en la galería de su perfil público. Suba solo fotos reales de su empresa (instalaciones, equipos, obras, equipo humano) que tenga derecho a publicar. JPG, PNG o WebP, hasta 5 MB cada una y 12 en total.": {
+  "en": "Photos appear in the gallery of your public profile. Upload only real photos of your company (facilities, equipment, works, staff) that you have the right to publish. JPG, PNG or WebP, up to 5 MB each and 12 in total.",
+  "fr": "Les photos s'affichent dans la galerie de votre profil public. Ne publiez que de vraies photos de votre entreprise (installations, équipements, chantiers, équipe) que vous avez le droit de diffuser. JPG, PNG ou WebP, 5 Mo maximum chacune et 12 au total.",
+  "it": "Le foto compaiono nella galleria del vostro profilo pubblico. Caricate solo foto reali della vostra azienda (impianti, attrezzature, cantieri, personale) che avete il diritto di pubblicare. JPG, PNG o WebP, fino a 5 MB ciascuna e 12 in totale.",
+  "zh-tw": "相片會顯示在貴公司公開檔案的相片集中。請只上傳貴公司有權公開的真實相片（設施、設備、工程、團隊）。格式為 JPG、PNG 或 WebP，每張最大 5 MB，最多 12 張。"
  },
  "Las lecciones se publicarán cuando el curso abra la inscripción.": {
   "en": "Lessons will be published when the course opens for enrolment.",
@@ -5488,6 +5584,12 @@
   "fr": "Industrie alimentaire",
   "it": "Manifattura alimentare",
   "zh-tw": "食品製造"
+ },
+ "Mapa": {
+  "en": "Map",
+  "fr": "Carte",
+  "it": "Mappa",
+  "zh-tw": "地圖"
  },
  "Mapa de la Subregión Orinoco": {
   "en": "Map of the Orinoco Subregion",
@@ -5801,6 +5903,12 @@
   "it": "Esigenze di acquisto",
   "zh-tw": "採購需求"
  },
+ "Necesidades de compra abiertas": {
+  "en": "Open purchasing needs",
+  "fr": "Besoins d'achat ouverts",
+  "it": "Fabbisogni di acquisto aperti",
+  "zh-tw": "開放中的採購需求"
+ },
  "Necesidades de infraestructura": {
   "en": "Infrastructure needs",
   "fr": "Besoins en infrastructures",
@@ -5830,6 +5938,12 @@
   "fr": "Niveaux",
   "it": "Livelli",
   "zh-tw": "等級"
+ },
+ "Niveles de verificación": {
+  "en": "Verification levels",
+  "fr": "Niveaux de vérification",
+  "it": "Livelli di verifica",
+  "zh-tw": "確認等級"
  },
  "No alcanzó la nota mínima. Revise la lección y vuelva a intentarlo.": {
   "en": "You did not reach the pass mark. Review the lesson and try again.",
@@ -6629,6 +6743,12 @@
   "it": "Procedura",
   "zh-tw": "程序"
  },
+ "Procedimiento en siete pasos": {
+  "en": "Seven-step procedure",
+  "fr": "Procédure en sept étapes",
+  "it": "Procedura in sette passi",
+  "zh-tw": "七個步驟的程序"
+ },
  "Procedimientos para modificaciones y controversias": {
   "en": "Procedures for changes and disputes",
   "fr": "Procédures pour les modifications et les différends",
@@ -6971,6 +7091,12 @@
   "it": "Pubblicata da",
   "zh-tw": "刊登者"
  },
+ "Publicada por la empresa": {
+  "en": "Published by the company",
+  "fr": "Publiée par l'entreprise",
+  "it": "Pubblicata dall'azienda",
+  "zh-tw": "由公司發布"
+ },
  "Publicado en el directorio": {
   "en": "Published in the directory",
   "fr": "Publié dans l’annuaire",
@@ -7000,6 +7126,12 @@
   "fr": "Lancement des projets",
   "it": "Avvio dei progetti",
   "zh-tw": "專案啟動"
+ },
+ "Quitar": {
+  "en": "Remove",
+  "fr": "Retirer",
+  "it": "Rimuovi",
+  "zh-tw": "移除"
  },
  "Quién podría integrarla": {
   "en": "Who could take part",
@@ -7769,6 +7901,12 @@
   "it": "Il suo pannello: richieste, impresa e corsi",
   "zh-tw": "您的面板：申請、公司與課程"
  },
+ "Su perfil todavía no tiene fotos.": {
+  "en": "Your profile has no photos yet.",
+  "fr": "Votre profil n'a pas encore de photos.",
+  "it": "Il vostro profilo non ha ancora foto.",
+  "zh-tw": "貴公司檔案尚無相片。"
+ },
  "Su propuesta (alcance, plazos, condiciones)": {
   "en": "Your proposal (scope, deadlines, terms)",
   "fr": "Votre proposition (portée, délais, conditions)",
@@ -7786,6 +7924,12 @@
   "fr": "Téléverser",
   "it": "Carica",
   "zh-tw": "上傳"
+ },
+ "Subir fotos": {
+  "en": "Upload photos",
+  "fr": "Envoyer les photos",
+  "it": "Carica foto",
+  "zh-tw": "上傳相片"
  },
  "Subregión Orinoco (referencia aproximada)": {
   "en": "Orinoco Subregion (approximate reference)",
@@ -8626,6 +8770,12 @@
   "fr": "estimation",
   "it": "stima",
   "zh-tw": "估計值"
+ },
+ "fuente": {
+  "en": "source",
+  "fr": "source",
+  "it": "fonte",
+  "zh-tw": "來源"
  },
  "municipios en el ámbito de planificación": {
   "en": "municipalities in the planning area",

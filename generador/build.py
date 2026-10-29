@@ -131,6 +131,7 @@ MENU = [
                                     ('Desarrollo sostenible', 'sostenibilidad'), ('Documentos', 'documentos')]),
     ('Sectores', 'sectores', [(sc['name'], 'sector-' + sc['slug']) for sc in C.SECTORS]),
     ('Proyectos', 'proyectos', []),
+    ('Directorio', 'directorio', []),
     ('Herramientas', 'ventanilla', [('Ventanilla única del inversionista', 'ventanilla'), ('Mapa del territorio', 'mapa'), ('Directorio empresarial B2B', 'directorio'),
                                     ('Proveedores y necesidades de compra', 'proveedores'), ('Observatorio', 'observatorio')]),
     ('Academia', 'academia', []),
@@ -152,7 +153,7 @@ def header():
         con([
             iconlist([('Subregión Orinoco · Sur de Anzoátegui · Venezuela', 'fas fa-map-pin', None)], 'orn-topbar__info', inline=True),
             con([
-                iconlist([('Mi cuenta', 'fas fa-user-circle', L('acceso')), ('Verificar certificado', 'fas fa-certificate', L('verificar'))], 'orn-topbar__links', inline=True),
+                iconlist([('Directorio de empresas', 'fas fa-building', L('directorio')), ('Mi cuenta', 'fas fa-user-circle', L('acceso')), ('Verificar certificado', 'fas fa-certificate', L('verificar'))], 'orn-topbar__links', inline=True),
                 w('wakoo-idiomas', {'style': 'codes', 'label': 'Idioma', 'color': '#E6C98C'}, 'orn-langs'),
             ], cls='orn-topbar__right wk-keep-row', direction='row', inner=True),
         ], cls='orn-topbar wk-keep-row', boxed=True, direction='row'),
@@ -221,7 +222,7 @@ def page_inicio():
                 p(C.INTRO, 'orn-lead'),
                 btns([btn('Explorar oportunidades', L('sectores'), 'gold', icon='fas fa-arrow-right'),
                       btn('Presentar un proyecto', L('ventanilla'), 'light'),
-                      btn('Registrar una empresa', L('mi-empresa'), 'ghost')]),
+                      btn('Directorio de empresas', L('directorio'), 'ghost', icon='fas fa-building')]),
                 p(C.MOTTO + '.', 'orn-hero__motto'),
             ], 'orn-hero__text'),
             col([w('wakoo-globe', {'focus_lat': 8.4, 'focus_lng': -64.3, 'spin': 1.5, 'swing': 40, 'size': 560,
@@ -433,71 +434,109 @@ def page_sector(sc):
 
 # ------------------------------------------------------------------ proyectos y ventanilla
 
+# ------------------------------------------------------------------ herramientas (vista de aplicación)
+
+TOOLS = [('proyectos', 'Proyectos', 'fas fa-briefcase'), ('ventanilla', 'Ventanilla', 'fas fa-concierge-bell'), ('mapa', 'Mapa', 'fas fa-map-marked-alt'),
+         ('directorio', 'Directorio', 'fas fa-building'), ('proveedores', 'Proveedores', 'fas fa-truck-loading'), ('observatorio', 'Observatorio', 'fas fa-chart-line')]
+ACCOUNT = [('mis-solicitudes', 'Mis solicitudes', 'fas fa-folder-open'), ('mi-empresa', 'Mi empresa', 'fas fa-building'),
+           ('mi-aprendizaje', 'Mi aprendizaje', 'fas fa-graduation-cap'), ('acceso', 'Mi cuenta', 'fas fa-user-circle')]
+
+
+def apptabs(tabs, current, label):
+    """Barra de pestañas de la aplicación: un botón por herramienta, la actual resaltada."""
+    return section([row([btn(t, L(k), 'tab', 'orn-apptab' + (' is-on' if k == current else ''), icon=ic) for k, t, ic in tabs], 'orn-apptabs__row wk-keep-row', gap=4)],
+                   cls='orn-apptabs', label=label)
+
+
+def apphead(key, ic, eb, title, lead, actions=(), tabs=TOOLS, area='Herramientas'):
+    """Cabecera compacta de herramienta (en vez del gran encabezado de página) + pestañas."""
+    left = col([iconlist([('Inicio', None, L('inicio')), (area, None, L(tabs[0][0]))], 'orn-crumbs', inline=True),
+                row([icon(ic, 'orn-appicon'), col([eyebrow(eb), h(title, 1, 'orn-apphead__t'), p(lead, 'orn-apphead__lead')], 'orn-apphead__txt', gap=6)], 'orn-apphead__id wk-keep-row', gap=18)],
+               'orn-apphead__main', gap=14)
+    kids = [left] + ([btns(list(actions), 'orn-apphead__actions')] if actions else [])
+    head_ = topo(section([row(kids, 'orn-apphead__row', gap=24)], cls='orn-apphead orn-dark', css_id='contenido'), alpha=14, levels=8)
+    return [head_, apptabs(tabs, key, area)]
+
+
+def panel(children, title=None, ic=None, cls=''):
+    items = ([iconlist([(title, ic, None)], 'orn-apppanel__t')] if title else []) + children
+    return col(items, ('orn-apppanel ' + cls).strip(), gap=14)
+
+
+def appbody(main, side=None, cls=''):
+    body = grid([col(main, 'orn-appmain', gap=20), col(side, 'orn-appside', gap=20)], 1, tablet=1, mobile=1, gap=24, cls='orn-appgrid') if side else col(main, 'orn-appmain', gap=20)
+    return section([body], cls=('orn-app ' + cls).strip())
+
+
+def defs(items, cls=''):
+    """Lista compacta título + texto (glosarios, niveles, pasos) para las columnas laterales."""
+    items = [it if isinstance(it, tuple) else (it, '') for it in items]
+    return col([col([h(t, 4, 'orn-def__t')] + ([p(d, 'orn-def__d')] if d else []), 'orn-def') for t, d in items], ('orn-defs ' + cls).strip(), gap=0)
+
+
 def page_proyectos():
-    return [
-        pagehead('Cartera de proyectos', 'Proyectos de inversión de la Subregión Orinoco', 'Fichas estandarizadas con estado de preparación, objetivo económico y condición previa. ' + C.PROJECT_NOTE),
-        section([tw('wakoo-t-projects', {'filters': 'yes', 'per': 12, 'cols': '3'})], cls='orn-sec'),
-        section([grid([col([head('Estados', 'Siete estados de preparación'), tw('wakoo-t-stages', {'zero': 'yes'})], 'orn-stack'),
-                       col([head('Ficha estandarizada', 'Qué contiene cada ficha'), iconlist([(f'{i + 1}. {t}', None, None) for i, t in enumerate(C.SHEET_10)], 'orn-numlist')], 'orn-stack')], 2, tablet=1, mobile=1, gap=40, cls='orn-split')], cls='orn-sec orn-soft'),
-        section([head('Glosario', 'Qué significa cada estado'), grid([col([h(t, 3), p(d)], 'orn-card orn-card--flat') for t, d in C.STAGES], 4, tablet=2, mobile=1, gap=14)], cls='orn-sec'),
-        cta_band('¿Su proyecto debería estar en la cartera?', 'Regístrelo en la ventanilla. El equipo lo evaluará antes de publicarlo.', [btn('Presentar un proyecto', L('ventanilla'), 'gold', icon='fas fa-arrow-right')]),
+    return apphead('proyectos', 'fas fa-briefcase', 'Cartera de proyectos', 'Proyectos de inversión de la Subregión Orinoco', 'Fichas estandarizadas con estado de preparación, objetivo económico y condición previa. ' + C.PROJECT_NOTE,
+                   [btn('Presentar un proyecto', L('ventanilla'), 'gold', icon='fas fa-plus')]) + [
+        appbody([panel([tw('wakoo-t-projects', {'filters': 'yes', 'per': 12, 'cols': '3'})])]),
+        appbody([panel([tw('wakoo-t-stages', {'zero': 'yes'})], 'Siete estados de preparación', 'fas fa-tasks')],
+                [panel([iconlist([(f'{i + 1}. {t}', None, None) for i, t in enumerate(C.SHEET_10)], 'orn-numlist')], 'Qué contiene cada ficha', 'fas fa-file-alt'),
+                 panel([defs(C.STAGES)], 'Qué significa cada estado', 'fas fa-book')], 'orn-app--sub'),
     ]
 
 
 def page_ventanilla():
-    return [
-        pagehead('Ventanilla única del inversionista', 'Presente su iniciativa y siga su expediente', 'Un punto de contacto que acompaña al empresario desde la presentación inicial hasta la identificación de las autorizaciones necesarias.'),
-        section([callout('Qué hace y qué no hace la ventanilla', C.WINDOW_NOTE, 'fas fa-balance-scale'), head('Procedimiento', 'Siete pasos'), steps(C.WINDOW_STEPS)], cls='orn-sec'),
-        section([grid([col([head('Registro', 'Registrar una iniciativa', 'Necesita una cuenta gratuita. Al enviar el formulario recibirá un código de seguimiento.'), tw('wakoo-t-caseform')], 'orn-stack orn-panel'),
-                       col([head('Ventanilla de Localización Empresarial', 'Información que puede solicitar'), bullets(C.LOCATION_SERVICES, 'fas fa-check'),
-                            btns([btn('Mis solicitudes', L('mis-solicitudes'), 'outline', icon='fas fa-folder-open')])], 'orn-stack')], 2, tablet=1, mobile=1, gap=40, cls='orn-split')], cls='orn-sec orn-soft'),
+    return apphead('ventanilla', 'fas fa-concierge-bell', 'Ventanilla única del inversionista', 'Presente su iniciativa y siga su expediente',
+                   'Un punto de contacto que acompaña al empresario desde la presentación inicial hasta la identificación de las autorizaciones necesarias.',
+                   [btn('Mis solicitudes', L('mis-solicitudes'), 'light', icon='fas fa-folder-open')]) + [
+        appbody([panel([p('Necesita una cuenta gratuita. Al enviar el formulario recibirá un código de seguimiento.', 'orn-small'), tw('wakoo-t-caseform')], 'Registrar una iniciativa', 'fas fa-plus-circle'),
+                 panel([bullets(C.LOCATION_SERVICES, 'fas fa-check')], 'Información que puede solicitar', 'fas fa-map-signs')],
+                [callout('Qué hace y qué no hace la ventanilla', C.WINDOW_NOTE, 'fas fa-balance-scale'),
+                 panel([defs(C.WINDOW_STEPS, 'orn-defs--steps')], 'Procedimiento en siete pasos', 'fas fa-route')]),
     ]
 
 
-def page_panel(title, lead, widget, settings=None):
-    return [pagehead('Mi cuenta', title, lead), section([tw(widget, settings)], cls='orn-sec')]
+def page_panel(key, title, lead, widget, settings=None):
+    tabs = ACCOUNT + [('hub', 'Hub', 'fas fa-user-shield')] if key == 'hub' else ACCOUNT
+    ic = dict((k, i) for k, _t, i in tabs + [('verificar', '', 'fas fa-certificate')]).get(key, 'fas fa-user-circle')
+    return apphead(key, ic, 'Mi cuenta', title, lead, tabs=tabs, area='Mi cuenta') + [appbody([panel([tw(widget, settings)])])]
 
-
-# ------------------------------------------------------------------ herramientas
 
 def page_mapa():
-    return [
-        pagehead('Mapa del territorio', 'Mapa de la Subregión Orinoco', 'Cartografía base de OpenStreetMap con capas públicas que tienen fuente y fecha, y los proyectos cuya ubicación ya fue verificada.'),
-        section([tw('wakoo-t-gis', {'projects': 'yes', 'filter': 'yes', 'center': '8.4,-64.3', 'zoom': 8})], cls='orn-sec'),
-        section([head('Corredores de referencia', 'Conectividad descrita en la caracterización', 'Se describen aquí en texto hasta que la cartografía oficial permita dibujarlos con precisión.'),
-                 grid([col([icon(ic, 'orn-card__ico'), h(t, 3), p(d)], 'orn-card') for ic, t, d, _i, _a in C.CORRIDORS], 3, tablet=1, mobile=1, gap=18),
-                 callout('Cómo se publican las capas', 'El equipo carga capas desde Territorio → Importar al mapa (GeoJSON o CSV), indicando la fuente, la fecha y si la información está verificada. Nada se dibuja sin coordenadas con fuente.', 'fas fa-layer-group')], cls='orn-sec orn-soft'),
+    return apphead('mapa', 'fas fa-map-marked-alt', 'Mapa del territorio', 'Mapa de la Subregión Orinoco', 'Cartografía base de OpenStreetMap con capas públicas que tienen fuente y fecha, y los proyectos cuya ubicación ya fue verificada.') + [
+        appbody([panel([tw('wakoo-t-gis', {'projects': 'yes', 'filter': 'yes', 'center': '8.4,-64.3', 'zoom': 8})], cls='orn-apppanel--flush')]),
+        appbody([panel([grid([col([icon(ic, 'orn-card__ico'), h(t, 4), p(d)], 'orn-mini') for ic, t, d, _i, _a in C.CORRIDORS], 3, tablet=1, mobile=1, gap=14),
+                        p('Se describen aquí en texto hasta que la cartografía oficial permita dibujarlos con precisión.', 'orn-small')], 'Corredores de referencia', 'fas fa-route')],
+                [callout('Cómo se publican las capas', 'El equipo carga capas desde Territorio → Importar al mapa (GeoJSON o CSV), indicando la fuente, la fecha y si la información está verificada. Nada se dibuja sin coordenadas con fuente.', 'fas fa-layer-group')], 'orn-app--sub'),
     ]
 
 
 def page_directorio():
-    return [
-        pagehead('Directorio empresarial B2B', 'Empresas y proveedores de la Subregión Orinoco', 'Perfiles revisados por el equipo, con nivel de verificación y formulario de consulta.'),
-        section([tw('wakoo-t-companies', {'filters': 'yes', 'per': 12, 'register': lnk(L('mi-empresa'))})], cls='orn-sec'),
-        section([head('Niveles', 'Qué significa cada nivel de verificación'), grid([card(ic, t, d) for ic, t, d in C.LEVELS], 3, tablet=1, mobile=1, gap=18)], cls='orn-sec orn-soft'),
+    return apphead('directorio', 'fas fa-building', 'Directorio empresarial B2B', 'Empresas y proveedores de la Subregión Orinoco', 'Perfiles revisados por el equipo, con nivel de verificación y formulario de consulta.',
+                   [btn('Registrar una empresa', L('mi-empresa'), 'gold', icon='fas fa-plus')]) + [
+        appbody([panel([tw('wakoo-t-companies', {'filters': 'yes', 'per': 12, 'register': lnk(L('mi-empresa'))})])]),
+        appbody([panel([grid([col([icon(ic, 'orn-card__ico'), h(t, 4), p(d)], 'orn-mini') for ic, t, d in C.LEVELS], 3, tablet=1, mobile=1, gap=14)],
+                       'Niveles de verificación', 'fas fa-shield-alt')], cls='orn-app--sub'),
     ]
 
 
 def page_proveedores():
-    return [
-        pagehead('Proveedores', 'Proveeduría para operadoras, contratistas y empresas ancla', 'Una base regional de abastecimiento para las operaciones que efectivamente demanden servicios en el área de influencia.', bg='operaciones-planta-energia.webp'),
-        section([head('Necesidades de compra', 'Oportunidades abiertas', 'Empresas registradas publican lo que necesitan comprar; los proveedores responden desde su cuenta.'), tw('wakoo-t-needs')], cls='orn-sec'),
-        section([head('Servicios a operadoras y contratistas', 'Líneas de negocio de la cadena de suministro'),
-                 grid([reveal(col([icon(ic, 'orn-card__ico'), h(t, 3), p(a), p(f'<strong>Infraestructura:</strong> {b}', 'orn-small')], 'orn-card'), delay=i * 30) for i, (ic, t, a, b) in enumerate(C.CPPH)], 3, tablet=2, mobile=1, gap=16)], cls='orn-sec orn-soft'),
-        section([grid([col([head('Programa de Desarrollo de Proveedores', 'Cuatro componentes'), steps(C.SUPPLIER_PROGRAM, 'orn-steps--compact'), callout('Sin contratos garantizados', C.SUPPLIER_NOTE)], 'orn-stack'),
-                       col([head('Entrada gradual', 'Una cartera escalonada para invertir según la demanda real'), iconlist([(f'{i + 1}. {t}', None, None) for i, t in enumerate(C.GRADUAL)], 'orn-numlist'),
-                            btns([btn('Registrar una empresa', L('mi-empresa'), 'primary', icon='fas fa-arrow-right'), btn('Ver el directorio', L('directorio'), 'outline')])], 'orn-stack orn-panel')], 2, tablet=1, mobile=1, gap=40, cls='orn-split')], cls='orn-sec'),
+    return apphead('proveedores', 'fas fa-truck-loading', 'Proveedores', 'Proveeduría para operadoras, contratistas y empresas ancla', 'Una base regional de abastecimiento para las operaciones que efectivamente demanden servicios en el área de influencia.',
+                   [btn('Registrar una empresa', L('mi-empresa'), 'gold', icon='fas fa-plus'), btn('Ver el directorio', L('directorio'), 'light', icon='fas fa-building')]) + [
+        appbody([panel([p('Empresas registradas publican lo que necesitan comprar; los proveedores responden desde su cuenta.', 'orn-small'), tw('wakoo-t-needs')], 'Necesidades de compra abiertas', 'fas fa-clipboard-list')],
+                [panel([defs(C.SUPPLIER_PROGRAM, 'orn-defs--steps')], 'Programa de Desarrollo de Proveedores', 'fas fa-hands-helping'),
+                 callout('Sin contratos garantizados', C.SUPPLIER_NOTE)]),
+        appbody([panel([grid([col([icon(ic, 'orn-card__ico'), h(t, 4), p(a), p(f'<strong>Infraestructura:</strong> {b}', 'orn-small')], 'orn-mini') for ic, t, a, b in C.CPPH], 3, tablet=2, mobile=1, gap=14)],
+                       'Servicios a operadoras y contratistas', 'fas fa-cogs')],
+                [panel([iconlist([(f'{i + 1}. {t}', None, None) for i, t in enumerate(C.GRADUAL)], 'orn-numlist')], 'Entrada gradual según la demanda real', 'fas fa-layer-group')], 'orn-app--sub'),
     ]
 
 
 def page_observatorio():
-    return [
-        pagehead('Observatorio', 'Indicadores con fuente, fecha y metodología', 'El seguimiento se concentra en resultados verificables. Cada indicador muestra su ficha técnica; los que aún no tienen línea base aparecen sin datos, nunca con cifras de relleno.'),
-        section([tw('wakoo-t-observatory', {'cols': '2'})], cls='orn-sec'),
-        section([head('Metodología', 'Cómo se publica un indicador'),
-                 steps([('Ficha técnica', 'Unidad, fuente, periodicidad, responsable y metodología.'), ('Línea base', 'Se levanta en la Fase I con datos validados.'),
-                        ('Verificación', 'Pendiente, en verificación o verificado, visible en cada tarjeta.'), ('Publicación', 'Solo datos autorizados y agregados; los datos de prueba nunca se muestran como oficiales.')]),
-                 ], cls='orn-sec orn-soft'),
+    return apphead('observatorio', 'fas fa-chart-line', 'Observatorio', 'Indicadores con fuente, fecha y metodología', 'El seguimiento se concentra en resultados verificables. Cada indicador muestra su ficha técnica; los que aún no tienen línea base aparecen sin datos, nunca con cifras de relleno.') + [
+        appbody([panel([tw('wakoo-t-observatory', {'cols': '2'})], cls='orn-apppanel--bare')],
+                [panel([defs([('Ficha técnica', 'Unidad, fuente, periodicidad, responsable y metodología.'), ('Línea base', 'Se levanta en la Fase I con datos validados.'),
+                              ('Verificación', 'Pendiente, en verificación o verificado, visible en cada tarjeta.'), ('Publicación', 'Solo datos autorizados y agregados; los datos de prueba nunca se muestran como oficiales.')], 'orn-defs--steps')],
+                       'Cómo se publica un indicador', 'fas fa-clipboard-check')]),
     ]
 
 
@@ -605,12 +644,12 @@ PAGES = [
     ('academia', 'academia', 'Academia Orinoco', page_academia, 'Academia Orinoco de Nuevos Negocios: cinco escuelas y certificados verificables.', None),
     ('noticias', 'noticias', 'Noticias', page_noticias, 'Noticias, rondas de negocios y agenda de ORINOCO BUSINESS & INVESTMENT.', None),
     ('contacto', 'contacto', 'Contacto', page_contacto, 'Contacto con ORINOCO BUSINESS & INVESTMENT.', None),
-    ('acceso', 'acceso', 'Acceso', lambda: page_panel('Iniciar sesión o crear una cuenta', 'Una sola cuenta para la ventanilla, el directorio y la academia.', 'wakoo-t-access', {'privacy': lnk(L('privacidad'))}), 'Acceso a la cuenta del portal.', None),
-    ('mis-solicitudes', 'mis-solicitudes', 'Mis solicitudes', lambda: page_panel('Mis solicitudes', 'Estado, historial, mensajes y documentos de sus solicitudes en la ventanilla.', 'wakoo-t-cases'), 'Solicitudes en la ventanilla.', None),
-    ('mi-empresa', 'mi-empresa', 'Mi empresa', lambda: page_panel('Mi empresa', 'Perfil para el directorio, documentos privados, consultas recibidas y necesidades de compra.', 'wakoo-t-companypanel'), 'Panel de empresa.', None),
-    ('mi-aprendizaje', 'mi-aprendizaje', 'Mi aprendizaje', lambda: page_panel('Mi aprendizaje', 'Sus cursos, su progreso y sus certificados.', 'wakoo-t-student', {'catalog': lnk(L('academia'))}), 'Panel del estudiante.', None),
-    ('hub', 'hub-administrativo', 'Hub administrativo', lambda: page_panel('Hub administrativo', 'Solicitudes de la ventanilla, usuarios y cuentas de las empresas. Solo para el equipo del portal.', 'wakoo-t-hub'), 'Hub administrativo del equipo del portal.', None),
-    ('verificar', 'verificar-certificado', 'Verificar certificado', lambda: page_panel('Verificar un certificado', 'Escriba el código impreso en el certificado de la Academia Orinoco.', 'wakoo-t-verify'), 'Verificación de certificados de la Academia Orinoco.', None),
+    ('acceso', 'acceso', 'Acceso', lambda: page_panel('acceso', 'Iniciar sesión o crear una cuenta', 'Una sola cuenta para la ventanilla, el directorio y la academia.', 'wakoo-t-access', {'privacy': lnk(L('privacidad'))}), 'Acceso a la cuenta del portal.', None),
+    ('mis-solicitudes', 'mis-solicitudes', 'Mis solicitudes', lambda: page_panel('mis-solicitudes', 'Mis solicitudes', 'Estado, historial, mensajes y documentos de sus solicitudes en la ventanilla.', 'wakoo-t-cases'), 'Solicitudes en la ventanilla.', None),
+    ('mi-empresa', 'mi-empresa', 'Mi empresa', lambda: page_panel('mi-empresa', 'Mi empresa', 'Perfil para el directorio, documentos privados, consultas recibidas y necesidades de compra.', 'wakoo-t-companypanel'), 'Panel de empresa.', None),
+    ('mi-aprendizaje', 'mi-aprendizaje', 'Mi aprendizaje', lambda: page_panel('mi-aprendizaje', 'Mi aprendizaje', 'Sus cursos, su progreso y sus certificados.', 'wakoo-t-student', {'catalog': lnk(L('academia'))}), 'Panel del estudiante.', None),
+    ('hub', 'hub-administrativo', 'Hub administrativo', lambda: page_panel('hub', 'Hub administrativo', 'Solicitudes de la ventanilla, usuarios y cuentas de las empresas. Solo para el equipo del portal.', 'wakoo-t-hub'), 'Hub administrativo del equipo del portal.', None),
+    ('verificar', 'verificar-certificado', 'Verificar certificado', lambda: page_panel('verificar', 'Verificar un certificado', 'Escriba el código impreso en el certificado de la Academia Orinoco.', 'wakoo-t-verify'), 'Verificación de certificados de la Academia Orinoco.', None),
     ('privacidad', 'privacidad', 'Privacidad', lambda: page_legal('privacidad'), 'Privacidad y datos personales.', None),
     ('terminos', 'terminos-de-uso', 'Términos de uso', lambda: page_legal('terminos'), 'Términos de uso del portal.', None),
     ('accesibilidad', 'accesibilidad', 'Accesibilidad', lambda: page_legal('accesibilidad'), 'Declaración de accesibilidad.', None),
@@ -681,6 +720,8 @@ def content_items():
         if co['mun']:
             terms['wakoo_municipio'] = [{'name': mun_name[x], 'slug': x} for x in co['mun']]
         meta = {'_wakoo_t_level': 'referencia', '_wakoo_t_products': co['products'], '_wakoo_t_source': '\n'.join(co['sources'])}
+        if co.get('photos'):
+            meta['_wakoo_t_photo_src'] = '\n'.join(co['photos'])
         if co['web']:
             meta['_wakoo_t_web'] = co['web']
             meta['_wakoo_t_public'] = ['web']

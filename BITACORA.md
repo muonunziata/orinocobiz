@@ -47,12 +47,37 @@ Widgets usados: los nativos de Elementor (Título, Editor de texto, Botón, Imag
 - ¿3 o 4 municipios? La ponencia nombra 3. Falta confirmar si hay un cuarto.
 - Permisos de las fotos del PDF y revisión legal de Privacidad, Términos y Accesibilidad.
 - Revisión nativa de las traducciones fr, en, zh-tw e it (están en `generador/traducciones.json`).
-- En el sitio real: entrar al hub y pulsar «Crear acceso para todas las empresas sin cuenta». Las claves se muestran una sola vez y se entregan por un canal seguro. Después hay que cambiar los correos provisionales `@correo-pendiente.invalid` por los oficiales.
+- En el sitio real: entrar al hub (`/hub-administrativo/`) y pulsar «Crear acceso para todas las empresas sin cuenta». Las claves se muestran una sola vez; el botón «Descargar las credenciales (.txt)» las guarda en el equipo de quien las crea, y se entregan por un canal seguro. Después hay que cambiar los correos provisionales `@correo-pendiente.invalid` por los oficiales.
 - Las 6 empresas públicas son perfiles de referencia con fuentes públicas (sitios oficiales y Wikipedia): conviene que cada empresa los confirme.
 - Capas del mapa y coordenadas de proyectos (solo con fuente).
+- Fotos: PDVSA y Corpoelec tienen fotos de Wikimedia Commons que se descargan en el sitio real. Las de Corpoelec son de la Central Hidroeléctrica Simón Bolívar (Guri, estado Bolívar), operada por Corpoelec. Las otras 4 empresas no tienen fotos libres verificables: las suben ellas desde «Mi empresa» → Fotos, o el equipo desde la caja «Fotos de la empresa».
 - Repositorio aparte `muonunziata/orinocobiz`: se sube cuando exista.
 
 ## Historial
+
+### 29/10/2026: directorio, fotos, herramientas tipo app y credenciales (Wakoo alpha71)
+- **Pedidos de michele:**
+  1. Un enlace directo al directorio.
+  2. Fotos reales y una galería en cada perfil.
+  3. Que las herramientas se vean como una app más profesional.
+  4. Un txt con las credenciales de los perfiles.
+- **Hecho:**
+  - Directorio: entrada «Directorio» en el menú, «Directorio de empresas» en la barra superior y botón en la portada (en lugar de «Registrar una empresa», que sigue en el resto del sitio).
+  - Fotos:
+    - `content.py` lleva `photos` (URL de Commons) en PDVSA (sede de Refinación Oriente, Complejo Criogénico de Oriente en Jose y edificio CIED) y en Corpoelec (3 fotos de la represa de Guri). `build.py` las pasa a `_wakoo_t_photo_src`;
+    - Wakoo las descarga en el sitio con autor y licencia;
+    - no se usaron fotos de otro lugar presentadas como de la empresa, ni fotos sin licencia.
+  - Herramientas tipo app: `apphead()`, `apptabs()`, `appbody()`, `panel()` y `defs()` en `build.py`, con estilos `.orn-app*` en `orinoco.css`.
+    - Cabecera compacta con icono, acciones a la derecha y pestañas entre Proyectos, Ventanilla, Mapa, Directorio, Proveedores y Observatorio.
+    - Lienzo gris con paneles y barra lateral (pasos, niveles y metodología).
+    - Mi cuenta (solicitudes, empresa, aprendizaje, acceso, hub) usa la misma vista.
+    - La ventanilla pasó de 2.476 a 1.733 px en escritorio y el observatorio de 3.564 a 2.885 px.
+  - Credenciales: botón «Descargar las credenciales (.txt)» en el hub. Las cuentas siguen sin existir hasta que se pulse «Crear acceso» en el sitio real, y no hay claves en el repositorio.
+  - `make.sh` comprime con `-9`: el zip quedaba justo por encima de los 2 MB que muchos servidores aceptan.
+- **Probado:** 3 anchos, el editor, los idiomas, la galería y su visor, la subida desde «Mi empresa» y el .txt del hub (en local).
+- **Archivos:**
+  - `generador/build.py`, `generador/content.py`, `generador/traducciones.json`, `generador/datos/interfaz-territorio.json`;
+  - `generador/pack/styles/orinoco.css`, `generador/make.sh`, `orinoco-wakoo.zip`.
 
 ### 29/10/2026: idiomas, hub, empresas públicas, cursos en iconos (Wakoo alpha70)
 - **Pedidos de michele:**

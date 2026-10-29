@@ -448,7 +448,11 @@ PUBLIC_COMPANIES = [
      'content': 'Petróleos de Venezuela, S.A. es la empresa estatal de petróleo y gas de Venezuela. La Faja Petrolífera del Orinoco se divide en cuatro áreas; '
                 'la división Ayacucho está ubicada en el sur del estado Anzoátegui, y la división Junín abarca también parte de su suroeste.',
      'products': 'Exploración y producción de crudo extrapesado\nMejoramiento y comercialización de hidrocarburos',
-     'sources': [WIKI_FAJA, WIKI_BELT]},
+     'sources': [WIKI_FAJA, WIKI_BELT],
+     # Real photos from Wikimedia Commons: Wakoo downloads them on the live site with author and licence.
+     'photos': ['https://commons.wikimedia.org/wiki/File:Sede_PDVSA_Refinaci%C3%B3n_Oriente_2.jpg',
+                'https://commons.wikimedia.org/wiki/File:Complejo_Criogenico_de_Oriente_Jose_Venezuela.jpg',
+                'https://commons.wikimedia.org/wiki/File:Edificio_CIED_PDVSA_2.jpg']},
     {'key': 'petropiar', 'title': 'Petropiar', 'sector': 'petroleo-energia-servicios', 'mun': [], 'web': '',
      'excerpt': 'Empresa mixta de PDVSA y Chevron que produce y mejora crudo extrapesado en la división Ayacucho de la Faja Petrolífera del Orinoco.',
      'content': 'Petropiar es una empresa mixta en la que participan PDVSA y Chevron. Opera en la división Ayacucho de la Faja Petrolífera del Orinoco, en el sur de Anzoátegui.',
@@ -470,7 +474,11 @@ PUBLIC_COMPANIES = [
      'excerpt': 'Empresa estatal que presta el servicio eléctrico en toda Venezuela, incluido el estado Anzoátegui.',
      'content': 'Corpoelec es la empresa estatal responsable de la generación, transmisión y distribución de electricidad en Venezuela, y atiende el servicio en el estado Anzoátegui.',
      'products': 'Generación, transmisión y distribución de electricidad\nAtención a usuarios del servicio eléctrico',
-     'sources': ['La Patilla: servicio eléctrico en Anzoátegui (20/07/2023)|https://lapatilla.com/2023/07/20/servicio-electrico-en-anzoategui/']},
+     'sources': ['La Patilla: servicio eléctrico en Anzoátegui (20/07/2023)|https://lapatilla.com/2023/07/20/servicio-electrico-en-anzoategui/'],
+     # Central Hidroeléctrica Simón Bolívar (Guri, estado Bolívar), operated by Corpoelec.
+     'photos': ["https://commons.wikimedia.org/wiki/File:Central_Hidroel%C3%A9ctrica_Sim%C3%B3n_Bol%C3%ADvar-_Sim%C3%B3n_Bol%C3%ADvar_Hydroelectric_Plant-_Represa_de_Guri_Dam_1.jpg",
+                "https://commons.wikimedia.org/wiki/File:Central_Hidroel%C3%A9ctrica_Sim%C3%B3n_Bol%C3%ADvar_Represa_de_Guri_Usina_Hidrel%C3%A9trica_Sim%C3%B3n_Bol%C3%ADvar_(Guri)_-6.jpg",
+                "https://commons.wikimedia.org/wiki/File:Central_Hidroel%C3%A9ctrica_Sim%C3%B3n_Bol%C3%ADvar_Represa_de_Guri_Sim%C3%B3n_Bol%C3%ADvar_(Guri)_Wasserkraftwerk_7.jpg"]},
     {'key': 'hidrocaribe', 'title': 'Hidrológica del Caribe (Hidrocaribe)', 'sector': '', 'mun': [], 'web': '',
      'excerpt': 'Empresa estatal de agua potable y saneamiento del estado Anzoátegui, filial de Hidroven.',
      'content': 'Hidrocaribe es la empresa hidrológica del Estado que presta los servicios de agua potable y saneamiento en el estado Anzoátegui. Es filial de Hidroven.',

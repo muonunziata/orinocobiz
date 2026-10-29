@@ -17,7 +17,7 @@ Todo se guarda en WordPress, en tipos de contenido propios del módulo Wakoo **T
 | `wakoo_lesson` | Lección | Para inscritos | course, video, material, quiz (JSON), pass |
 | `wakoo_cert` | Certificado | Verificable por código | course, alumno, código, fecha |
 
-Empresas: el nivel puede ser también `referencia` (perfil público cargado por el portal, con `source` = fuentes Título|URL). Proyectos, indicadores, cursos y lecciones existen una vez por idioma (`_wakoo_lang`, grupo `_wakoo_tr` = `orinoco-<clave>`). Las empresas y los elementos del mapa son únicos y en español.
+Empresas: el nivel puede ser también `referencia` (perfil público cargado por el portal, con `source` = fuentes Título|URL). Proyectos, indicadores, cursos y lecciones existen una vez por idioma (`_wakoo_lang`, grupo `_wakoo_tr` = `orinoco-<clave>`). Las empresas y los elementos del mapa son únicos y en español. Fotos de empresa: `gallery` (ID de adjuntos del sitio, no se exporta), `photo_src` (URL de Wikimedia Commons que se descargan en el sitio con autor y licencia) y crédito por foto en `_wakoo_t_credit` del adjunto.
 
 ## Taxonomías
 
