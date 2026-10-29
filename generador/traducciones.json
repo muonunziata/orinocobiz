@@ -623,6 +623,18 @@
   "it": "<p>Gestione dei rifiuti, trattamento degli effluenti, recupero dei materiali e biomassa dai residui del legno.</p>",
   "zh-tw": "<p>廢棄物管理、廢水處理、材料回收，以及利用木材殘料產生生質能。</p>"
  },
+ "<p>Google Maps con capas públicas que tienen fuente y fecha, y los proyectos cuya ubicación ya fue verificada.</p>": {
+  "en": "<p>Google Maps with public layers that have a source and date, and the projects whose location has already been verified.</p>",
+  "fr": "<p>Google Maps avec des couches publiques dotées d’une source et d’une date, et les projets dont l’emplacement a déjà été vérifié.</p>",
+  "it": "<p>Google Maps con livelli pubblici dotati di fonte e data, e i progetti la cui ubicazione è già stata verificata.</p>",
+  "zh-tw": "<p>以 Google 地圖為底圖，疊加附來源與日期的公開圖層，以及位置已確認的專案。</p>"
+ },
+ "<p>Google Maps con capas públicas verificadas y proyectos con ubicación confirmada.</p>": {
+  "en": "<p>Google Maps with verified public layers and projects with a confirmed location.</p>",
+  "fr": "<p>Google Maps avec des couches publiques vérifiées et des projets à l’emplacement confirmé.</p>",
+  "it": "<p>Google Maps con livelli pubblici verificati e progetti con ubicazione confermata.</p>",
+  "zh-tw": "<p>以 Google 地圖呈現經查證的公開圖層，以及位置已確認的專案。</p>"
+ },
  "<p>Grúas, montacargas, operadores certificados y planes de izamiento</p>": {
   "en": "<p>Cranes, forklifts, certified operators and lifting plans</p>",
   "fr": "<p>Grues, chariots élévateurs, opérateurs certifiés et plans de levage</p>",
@@ -1853,6 +1865,12 @@
   "it": "Portata e responsabilità di ciascuna parte",
   "zh-tw": "各方的範圍與責任"
  },
+ "Algunas fotos no se pudieron descargar. Abajo verá el motivo.": {
+  "en": "Some photos could not be downloaded. The reason is shown below.",
+  "fr": "Certaines photos n'ont pas pu être téléchargées. Le motif est indiqué ci-dessous.",
+  "it": "Alcune foto non sono state scaricate. Il motivo è indicato sotto.",
+  "zh-tw": "部分相片無法下載，原因如下。"
+ },
  "Almacenamiento": {
   "en": "Storage",
   "fr": "Stockage",
@@ -2164,6 +2182,12 @@
   "fr": "Portefeuille de projets d’investissement de la Sous-région Orénoque avec état de préparation.",
   "it": "Portafoglio di progetti di investimento della Subregione dell’Orinoco con stato di preparazione.",
   "zh-tw": "奧里諾科次區域投資專案組合及其準備狀態。"
+ },
+ "Cartografía base © Google. Las capas muestran solo información con fuente; no sustituyen levantamientos técnicos ni documentos oficiales.": {
+  "en": "Base map © Google. Layers show only sourced information; they do not replace technical surveys or official documents.",
+  "fr": "Fond de carte © Google. Les couches ne montrent que des informations sourcées ; elles ne remplacent ni les relevés techniques ni les documents officiels.",
+  "it": "Cartografia di base © Google. I livelli mostrano solo informazioni con fonte; non sostituiscono rilievi tecnici né documenti ufficiali.",
+  "zh-tw": "底圖 © Google。圖層僅顯示有來源的資訊，不能取代技術測量或官方文件。"
  },
  "Cartografía base © colaboradores de OpenStreetMap. Las capas muestran solo información con fuente; no sustituyen levantamientos técnicos ni documentos oficiales.": {
   "en": "Base map © OpenStreetMap contributors. Layers only show sourced information; they do not replace technical surveys or official documents.",
@@ -3130,6 +3154,12 @@
   "fr": "Télécharger",
   "it": "Scarica",
   "zh-tw": "下載"
+ },
+ "Descargar fotos ahora": {
+  "en": "Download photos now",
+  "fr": "Télécharger les photos maintenant",
+  "it": "Scarica le foto ora",
+  "zh-tw": "立即下載相片"
  },
  "Descargar las credenciales (.txt)": {
   "en": "Download the credentials (.txt)",
@@ -4462,6 +4492,18 @@
   "fr": "Photos ajoutées à la galerie de votre profil.",
   "it": "Foto aggiunte alla galleria del vostro profilo.",
   "zh-tw": "相片已加入貴公司檔案的相片集。"
+ },
+ "Fotos de Wikimedia Commons pendientes en %d empresas. Se descargan solas en segundo plano; si no llegan, descárguelas ahora.": {
+  "en": "Wikimedia Commons photos pending for %d companies. They download in the background; if they do not arrive, download them now.",
+  "fr": "Photos de Wikimedia Commons en attente pour %d entreprises. Elles se téléchargent en arrière-plan ; si elles n'arrivent pas, téléchargez-les maintenant.",
+  "it": "Foto di Wikimedia Commons in attesa per %d imprese. Si scaricano in background; se non arrivano, scaricatele ora.",
+  "zh-tw": "%d 家企業的 Wikimedia Commons 相片尚待下載。系統會在背景下載；若未完成，請立即下載。"
+ },
+ "Fotos descargadas de Wikimedia Commons.": {
+  "en": "Photos downloaded from Wikimedia Commons.",
+  "fr": "Photos téléchargées depuis Wikimedia Commons.",
+  "it": "Foto scaricate da Wikimedia Commons.",
+  "zh-tw": "已從 Wikimedia Commons 下載相片。"
  },
  "Francisco de Miranda": {
   "en": "Francisco de Miranda",
@@ -6262,6 +6304,12 @@
   "fr": "Espace de l’apprenant.",
   "it": "Pannello dello studente.",
   "zh-tw": "學員面板。"
+ },
+ "Para dibujar estas capas sobre Google Maps hace falta una clave de Google Maps en Territorio → Ajustes.": {
+  "en": "To draw these layers on Google Maps, add a Google Maps key in Territorio → Settings.",
+  "fr": "Pour dessiner ces couches sur Google Maps, il faut une clé Google Maps dans Territorio → Réglages.",
+  "it": "Per disegnare questi livelli su Google Maps serve una chiave Google Maps in Territorio → Impostazioni.",
+  "zh-tw": "若要在 Google 地圖上繪製這些圖層，請在 Territorio → 設定中輸入 Google 地圖金鑰。"
  },
  "Para presentar una iniciativa necesita una cuenta. Así podrá seguir su expediente, recibir mensajes y añadir documentos.": {
   "en": "You need an account to submit an initiative. That way you can track your file, receive messages and add documents.",
@@ -8896,5 +8944,11 @@
   "fr": "Zones de préservation",
   "it": "Aree di conservazione",
   "zh-tw": "保護區"
+ },
+ "Último error": {
+  "en": "Last error",
+  "fr": "Dernière erreur",
+  "it": "Ultimo errore",
+  "zh-tw": "最近的錯誤"
  }
 }

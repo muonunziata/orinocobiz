@@ -272,7 +272,7 @@ def page_inicio():
     tools = topo(section([
         head('Herramientas', 'Del interés a la inversión, con seguimiento', 'Cuatro herramientas conectadas que ordenan la información y acompañan cada iniciativa.', 'orn-head--light'),
         grid([card('fas fa-concierge-bell', 'Ventanilla única', 'Registro de la iniciativa, clasificación, organismos competentes, hoja de ruta y seguimiento. Orienta: no concede permisos.', L('ventanilla'), 'orn-card--glass', 0),
-              card('fas fa-map-marked-alt', 'Mapa del territorio', 'Leaflet y OpenStreetMap con capas públicas verificadas y proyectos con ubicación confirmada.', L('mapa'), 'orn-card--glass', 60),
+              card('fas fa-map-marked-alt', 'Mapa del territorio', 'Google Maps con capas públicas verificadas y proyectos con ubicación confirmada.', L('mapa'), 'orn-card--glass', 60),
               card('fas fa-network-wired', 'Proveedores', 'Directorio B2B, niveles de verificación, consultas y necesidades de compra.', L('proveedores'), 'orn-card--glass', 120),
               card('fas fa-chart-area', 'Observatorio', 'Indicadores con ficha técnica: fuente, fecha, periodicidad, responsable y verificación.', L('observatorio'), 'orn-card--glass', 180)],
              4, tablet=2, mobile=1, gap=18),
@@ -502,8 +502,8 @@ def page_panel(key, title, lead, widget, settings=None):
 
 
 def page_mapa():
-    return apphead('mapa', 'fas fa-map-marked-alt', 'Mapa del territorio', 'Mapa de la Subregión Orinoco', 'Cartografía base de OpenStreetMap con capas públicas que tienen fuente y fecha, y los proyectos cuya ubicación ya fue verificada.') + [
-        appbody([panel([tw('wakoo-t-gis', {'projects': 'yes', 'filter': 'yes', 'center': '8.4,-64.3', 'zoom': 8})], cls='orn-apppanel--flush')]),
+    return apphead('mapa', 'fas fa-map-marked-alt', 'Mapa del territorio', 'Mapa de la Subregión Orinoco', 'Google Maps con capas públicas que tienen fuente y fecha, y los proyectos cuya ubicación ya fue verificada.') + [
+        appbody([panel([tw('wakoo-t-gis', {'engine': 'google', 'gtype': 'clean', 'projects': 'yes', 'filter': 'yes', 'center': '8.4,-64.3', 'zoom': 8})], cls='orn-apppanel--flush')]),
         appbody([panel([grid([col([icon(ic, 'orn-card__ico'), h(t, 4), p(d)], 'orn-mini') for ic, t, d, _i, _a in C.CORRIDORS], 3, tablet=1, mobile=1, gap=14),
                         p('Se describen aquí en texto hasta que la cartografía oficial permita dibujarlos con precisión.', 'orn-small')], 'Corredores de referencia', 'fas fa-route')],
                 [callout('Cómo se publican las capas', 'El equipo carga capas desde Territorio → Importar al mapa (GeoJSON o CSV), indicando la fuente, la fecha y si la información está verificada. Nada se dibuja sin coordenadas con fuente.', 'fas fa-layer-group')], 'orn-app--sub'),
@@ -940,7 +940,7 @@ def build(out, langs=LANGS):
         },
     }
     os.makedirs(out, exist_ok=True)
-    json.dump(pack, open(os.path.join(out, 'wakoo-pack.json'), 'w'), ensure_ascii=False, indent=1)
+    json.dump(pack, open(os.path.join(out, 'wakoo-pack.json'), 'w'), ensure_ascii=False, separators=(',', ':'))
     miss = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'faltan-traducciones.json')
     if MISSING:
         json.dump({k: sorted(v) for k, v in MISSING.items()}, open(miss, 'w'), ensure_ascii=False, indent=1)

@@ -50,10 +50,24 @@ Widgets usados: los nativos de Elementor (Título, Editor de texto, Botón, Imag
 - En el sitio real: entrar al hub (`/hub-administrativo/`) y pulsar «Crear acceso para todas las empresas sin cuenta». Las claves se muestran una sola vez; el botón «Descargar las credenciales (.txt)» las guarda en el equipo de quien las crea, y se entregan por un canal seguro. Después hay que cambiar los correos provisionales `@correo-pendiente.invalid` por los oficiales.
 - Las 6 empresas públicas son perfiles de referencia con fuentes públicas (sitios oficiales y Wikipedia): conviene que cada empresa los confirme.
 - Capas del mapa y coordenadas de proyectos (solo con fuente).
+- Clave de Google Maps (Maps JavaScript API) en el sitio real, para que las capas se vean sobre Google.
 - Fotos: PDVSA y Corpoelec tienen fotos de Wikimedia Commons que se descargan en el sitio real. Las de Corpoelec son de la Central Hidroeléctrica Simón Bolívar (Guri, estado Bolívar), operada por Corpoelec. Las otras 4 empresas no tienen fotos libres verificables: las suben ellas desde «Mi empresa» → Fotos, o el equipo desde la caja «Fotos de la empresa».
 - Repositorio aparte `muonunziata/orinocobiz`: se sube cuando exista.
 
 ## Historial
+
+### 29/10/2026: Google Maps, marco sin foto y textos con formato (Wakoo alpha72)
+- **Pedidos de michele:**
+  1. Si no hay foto, un marco con icono.
+  2. Los textos de los perfiles salían con etiquetas HTML escritas.
+  3. El mapa del territorio con Google Maps, porque el de OpenStreetMap se ve mal.
+- **Hecho:**
+  - `page_mapa()` usa `engine: google` (vista «sobria»);
+  - textos de portada y del mapa actualizados en los 5 idiomas;
+  - el resto viene del plugin (alpha72).
+- **Para que las capas (límite del estado, municipios y río) se dibujen sobre Google**, hace falta una clave de Google Maps con la Maps JavaScript API activada, en Territorio → Ajustes, o la misma de Elementor → Ajustes → Integraciones. Sin clave se ve el mapa de Google sin capas.
+- **Fotos:** si no llegan, Hub → Empresas → «Descargar fotos ahora» muestra el motivo, por ejemplo que el servidor no puede conectar con Wikimedia Commons.
+- **Archivos:** `generador/build.py`, `generador/content.py`, `generador/traducciones.json`, `generador/datos/interfaz-territorio.json`, `orinoco-wakoo.zip`.
 
 ### 29/10/2026: directorio, fotos, herramientas tipo app y credenciales (Wakoo alpha71)
 - **Pedidos de michele:**
