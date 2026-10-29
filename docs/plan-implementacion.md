@@ -9,7 +9,7 @@
 ## Fase 1: puesta en línea (1 a 2 semanas)
 
 1. Hosting con WordPress 6.x, PHP 8.1 o superior, HTTPS, copias diarias y correo SMTP.
-2. Instalar Elementor (gratis) y Wakoo alpha69 o superior. Importar `orinoco-wakoo.zip` en Wakoo → Exportar / importar.
+2. Instalar Elementor (gratis) y Wakoo alpha70 o superior. Importar `orinoco-wakoo.zip` en Wakoo → Exportar / importar.
 3. Crear las cuentas del equipo con sus roles. No usar la cuenta de administrador para el trabajo diario.
 4. Configurar en Wakoo → Territorio: estados de tramitación, requisitos y emisor de certificados. En la página Contacto, abrir el widget Formulario y poner el correo que recibe los mensajes.
 5. Revisar con el equipo legal Privacidad, Términos y Accesibilidad.

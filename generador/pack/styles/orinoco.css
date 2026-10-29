@@ -29,7 +29,7 @@
 /* ------------------------------------------------------------- base */
 body[class*="elementor-kit-"]{--e-global-color-primary:#10355B;--e-global-color-secondary:#174A7E;--e-global-color-text:#465363;--e-global-color-accent:#C5A15B;--e-global-typography-primary-font-family:"Inter";--e-global-typography-secondary-font-family:"Inter";--e-global-typography-text-font-family:"Inter";--e-global-typography-accent-font-family:"Inter"}
 body.elementor-page,body.elementor-template-canvas{font-family:var(--orn-font);color:var(--orn-text);background:#fff;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-.e-con{--container-max-width:var(--orn-max);--content-width:var(--orn-max)}
+body .e-con{--container-max-width:var(--orn-max);--content-width:var(--orn-max)}
 body .elementor-widget-heading .elementor-heading-title{font-family:var(--orn-font);color:var(--orn-navy);letter-spacing:-.025em;line-height:1.14}
 body h1.elementor-heading-title{font-size:clamp(2.2rem,4.6vw,3.7rem);font-weight:700}
 body h2.elementor-heading-title{font-size:clamp(1.6rem,2.8vw,2.35rem);font-weight:700}
@@ -82,8 +82,9 @@ body .orn-topbar .elementor-icon-list-icon i{color:var(--orn-gold);font-size:13p
 body .orn-topbar .elementor-icon-list-icon + .elementor-icon-list-text{padding-left:7px}
 .orn-topbar__info,.orn-topbar__links{width:auto!important;flex:0 1 auto!important}
 
-.orn-header{position:sticky;top:0;z-index:100;background:rgba(10,36,64,.94);backdrop-filter:saturate(1.3) blur(12px);-webkit-backdrop-filter:saturate(1.3) blur(12px);border-bottom:1px solid rgba(197,161,91,.28);padding:10px 24px}
-.admin-bar .orn-header{top:32px}
+.orn-header{position:relative;z-index:100;background:rgba(10,36,64,.94);backdrop-filter:saturate(1.3) blur(12px);-webkit-backdrop-filter:saturate(1.3) blur(12px);border-bottom:1px solid rgba(197,161,91,.28);padding:10px 24px}
+.admin-bar .orn-sticky{top:32px!important}
+@media(max-width:782px){.admin-bar .orn-sticky{top:46px!important}}
 .orn-header > .e-con-inner{flex-direction:row!important;align-items:center;justify-content:space-between;gap:20px;flex-wrap:nowrap}
 .orn-wordmark{flex:0 0 auto!important;width:auto!important}
 body .orn-wordmark .elementor-heading-title{font-size:1.32rem!important;font-weight:700;letter-spacing:.14em!important;color:#fff!important;line-height:1;display:flex;flex-direction:column;gap:5px}
@@ -322,3 +323,53 @@ body .orn-topbar .elementor-icon-list-item{gap:7px}
   html body .orn-hero .orn-btns .elementor-widget-button{width:100%!important;align-self:stretch}
   html body .orn-hero .orn-btns .elementor-button{width:100%;justify-content:center}
 }
+/* top bar: Elementor's inline lists use negative margins on the <ul>; reset them so nothing is clipped */
+html body .orn-topbar .elementor-icon-list-items,html body .orn-topbar .elementor-icon-list-items.elementor-inline-items{margin:0!important;padding:0!important;display:flex;flex-wrap:nowrap;gap:4px 22px}
+html body .orn-topbar .elementor-icon-list-items.elementor-inline-items .elementor-icon-list-item{margin:0!important;white-space:nowrap;flex:0 0 auto}
+html body .orn-topbar .elementor-widget,html body .orn-topbar .elementor-widget-container{overflow:visible!important}
+html body .orn-topbar .elementor-icon-list-icon{flex:0 0 auto;width:auto;min-width:14px;display:inline-flex;align-items:center;justify-content:center}
+html body .orn-topbar .elementor-icon-list-icon svg{width:13px;height:13px;fill:var(--orn-gold);overflow:visible}
+html body .orn-topbar .orn-topbar__info,html body .orn-topbar .orn-topbar__links{min-width:max-content}
+
+/* floating header (Wakoo sticky «condense»): the top bar folds away, the bar shrinks and turns to deeper glass, a gold line draws the reading progress */
+.orn-sticky{margin:0!important;width:100%}
+.orn-sticky .orn-topbar{max-height:44px;overflow:hidden;transition:max-height .45s cubic-bezier(.2,.8,.2,1),padding .45s,opacity .3s}
+.orn-sticky .orn-header{transition:padding .45s cubic-bezier(.2,.8,.2,1),background-color .45s,box-shadow .45s}
+.orn-sticky .orn-wordmark .elementor-heading-title{transition:font-size .45s cubic-bezier(.2,.8,.2,1)}
+.orn-sticky .orn-wordmark .elementor-heading-title span{transition:opacity .3s,max-height .45s;max-height:1em;overflow:hidden}
+.orn-sticky .orn-header .elementor-widget-button .elementor-button{transition:padding .45s,transform .45s}
+.orn-sticky.wk-stuck .orn-topbar{max-height:0;padding-top:0!important;padding-bottom:0!important;opacity:0;border-bottom-color:transparent}
+.orn-sticky.wk-stuck .orn-header{padding-top:4px!important;padding-bottom:4px!important;background:rgba(7,25,46,.82);box-shadow:0 1px 0 rgba(197,161,91,.45),0 18px 40px -22px rgba(0,0,0,.65)}
+.orn-sticky.wk-stuck .orn-header::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(100deg,transparent 0%,rgba(197,161,91,.14) 45%,transparent 60%) no-repeat;background-size:220% 100%;animation:orn-sheen 1.1s ease-out 1}
+body .orn-sticky.wk-stuck .orn-wordmark .elementor-heading-title{font-size:1.08rem!important}
+.orn-sticky.wk-stuck .orn-wordmark .elementor-heading-title span{opacity:0;max-height:0}
+.orn-sticky.wk-stuck .orn-header .elementor-widget-button .elementor-button{padding-top:.5rem;padding-bottom:.5rem}
+.orn-sticky > .wk-progress{height:2px}
+@keyframes orn-sheen{from{background-position:120% 0}to{background-position:-60% 0}}
+@media(prefers-reduced-motion:reduce){.orn-sticky.wk-stuck .orn-header::before{animation:none}}
+.orn-sticky.wk-stuck .orn-wordmark .elementor-heading-title,.orn-sticky.wk-stuck .orn-wordmark .elementor-heading-title a{gap:0!important}
+/* Academia: escuelas compactas */
+.orn-school{background:#fff;border:1px solid #DCE3EB;border-radius:16px;padding:20px 16px;height:100%;transition:transform .25s,box-shadow .25s}
+.orn-school:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(16,53,91,.10)}
+.orn-school .elementor-icon-box-icon{margin-bottom:12px!important}
+.orn-school .elementor-icon{width:52px;height:52px;border-radius:15px;display:inline-grid!important;place-items:center;background:linear-gradient(145deg,var(--orn-navy),var(--orn-blue));color:#fff!important;font-size:20px}
+.orn-school .elementor-icon svg{fill:#fff;width:22px;height:22px}
+.orn-school .elementor-icon-box-title,.orn-school .elementor-icon-box-title span{font-size:.98rem;line-height:1.3}
+.orn-school .elementor-icon-box-description{font-size:.88rem;line-height:1.45}
+@media (max-width:767px){.orn-school .elementor-icon-box-wrapper{display:flex;text-align:left;gap:14px}.orn-school .elementor-icon-box-icon{margin:0!important}}
+/* Portada en móvil: menos desplazamiento */
+@media (max-width:767px){
+.orn-sectors-grid .orn-card--sector{padding:14px 12px!important}
+.orn-sectors-grid .orn-card--sector .elementor-widget-text-editor{display:none}
+.orn-sectors-grid .orn-card--sector .elementor-heading-title{font-size:.92rem!important;line-height:1.25}
+.orn-sectors-grid .orn-card--sector .elementor-widget-button .elementor-button{padding:4px 0!important;font-size:.8rem}
+.orn-home-projects .wkt-projects ul.wkt-grid{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding:2px 2px 12px;scrollbar-width:thin}
+.orn-home-projects .wkt-projects ul.wkt-grid>li{flex:0 0 82%;scroll-snap-align:start}
+}
+/* Selector de idioma en la barra superior */
+html body .orn-topbar .orn-topbar__right{display:flex;align-items:center;gap:18px;margin-left:auto;width:auto;flex-wrap:nowrap}
+html body .orn-topbar .orn-topbar__links{margin-left:0!important}
+.orn-langs .wakoo-langs ul{display:flex;gap:2px;margin:0;padding:0;list-style:none;align-items:center}
+.orn-langs .wakoo-langs a{font-size:.72rem;font-weight:700;letter-spacing:.06em;padding:3px 6px;border-radius:5px;text-decoration:none;color:#E6C98C;opacity:.78}
+.orn-langs .wakoo-langs a:hover,.orn-langs .wakoo-langs a[aria-current],.orn-langs .wakoo-langs .is-current a,.orn-langs .wakoo-langs a.is-current{opacity:1;background:rgba(197,161,91,.18);color:#fff}
+@media (max-width:767px){html body .orn-topbar .orn-topbar__info{display:none}html body .orn-topbar .orn-topbar__right{margin:0 auto;gap:10px}}

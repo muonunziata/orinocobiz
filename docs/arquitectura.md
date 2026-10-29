@@ -3,7 +3,7 @@
 ## Piezas
 
 ```
-WordPress + Elementor (gratis) + Wakoo (alpha69 o superior)
+WordPress + Elementor (gratis) + Wakoo (alpha70 o superior)
  ├─ Páginas (34): contenido de Elementor, editable con arrastrar y soltar
  ├─ Plantillas: cabecera, pie, ficha de proyecto, ficha de empresa, ficha de curso
  ├─ Módulo Wakoo «Territorio»  (wakoo/modules/territorio)

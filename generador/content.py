@@ -436,3 +436,61 @@ INDICATORS = [
     {'title': 'Obras de infraestructura habilitante concluidas', 'group': 'territorio', 'unit': 'obras', 'chart': 'bar', 'check': 'pendiente',
      'excerpt': 'Indicador de impacto propuesto en la ponencia (10.2).', 'method': 'Obras habilitantes (vialidad, servicios, drenajes, conectividad) con acta de culminación.', 'period': 'Por definir', 'owner': 'Mesa de Gobernanza Económica (propuesta)', 'source': 'Línea base a levantar en la Fase I'},
 ]
+
+# ------------------------------------------------------------------ empresas públicas (perfiles de referencia)
+# Solo datos públicos con fuente. Sin RIF, teléfonos ni correos: los completa la empresa cuando tenga su cuenta.
+
+WIKI_FAJA = 'Wikipedia: Faja petrolífera del Orinoco|https://es.wikipedia.org/wiki/Faja_petrol%C3%ADfera_del_Orinoco'
+WIKI_BELT = 'Wikipedia (inglés): Orinoco Belt|https://en.wikipedia.org/wiki/Orinoco_Belt'
+PUBLIC_COMPANIES = [
+    {'key': 'pdvsa', 'title': 'Petróleos de Venezuela, S.A. (PDVSA)', 'sector': 'petroleo-energia-servicios', 'mun': [], 'web': 'https://www.pdvsa.com',
+     'excerpt': 'Empresa estatal petrolera de Venezuela. Opera la Faja Petrolífera del Orinoco, cuya división Ayacucho se ubica en el sur del estado Anzoátegui.',
+     'content': 'Petróleos de Venezuela, S.A. es la empresa estatal de petróleo y gas de Venezuela. La Faja Petrolífera del Orinoco se divide en cuatro áreas; '
+                'la división Ayacucho está ubicada en el sur del estado Anzoátegui, y la división Junín abarca también parte de su suroeste.',
+     'products': 'Exploración y producción de crudo extrapesado\nMejoramiento y comercialización de hidrocarburos',
+     'sources': [WIKI_FAJA, WIKI_BELT]},
+    {'key': 'petropiar', 'title': 'Petropiar', 'sector': 'petroleo-energia-servicios', 'mun': [], 'web': '',
+     'excerpt': 'Empresa mixta de PDVSA y Chevron que produce y mejora crudo extrapesado en la división Ayacucho de la Faja Petrolífera del Orinoco.',
+     'content': 'Petropiar es una empresa mixta en la que participan PDVSA y Chevron. Opera en la división Ayacucho de la Faja Petrolífera del Orinoco, en el sur de Anzoátegui.',
+     'products': 'Producción de crudo extrapesado\nMejoramiento de crudo',
+     'sources': [WIKI_FAJA, 'S&P Global: PDVSA begins shutdown of Petropiar (19/04/2021)|https://www.spglobal.com/commodity-insights/en/news-research/latest-news/crude-oil/041921-venezuelas-pdvsa-begins-shutdown-of-petropiar-oil-field-for-maintenance']},
+    {'key': 'petrocedeno', 'title': 'Petrocedeño', 'sector': 'petroleo-energia-servicios', 'mun': ['jose-gregorio-monagas'], 'web': '',
+     'excerpt': 'Empresa de la Faja Petrolífera del Orinoco ligada a PDVSA, con operaciones en el área de Zuata (municipio José Gregorio Monagas).',
+     'content': 'Petrocedeño opera en la división Junín de la Faja Petrolífera del Orinoco, en el suroeste del estado Anzoátegui, en el área de Zuata.',
+     'products': 'Producción de crudo extrapesado\nMejoramiento de crudo',
+     'sources': [WIKI_FAJA, 'La Patilla: el petróleo del municipio Monagas del estado Anzoátegui (16/01/2025)|https://lapatilla.com/2025/01/16/willian-hernandez-el-petroleo-del-municipio-monagas-del-estado-anzoategui-no-ha-mostrado-su-rostro-y-se-pierde-en-tiempo']},
+    {'key': 'mdo', 'title': 'Maderas del Orinoco (MDO)', 'sector': 'forestal-madera', 'mun': [], 'web': '',
+     'excerpt': 'Empresa estatal forestal adscrita al Ministerio de Industrias y Producción Nacional, que maneja plantaciones de pino caribe en el sur de Monagas y Anzoátegui.',
+     'content': 'Maderas del Orinoco es la empresa del Estado que administra las plantaciones de pino caribe de Uverito, en el sur de los estados Monagas y Anzoátegui. '
+                'En 2025 informó de nuevas siembras en el sur de Anzoátegui.',
+     'products': 'Plantaciones forestales de pino caribe\nProducción de plántulas\nMadera',
+     'sources': ['Mazo 4F: Maderas del Orinoco plantó más de 4 millones de plántulas (15/08/2025)|https://mazo4f.com/en/maderas-del-orinoco-planted-more-than-4-million-caribbean-pine-seedlings-in-monagas-and-anzoategui',
+                 'La Patilla: el bosque plantado más grande de Venezuela (20/04/2025)|https://lapatilla.com/2025/04/20/trabajadores-alertan-que-alex-saab-destruye-el-bosque-plantado-mas-grande-de-venezuela/']},
+    {'key': 'corpoelec', 'title': 'Corporación Eléctrica Nacional (Corpoelec)', 'sector': 'petroleo-energia-servicios', 'mun': [], 'web': 'https://www.corpoelec.gob.ve',
+     'excerpt': 'Empresa estatal que presta el servicio eléctrico en toda Venezuela, incluido el estado Anzoátegui.',
+     'content': 'Corpoelec es la empresa estatal responsable de la generación, transmisión y distribución de electricidad en Venezuela, y atiende el servicio en el estado Anzoátegui.',
+     'products': 'Generación, transmisión y distribución de electricidad\nAtención a usuarios del servicio eléctrico',
+     'sources': ['La Patilla: servicio eléctrico en Anzoátegui (20/07/2023)|https://lapatilla.com/2023/07/20/servicio-electrico-en-anzoategui/']},
+    {'key': 'hidrocaribe', 'title': 'Hidrológica del Caribe (Hidrocaribe)', 'sector': '', 'mun': [], 'web': '',
+     'excerpt': 'Empresa estatal de agua potable y saneamiento del estado Anzoátegui, filial de Hidroven.',
+     'content': 'Hidrocaribe es la empresa hidrológica del Estado que presta los servicios de agua potable y saneamiento en el estado Anzoátegui. Es filial de Hidroven.',
+     'products': 'Suministro de agua potable\nSaneamiento y aguas servidas',
+     'sources': ['La Patilla: técnicos de Hidrocaribe en Anzoátegui (14/07/2022)|https://lapatilla.com/2022/07/14/en-cholas-trabajan-tecnicos-de-hidrocaribe-en-anzoategui/']},
+]
+PUBLIC_COMPANIES_NOTE = ('Perfiles de referencia elaborados con información pública. Las empresas no los administran ni han validado estos datos; '
+                         'sus contactos se publicarán solo cuando las propias empresas los autoricen.')
+
+# Icono de cada curso en la vista de iconos de la academia (Font Awesome 5).
+COURSE_ICONS = {
+    'De técnico a proveedor: cómo crear una empresa de servicios': 'fas fa-user-tie',
+    'Formalización empresarial paso a paso': 'fas fa-file-signature',
+    'Seguridad industrial para empresas proveedoras': 'fas fa-hard-hat',
+    'Cómo prepararse para proveer a operadoras y contratistas': 'fas fa-handshake',
+    'Inocuidad alimentaria y control sanitario': 'fas fa-shield-alt',
+    'Refrigeración, almacenamiento y cadena de frío': 'fas fa-snowflake',
+    'Inventarios y gestión de almacenes': 'fas fa-boxes',
+    'Documentación comercial y gestión de carga': 'fas fa-file-invoice',
+    'Administración y contabilidad para pequeñas empresas': 'fas fa-calculator',
+    'Comercio electrónico y sistemas de información': 'fas fa-shopping-cart',
+    DEMO_COURSE['title']: 'fas fa-play-circle',
+}

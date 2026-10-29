@@ -16,7 +16,11 @@ Vamos a trabajar en el portal ORINOCO BUSINESS & INVESTMENT, hecho con Wakoo/Ele
      el paquete con generador/make.sh → orinoco-wakoo.zip y se prueba con generador/importar.mjs en el WordPress de prueba.
    - Los widgets del portal son del módulo Wakoo «Territorio» (wakoo/modules/territorio). Si cambian: nueva alpha,
      línea en CHANGELOG.md y en la BITACORA.md de la raíz, e instaladores.
-   - El español es el maestro. El inglés se crea con Wakoo → Idiomas + Traductor.
+   - El español es el maestro. El generador crea fr, en, zh-tw e it con generador/traducciones.json
+     ({español: {fr, en, it, zh-tw}}). Si cambias o añades un texto, añade su traducción ahí: build.py deja
+     generador/faltan-traducciones.json con lo que falte, y no hay que entregar mientras ese archivo exista.
+   - Nunca pongas claves ni contraseñas en el repositorio. Los accesos de las empresas se crean en el sitio,
+     desde el Hub administrativo; la clave se ve una sola vez y se entrega por un canal seguro.
    - Prueba en escritorio, tablet y móvil antes de subir.
 5. Al terminar cada cambio: actualiza la bitácora, haz commit en español y súbelo a main.
 

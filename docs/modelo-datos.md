@@ -17,6 +17,8 @@ Todo se guarda en WordPress, en tipos de contenido propios del módulo Wakoo **T
 | `wakoo_lesson` | Lección | Para inscritos | course, video, material, quiz (JSON), pass |
 | `wakoo_cert` | Certificado | Verificable por código | course, alumno, código, fecha |
 
+Empresas: el nivel puede ser también `referencia` (perfil público cargado por el portal, con `source` = fuentes Título|URL). Proyectos, indicadores, cursos y lecciones existen una vez por idioma (`_wakoo_lang`, grupo `_wakoo_tr` = `orinoco-<clave>`). Las empresas y los elementos del mapa son únicos y en español.
+
 ## Taxonomías
 
 | Taxonomía | Se usa en | Términos que trae el paquete |
@@ -40,6 +42,8 @@ Tabla `wp_wakoo_tlog`: `id, obj_type, obj_id, kind, vis, user_id, message, who, 
 - `_wakoo_t_prog_<curso>` (user meta): lecciones completadas y notas.
 
 ## Ajustes
+
+Opción `wakoo_t_i18n`: textos de la interfaz de los widgets por idioma (la llena el paquete). Usuario: `_wakoo_t_must_change` mientras tenga una clave temporal.
 
 Opción `wakoo_territorio`: prefijo de códigos (ORI), estados de tramitación (`clave|Nombre|cerrado`), requisitos, centro y zoom del mapa (8.4, -64.3, zoom 8, una referencia aproximada de la subregión y no un dato), plantillas de ficha, páginas clave y emisor de certificados.
 

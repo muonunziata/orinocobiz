@@ -1,17 +1,50 @@
 """Paquete Wakoo del portal ORINOCO BUSINESS & INVESTMENT: wakoo-pack.json + images/ + fonts/ + styles/.
 
-python3 build.py <carpeta_salida>
+python3 build.py <carpeta_salida> [es,fr,en,zh-tw,it]
 
 Todo se construye con widgets de Elementor y de Wakoo (sin widgets HTML). El español es la versión
-maestra; el inglés se crea después desde Wakoo → Idiomas (Clonar) y Wakoo → Traductor.
+maestra; francés, inglés, chino tradicional e italiano salen de traducciones.json (traducción de
+trabajo, pendiente de revisión nativa) con los mismos ids de elemento, para que Wakoo → Idiomas
+propague después los cambios del español. Los textos sin traducir se listan en faltan-traducciones.json.
 """
-import json, os, sys
+import itertools, json, os, re, sys
 import el
 from el import s, img, con, col, row, grid, section, w, h, p, eyebrow, btn, btns, image, icon, iconlist, iconbox, lnk, tpl, ul
 import content as C
 
 PACK = 'orinoco'
 LN = 'es'
+
+
+
+# Límites de referencia (no oficiales) para el zoom del globo y el mapa: ver docs/analisis-documental.md.
+GEO = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'datos', 'limites-subregion.json'), encoding='utf-8'))
+GEO_SOURCE = ('Límites de referencia, no oficiales: estado según Natural Earth (dominio público); municipios según C. E. Porto Tapiquén (2015) '
+              'vía geoBoundaries (ODbL 1.0); río Orinoco según Natural Earth.')
+GEO_LAYERS = {'limites-estado': ('Límite del estado (referencia)', '#E6C98C'), 'municipios-subregion': ('Municipios de la subregión (referencia)', '#C5A15B'),
+              'rio-orinoco': ('Río Orinoco', '#2E86DE')}
+MUN_FILL = {'José Gregorio Monagas': '#2E6FA8', 'Francisco de Miranda': '#3C8C79', 'Independencia': '#C5A15B'}
+
+
+def sticky_header(node):
+    """Cabecera flotante de Wakoo (Movimiento → Fijar al hacer scroll): se compacta al bajar y muestra el progreso de lectura."""
+    node['settings'].update({'wakoo_sticky': 'yes', 'wakoo_sticky_pos': 'top', 'wakoo_sticky_offset': {'unit': 'px', 'size': 0},
+                             'wakoo_sticky_z': 200, 'wakoo_sticky_fx': 'condense', 'wakoo_sticky_progress': 'yes', 'wakoo_sticky_progress_color': '#C5A15B'})
+    node['settings']['_css_classes'] = (node['settings'].get('_css_classes', '') + ' orn-sticky').strip()
+    return node
+
+
+def zoom_geo():
+    feats = [{'type': 'Feature', 'properties': {'role': 'outline', 'stroke': '#E6C98C'}, 'geometry': GEO['anzoategui']}]
+    for n, c in MUN_FILL.items():
+        feats.append({'type': 'Feature', 'properties': {'name': n, 'fill': c, 'stroke': '#FFFFFF', 'fit': True}, 'geometry': GEO[n]})
+    feats.append({'type': 'Feature', 'properties': {'role': 'river', 'name': 'Río Orinoco'}, 'geometry': GEO['orinoco']})
+    return json.dumps({'type': 'FeatureCollection', 'features': feats}, ensure_ascii=False, separators=(',', ':'))
+
+
+def globe_zoom():
+    return {'zoom': 'yes', 'zoom_geo': zoom_geo(), 'zoom_title': 'Subregión Orinoco · Sur de Anzoátegui', 'zoom_source': GEO_SOURCE,
+            'zoom_scale': 2.8, 'zoom_hint': 'Pase el ratón o toque el globo para acercarse a la subregión'}
 
 
 def L(key, anchor=''):
@@ -118,7 +151,10 @@ def header():
     return [
         con([
             iconlist([('Subregión Orinoco · Sur de Anzoátegui · Venezuela', 'fas fa-map-pin', None)], 'orn-topbar__info', inline=True),
-            iconlist([('Mi cuenta', 'fas fa-user-circle', L('acceso')), ('Verificar certificado', 'fas fa-certificate', L('verificar'))], 'orn-topbar__links', inline=True),
+            con([
+                iconlist([('Mi cuenta', 'fas fa-user-circle', L('acceso')), ('Verificar certificado', 'fas fa-certificate', L('verificar'))], 'orn-topbar__links', inline=True),
+                w('wakoo-idiomas', {'style': 'codes', 'label': 'Idioma', 'color': '#E6C98C'}, 'orn-langs'),
+            ], cls='orn-topbar__right wk-keep-row', direction='row', inner=True),
         ], cls='orn-topbar wk-keep-row', boxed=True, direction='row'),
         con([
             btn('Saltar al contenido', '#contenido', 'primary', 'orn-skip'),
@@ -191,7 +227,7 @@ def page_inicio():
             col([w('wakoo-globe', {'focus_lat': 8.4, 'focus_lng': -64.3, 'spin': 1.5, 'swing': 40, 'size': 560,
                                    'label': 'Globo terráqueo que señala la Subregión Orinoco, en el sur del estado Anzoátegui, Venezuela',
                                    'markers': [{'_id': el.eid(), 'title': 'Subregión Orinoco (referencia aproximada)', 'lat': 8.4, 'lng': -64.3, 'size': 0.09, 'main': 'yes'}],
-                                   'legend': 'yes', 'dark': 'yes', 'base': '#4A7FB5', 'mark': '#FFFFFF', 'accent': '#C5A15B', 'glow': '#2A6DB0', 'legend_color': '#C9D6E5'}, 'orn-globe')],
+                                   'legend': 'yes', 'dark': 'yes', 'base': '#4A7FB5', 'mark': '#FFFFFF', 'accent': '#C5A15B', 'glow': '#2A6DB0', 'legend_color': '#C9D6E5', **globe_zoom()}, 'orn-globe')],
                 'orn-hero__globe'),
         ], 2, tablet=1, mobile=1, gap=24, cls='orn-hero__grid'),
     ], cls='orn-hero orn-dark', css_id='contenido')
@@ -212,7 +248,7 @@ def page_inicio():
     sectors = section([
         row([head('Portafolio estratégico', 'Diez sectores de oportunidad', 'Cada sector reúne su relevancia, las oportunidades identificadas, la infraestructura que requiere y las condiciones previas.'),
              btn('Ver todos los sectores', L('sectores'), 'outline', icon='fas fa-arrow-right')], cls='orn-row-between'),
-        grid([card(sc['icon'], sc['name'], sc['lead'], L('sector-' + sc['slug']), 'orn-card--sector', i * 40) for i, sc in enumerate(C.SECTORS)], 5, tablet=2, mobile=1, gap=16),
+        grid([card(sc['icon'], sc['name'], sc['lead'], L('sector-' + sc['slug']), 'orn-card--sector', i * 40) for i, sc in enumerate(C.SECTORS)], 5, tablet=2, mobile=2, gap=12, cls='orn-sectors-grid'),
     ], cls='orn-sec orn-soft')
 
     projects = section([
@@ -223,7 +259,7 @@ def page_inicio():
             col([tw('wakoo-t-stages', {'link': lnk(L('proyectos'))})], 'orn-stack'),
         ], 2, tablet=1, mobile=1, gap=48, cls='orn-split'),
         tw('wakoo-t-projects', {'filters': '', 'per': 4, 'cols': '4', 'paging': ''}),
-    ], cls='orn-sec')
+    ], cls='orn-sec orn-home-projects')
 
     territory = section([
         head('Conectividad', 'Un territorio entre corredores terrestres y el río Orinoco', C.TERRITORY),
@@ -306,7 +342,7 @@ def page_territorio():
         section([grid([col([head('Ubicación estratégica', 'Tres razones de una posición geoeconómica'), *[iconbox(ic, t, d, cls='orn-iconbox') for ic, t, d in C.WHY], callout('Superficie de referencia', C.AREA_NOTE, 'fas fa-ruler-combined')], 'orn-stack'),
                        col([w('wakoo-globe', {'focus_lat': 8.4, 'focus_lng': -64.3, 'spin': 1, 'swing': 30, 'size': 460, 'label': 'Globo que señala la Subregión Orinoco',
                                               'markers': [{'_id': el.eid(), 'title': 'Subregión Orinoco (referencia aproximada)', 'lat': 8.4, 'lng': -64.3, 'size': 0.09, 'main': 'yes'}],
-                                              'legend': 'yes', 'dark': 'yes', 'base': '#4A7FB5', 'accent': '#C5A15B', 'glow': '#2A6DB0'}, 'orn-globe orn-globe--panel')], 'orn-globe-panel')],
+                                              'legend': 'yes', 'dark': 'yes', 'base': '#4A7FB5', 'accent': '#C5A15B', 'glow': '#2A6DB0', **globe_zoom()}, 'orn-globe orn-globe--panel')], 'orn-globe-panel')],
                       2, tablet=1, mobile=1, gap=40, cls='orn-split')], cls='orn-sec'),
         section([head('Municipios', 'Desarrollo diferenciado por municipio', 'Los tres municipios comparten un marco geográfico, pero no necesariamente las mismas ventajas, infraestructuras ni condiciones de inversión.'),
                  grid(muns, 3, tablet=1, mobile=1, gap=18), callout('Propuesta inicial de especialización', C.MUN_NOTE)], cls='orn-sec orn-soft'),
@@ -466,12 +502,12 @@ def page_observatorio():
 
 
 def page_academia():
-    schools = [reveal(col([icon(sc['icon'], 'orn-card__ico'), h(sc['name'], 3), p(sc['desc']), bullets(sc['courses'], 'fas fa-book-open')], 'orn-card'), delay=i * 50) for i, sc in enumerate(C.SCHOOLS)]
+    schools = [reveal(iconbox(sc['icon'], sc['name'], sc['desc'], cls='orn-iconbox orn-school', position='top'), delay=i * 50) for i, sc in enumerate(C.SCHOOLS)]
     return [
         pagehead('Academia Orinoco de Nuevos Negocios', 'Formación para el empleo productivo y los nuevos negocios', C.ACADEMY_INTRO),
-        section([head('Escuelas', 'Cinco escuelas'), grid(schools, 3, tablet=2, mobile=1, gap=18)], cls='orn-sec'),
-        section([head('Cursos', 'Oferta de cursos', 'Los cursos en diseño aceptan registro de interés; el curso de demostración permite probar la plataforma completa.'),
-                 tw('wakoo-t-courses', {'group': 'yes', 'demo': 'yes', 'cols': '3'})], cls='orn-sec orn-soft'),
+        section([head('Escuelas', 'Cinco escuelas'), grid(schools, 5, tablet=3, mobile=1, gap=18)], cls='orn-sec'),
+        section([head('Cursos', 'Oferta de cursos', 'Toque un curso para ver su ficha. Los cursos en diseño aceptan registro de interés; el curso de demostración permite probar la plataforma completa.'),
+                 tw('wakoo-t-courses', {'layout': 'icons', 'group': 'yes', 'demo': 'yes'})], cls='orn-sec orn-soft'),
         section([grid([col([head('Líneas del programa', 'Programa Regional de Formación para el Empleo Productivo'), *[iconbox('fas fa-check-circle', t, d, cls='orn-iconbox') for t, d in C.TRAINING_LINES]], 'orn-stack'),
                        col([head('Certificados verificables', 'Cada certificado tiene un código'), p('Al completar un curso, la academia emite un certificado con un código único. Cualquier empleador puede comprobarlo en línea.'),
                             btns([btn('Mi aprendizaje', L('mi-aprendizaje'), 'primary', icon='fas fa-user-graduate'), btn('Verificar un certificado', L('verificar'), 'outline')]),
@@ -573,6 +609,7 @@ PAGES = [
     ('mis-solicitudes', 'mis-solicitudes', 'Mis solicitudes', lambda: page_panel('Mis solicitudes', 'Estado, historial, mensajes y documentos de sus solicitudes en la ventanilla.', 'wakoo-t-cases'), 'Solicitudes en la ventanilla.', None),
     ('mi-empresa', 'mi-empresa', 'Mi empresa', lambda: page_panel('Mi empresa', 'Perfil para el directorio, documentos privados, consultas recibidas y necesidades de compra.', 'wakoo-t-companypanel'), 'Panel de empresa.', None),
     ('mi-aprendizaje', 'mi-aprendizaje', 'Mi aprendizaje', lambda: page_panel('Mi aprendizaje', 'Sus cursos, su progreso y sus certificados.', 'wakoo-t-student', {'catalog': lnk(L('academia'))}), 'Panel del estudiante.', None),
+    ('hub', 'hub-administrativo', 'Hub administrativo', lambda: page_panel('Hub administrativo', 'Solicitudes de la ventanilla, usuarios y cuentas de las empresas. Solo para el equipo del portal.', 'wakoo-t-hub'), 'Hub administrativo del equipo del portal.', None),
     ('verificar', 'verificar-certificado', 'Verificar certificado', lambda: page_panel('Verificar un certificado', 'Escriba el código impreso en el certificado de la Academia Orinoco.', 'wakoo-t-verify'), 'Verificación de certificados de la Academia Orinoco.', None),
     ('privacidad', 'privacidad', 'Privacidad', lambda: page_legal('privacidad'), 'Privacidad y datos personales.', None),
     ('terminos', 'terminos-de-uso', 'Términos de uso', lambda: page_legal('terminos'), 'Términos de uso del portal.', None),
@@ -582,11 +619,11 @@ for _sc in C.SECTORS:
     PAGES.append(('sector-' + _sc['slug'], _sc['slug'], _sc['name'], (lambda sc=_sc: page_sector(sc)), _sc['lead'], 'sectores'))
 
 SECTOR_NAME = {sc['slug']: sc['name'] for sc in C.SECTORS}
-PANELS = {'acceso', 'mis-solicitudes', 'mi-empresa', 'mi-aprendizaje'}
+PANELS = {'acceso', 'mis-solicitudes', 'mi-empresa', 'mi-aprendizaje', 'hub'}
 
 
 def doc(data):
-    return el.to_json([tpl(f'{LN}-header')] + data + [tpl(f'{LN}-footer')])
+    return el.to_json([sticky_header(tpl(f'{LN}-header'))] + data + [tpl(f'{LN}-footer')])
 
 
 def page_item(key, slug, title, data, desc, parent, order):
@@ -625,6 +662,30 @@ def content_items():
     items.append({'key': 'ind-demo', 'title': 'Serie de prueba del observatorio', 'type': 'wakoo_indicator', 'menu_order': 99, 'excerpt': 'Datos inventados para revisar el diseño del gráfico. Nunca se muestran como oficiales.',
                   'meta': {'_wakoo_t_demo': 'yes', '_wakoo_t_public': 'yes', '_wakoo_t_chart': 'line', '_wakoo_t_unit': 'unidades de prueba', '_wakoo_t_check': 'pendiente',
                            '_wakoo_t_series': '2025-T1;4;no\n2025-T2;6;no\n2025-T3;5;no\n2025-T4;9;no\n2026-T1;11;no'}})
+    # Capas de referencia del mapa: límites no oficiales con su fuente (nunca se marcan como verificados).
+    geo = [('Estado Anzoátegui', 'anzoategui', 'limites-estado', 'Límite estatal de referencia. Fuente: Natural Earth (dominio público), escala 1:10 m.', 'Natural Earth 1:10m Admin 1 (dominio público)')]
+    geo += [(f'Municipio {n}', n, 'municipios-subregion', 'Límite municipal de referencia, no oficial. Debe confirmarse con la cartografía oficial.',
+             'C. E. Porto Tapiquén, «Municipios de Venezuela» (2015), vía geoBoundaries (ODbL 1.0)') for n in MUN_FILL]
+    geo += [('Río Orinoco', 'orinoco', 'rio-orinoco', 'Eje central del río (referencia a pequeña escala).', 'Natural Earth 1:10m Rivers (dominio público)')]
+    for i, (title, k, layer, desc, src) in enumerate(geo):
+        items.append({'key': f'geo-{el_slug(k)}', 'title': title, 'type': 'wakoo_geo', 'menu_order': i, 'content': f'<p>{desc}</p>',
+                      'terms': {'wakoo_geo_layer': [{'name': GEO_LAYERS[layer][0], 'slug': layer}]},
+                      'meta': {'_wakoo_t_geojson': json.dumps(GEO[k], separators=(',', ':')), '_wakoo_t_public': 'yes', '_wakoo_t_verified': 'no',
+                               '_wakoo_t_source': src, '_wakoo_t_date': 'Consultado el 28/10/2026'}})
+    # Empresas públicas de la zona: perfiles de referencia con fuente, sin cuenta ni contactos privados.
+    mun_name = {m['slug']: m['name'] for m in C.MUNICIPIOS}
+    for i, co in enumerate(C.PUBLIC_COMPANIES):
+        terms = {'wakoo_company_cat': [{'name': 'Empresas públicas', 'slug': 'empresas-publicas'}]}
+        if co['sector']:
+            terms['wakoo_sector'] = [{'name': SECTOR_NAME[co['sector']], 'slug': co['sector']}]
+        if co['mun']:
+            terms['wakoo_municipio'] = [{'name': mun_name[x], 'slug': x} for x in co['mun']]
+        meta = {'_wakoo_t_level': 'referencia', '_wakoo_t_products': co['products'], '_wakoo_t_source': '\n'.join(co['sources'])}
+        if co['web']:
+            meta['_wakoo_t_web'] = co['web']
+            meta['_wakoo_t_public'] = ['web']
+        items.append({'key': f'co-{co["key"]}', 'title': co['title'], 'type': 'wakoo_company', 'slug': co['key'], 'menu_order': i,
+                      'excerpt': co['excerpt'], 'content': co['content'], 'terms': terms, 'meta': meta})
     order = 0
     for sc in C.SCHOOLS:
         for t in sc['courses']:
@@ -632,11 +693,11 @@ def content_items():
             items.append({'key': f'c-{order}', 'title': t, 'type': 'wakoo_course', 'menu_order': order, 'excerpt': 'Curso en diseño. Registre su interés y le avisaremos cuando abra la inscripción.',
                           'content': f'<p>{sc["desc"]}</p><p>El programa, la duración, la modalidad y el costo se publicarán cuando el curso esté listo.</p>',
                           'terms': {'wakoo_school': [{'name': sc['name'], 'slug': sc['slug']}]},
-                          'meta': {'_wakoo_t_cstatus': 'design', '_wakoo_t_cost': 'Por definir', '_wakoo_t_certify': 'yes', '_wakoo_lang': LN}})
+                          'meta': {'_wakoo_t_cstatus': 'design', '_wakoo_t_cost': 'Por definir', '_wakoo_t_certify': 'yes', '_wakoo_t_icon': C.COURSE_ICONS.get(t, ''), '_wakoo_lang': LN}})
     d = C.DEMO_COURSE
     items.append({'key': 'c-demo', 'title': d['title'], 'type': 'wakoo_course', 'menu_order': 0, 'excerpt': d['excerpt'], 'content': f'<p>{d["content"]}</p>',
                   'terms': {'wakoo_school': [{'name': C.SCHOOLS[-1]['name'], 'slug': 'gestion-digital'}]},
-                  'meta': {'_wakoo_t_cstatus': 'open', '_wakoo_t_demo': 'yes', '_wakoo_t_mode': 'virtual', '_wakoo_t_certify': 'yes', '_wakoo_t_hours': '1',
+                  'meta': {'_wakoo_t_cstatus': 'open', '_wakoo_t_demo': 'yes', '_wakoo_t_icon': C.COURSE_ICONS[d['title']], '_wakoo_t_mode': 'virtual', '_wakoo_t_certify': 'yes', '_wakoo_t_hours': '1',
                            '_wakoo_t_criteria': 'Completar las tres lecciones y aprobar la evaluación con 70 % o más.', '_wakoo_lang': LN}})
     for i, (t, body, quiz) in enumerate(d['lessons']):
         m = {'_wakoo_t_course': 'wakoo-pack://post/c-demo'}
@@ -647,31 +708,170 @@ def content_items():
     return items
 
 
-def build(out):
-    el.LANG[0] = LN
-    items = [template_item('header', 'Cabecera', header(), wrap=False), template_item('footer', 'Pie de página', footer(), wrap=False)]
-    for i, (key, slug, title, fn, desc, parent) in enumerate(PAGES):
-        items.append(page_item(key, slug, title, fn(), desc, parent, i))
-    items += [template_item('tpl-proyecto', 'Ficha de proyecto', tpl_sheet('wakoo-t-project', 'Proyectos', 'proyectos'), 'page'),
-              template_item('tpl-empresa', 'Ficha de empresa', tpl_sheet('wakoo-t-company', 'Directorio', 'directorio'), 'page'),
-              template_item('tpl-curso', 'Ficha de curso', tpl_course(), 'page')]
-    items += content_items()
+LANGS = ['es', 'fr', 'en', 'zh-tw', 'it']  # mismo orden que Wakoo → Idiomas; el español es el maestro
+LANG_NAMES = [['es', 'Español'], ['fr', 'Français'], ['en', 'English'], ['zh-tw', '繁體中文'], ['it', 'Italiano']]
+_TRF = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'traducciones.json')
+TR = json.load(open(_TRF, encoding='utf-8')) if os.path.exists(_TRF) else {}
+MISSING = {}
+
+# Ajustes de widget que llevan texto visible (se traducen por idioma; el resto es configuración).
+TXT_KEYS = {'title', 'editor', 'text', 'title_text', 'description_text', 'caption', 'toggle_label', 'label', 'empty', 'zoom_title', 'zoom_hint',
+            'zoom_source', 'button_text', 'email_subject', 'form_name', 'success_msg', 'flabel', 'foptions', 'alt', 'legend', 'placeholder'}
+# Campos de texto del contenido (proyectos, indicadores, cursos, lecciones).
+META_TXT = {'_wakoo_t_objective', '_wakoo_t_precond', '_wakoo_t_infra', '_wakoo_t_location', '_wakoo_t_source', '_wakoo_t_pending', '_wakoo_t_cost',
+            '_wakoo_t_criteria', '_wakoo_t_method', '_wakoo_t_period', '_wakoo_t_owner', '_wakoo_t_unit'}
+
+
+def t_(text, ln=None):
+    """Traducción de trabajo de un texto en español (traducciones.json); si falta, se anota y queda el español."""
+    ln = ln or LN
+    if ln == 'es' or not isinstance(text, str) or not text.strip() or text in ('yes', 'no') or not re.search('[A-Za-zÁ-ú]', text):
+        return text
+    v = TR.get(text, {}).get(ln)
+    if v is None:
+        MISSING.setdefault(text, set()).add(ln)
+        return text
+    return v
+
+
+def tr_elements(els):
+    for e in els:
+        tr_settings(e.get('settings', {}))
+        tr_elements(e.get('elements', []))
+    return els
+
+
+def tr_settings(st):
+    for k, v in list(st.items()):
+        if isinstance(v, str) and k in TXT_KEYS:
+            st[k] = t_(v)
+        elif isinstance(v, dict):
+            tr_settings(v)
+        elif isinstance(v, list):
+            for it in v:
+                if isinstance(it, dict):
+                    tr_settings(it)
+
+
+def slug_for(key, slug, title):
+    if LN == 'es':
+        return slug
+    if key == 'inicio':
+        return LN
+    return slug if LN == 'zh-tw' else (el_slug(t_(title)) or slug)
+
+
+def localize_item(it):
+    """Copia de un elemento del paquete en el idioma actual: textos, claves, enlaces y grupo de traducción."""
+    it = json.loads(json.dumps(it, ensure_ascii=False))
+    m = it.get('meta', {})
+    if '_elementor_data' in m:
+        m['_elementor_data'] = tr_elements(m['_elementor_data'])
+    for k in ('title', 'excerpt'):
+        if k in it and it.get('type') != 'elementor_library':
+            it[k] = t_(it[k])
+    if 'content' in it:
+        it['content'] = t_(it['content'])
+    for k in list(m):
+        if k in META_TXT and isinstance(m[k], str):
+            m[k] = '\n'.join(t_(x) for x in m[k].split('\n'))
+        elif k in ('_wakoo_seo_title', '_wakoo_seo_desc'):
+            m[k] = t_(m[k])
+        elif k == '_wakoo_t_docs':
+            m[k] = '\n'.join('|'.join([t_(x.split('|', 1)[0])] + x.split('|', 1)[1:]) for x in m[k].split('\n'))
+        elif k == '_wakoo_t_quiz':
+            q = json.loads(m[k])
+            for x in q:
+                x['q'] = t_(x['q'])
+                x['options'] = [t_(o) for o in x['options']]
+            m[k] = json.dumps(q, ensure_ascii=False)
+        elif k == '_wakoo_t_course' and m[k].startswith('wakoo-pack://post/'):
+            m[k] = m[k].replace('wakoo-pack://post/', f'wakoo-pack://post/{LN}-', 1)
+    return it
+
+
+def build(out, langs=LANGS):
+    global LN
+    items, menus, content_es = [], [], None
+    for ln in langs:
+        LN = ln
+        el.LANG[0] = 'es'  # los textos se escriben en español y se traducen después
+        el._counter = itertools.count(1)  # mismos ids de elemento en todos los idiomas (la sincronización los empareja)
+        part = [template_item('header', 'Cabecera', header(), wrap=False), template_item('footer', 'Pie de página', footer(), wrap=False)]
+        for i, (key, slug, title, fn, desc, parent) in enumerate(PAGES):
+            it = page_item(key, slug, title, fn(), desc, parent, i)
+            if ln != 'es':
+                it['slug'] = slug_for(key, slug, title)
+                if key != 'inicio':
+                    it['parent'] = f'{ln}-{parent}' if parent else f'{ln}-inicio'
+            part.append(it)
+        part += [template_item('tpl-proyecto', 'Ficha de proyecto', tpl_sheet('wakoo-t-project', 'Proyectos', 'proyectos'), 'page'),
+                 template_item('tpl-empresa', 'Ficha de empresa', tpl_sheet('wakoo-t-company', 'Directorio', 'directorio'), 'page'),
+                 template_item('tpl-curso', 'Ficha de curso', tpl_course(), 'page')]
+        if ln != 'es':
+            part = [localize_item(x) for x in part]
+            for x in part:
+                if x['type'] == 'elementor_library':
+                    x['title'] = x['title'].replace('Orinoco · ', 'Orinoco · ') + f' ({ln.upper()})'
+        items += part
+        menus.append({'key': f'main-{ln}', 'name': f'Orinoco · Menú principal ({ln.upper()})',
+                      'items': [{'title': t_(m['title']), 'link': m['link'], 'children': [{'title': t_(c['title']), 'link': c['link']} for c in m['children']]} for m in menu_tree()]})
+        # Contenido traducible: proyectos, indicadores, cursos y lecciones (las empresas y las capas del mapa son únicas).
+        LN = 'es'
+        if content_es is None:
+            content_es = content_items()
+            items += content_es
+        LN = ln
+        if ln != 'es':
+            for x in content_es:
+                if x['type'] not in ('wakoo_project', 'wakoo_indicator', 'wakoo_course', 'wakoo_lesson'):
+                    continue
+                y = localize_item(x)
+                y['key'] = f'{ln}-{x["key"]}'
+                if 'slug' in y:
+                    y['slug'] = f'{x["slug"]}-{ln}'
+                y.setdefault('meta', {})['_wakoo_lang'] = ln
+                y['meta']['_wakoo_tr'] = f'orinoco-{x["key"]}'
+                if 'terms' in y:
+                    y['terms'] = x['terms']
+                items.append(y)
+    LN = 'es'
+    for x in content_es:
+        if x['type'] in ('wakoo_project', 'wakoo_indicator', 'wakoo_course', 'wakoo_lesson'):
+            x.setdefault('meta', {})['_wakoo_lang'] = 'es'
+            x['meta']['_wakoo_tr'] = f'orinoco-{x["key"]}'
+
+    def names(n):
+        return {f'wk_name_{l.replace("-", "_")}': TR[n][l] for l in langs if l != 'es' and TR.get(n, {}).get(l)}
+
     terms = {
-        'wakoo_sector': [{'name': sc['name'], 'slug': sc['slug'], 'meta': {'wk_order': i + 1}} for i, sc in enumerate(C.SECTORS)],
+        'wakoo_sector': [{'name': sc['name'], 'slug': sc['slug'], 'meta': {'wk_order': i + 1, **names(sc['name'])}} for i, sc in enumerate(C.SECTORS)],
         'wakoo_municipio': [{'name': m['name'], 'slug': m['slug'], 'description': m['focus'], 'meta': {'wk_order': i + 1}} for i, m in enumerate(C.MUNICIPIOS)],
-        'wakoo_school': [{'name': sc['name'], 'slug': sc['slug'], 'description': sc['desc'], 'meta': {'wk_order': i + 1}} for i, sc in enumerate(C.SCHOOLS)],
-        'wakoo_company_cat': [{'name': n, 'slug': el_slug(n), 'meta': {'wk_order': i + 1}} for i, n in enumerate([
-            'Transporte especializado', 'Izamiento y manejo de cargas', 'Tubulares y componentes', 'Mantenimiento industrial', 'Fabricación metalmecánica',
-            'Seguridad industrial', 'Servicios al personal', 'Tecnología operacional', 'Servicios ambientales', 'Producción agropecuaria y alimentos', 'Comercio y otros servicios'])],
-        'wakoo_geo_layer': [{'name': n, 'slug': el_slug(n), 'meta': {'wk_order': i + 1, 'wk_color': c}} for i, (n, c) in enumerate([
-            ('Corredores viales', '#C5A15B'), ('Accesos fluviales y embarcaderos', '#2A6DB0'), ('Zonas industriales y logísticas', '#10355B'),
-            ('Servicios públicos', '#1E6B45'), ('Áreas de preservación', '#4F7A3A')])],
+        'wakoo_school': [{'name': sc['name'], 'slug': sc['slug'], 'description': sc['desc'], 'meta': {'wk_order': i + 1, 'wk_icon': sc['icon'], **names(sc['name'])}} for i, sc in enumerate(C.SCHOOLS)],
+        'wakoo_company_cat': [{'name': n, 'slug': el_slug(n), 'meta': {'wk_order': i + 1, **names(n)}} for i, n in enumerate(COMPANY_CATS)],
+        'wakoo_geo_layer': [{'name': n, 'slug': sl, 'meta': {'wk_order': i + 1, 'wk_color': c, **names(n)}} for i, (sl, (n, c)) in enumerate(GEO_LAYERS.items())] +
+                           [{'name': n, 'slug': el_slug(n), 'meta': {'wk_order': i + 10, 'wk_color': c, **names(n)}} for i, (n, c) in enumerate(EXTRA_LAYERS)],
     }
+    for n in [x['name'] for v in terms.values() for x in v if x not in terms['wakoo_municipio']]:
+        for l in langs:
+            if l != 'es':
+                t_(n, l)
+    # Palabras de la interfaz de los widgets Territorio (estados, botones, avisos) en cada idioma.
+    i18n = {}
+    for l in langs:
+        if l == 'es':
+            continue
+        i18n[l] = {}
+        # Company excerpts too: companies stay single Spanish posts, the listings translate their summary.
+        for es in UI_STRINGS + [x['excerpt'] for x in C.PUBLIC_COMPANIES]:
+            v = t_(es, l)
+            if v != es:
+                i18n[l][es] = v
     pack = {
         'format': 'wakoo-export', 'version': 1, 'pack': PACK,
         'title': 'ORINOCO BUSINESS & INVESTMENT · Portal institucional (Subregión Orinoco)',
         'items': items,
-        'menus': [{'key': f'main-{LN}', 'name': 'Orinoco · Menú principal (ES)', 'items': menu_tree()}],
+        'menus': menus,
         'media': {f'images/{n}': {'alt': a} for n, a in [
             ('puente-angostura.webp', 'Puente Angostura sobre el río Orinoco'), ('puente-orinoquia.webp', 'Vista aérea del Puente Orinoquia sobre el río Orinoco'),
             ('embarcadero-flotante.webp', 'Embarcadero flotante en la ribera del Orinoco'), ('cultivos-yuca-maiz.webp', 'Productores en un cultivo de yuca y maíz'),
@@ -680,27 +880,41 @@ def build(out):
             ('rio-curiaras.webp', 'Curiaras en la orilla de un río'), ('franja-territorio.webp', 'Ilustración del río, la industria, la agroindustria y el puerto'),
             (C.PDF, 'Ponencia ORINOCO BUSINESS & INVESTMENT FORUM')]},
         'site': {
-            'front_page': f'{LN}-inicio',
+            'front_page': 'es-inicio',
             'css_file': 'styles/orinoco.css',
             'options': {'blogname': 'ORINOCO BUSINESS & INVESTMENT', 'blogdescription': C.SUB, 'elementor_google_font': '0', 'elementor_font_display': 'swap',
                         'elementor_disable_color_schemes': 'yes', 'elementor_disable_typography_schemes': 'yes'},
             'wakoo': {
-                'languages': [['es', 'Español'], ['en', 'English']],
+                'languages': [x for x in LANG_NAMES if x[0] in langs],
                 'public_default': 'es',
                 'seo': {'org_name': 'ORINOCO BUSINESS & INVESTMENT', 'meta_desc': 1, 'og': 1, 'jsonld': 1, 'llms': 1},
                 'territorio': {
-                    'tpl_project': f'{LN}-tpl-proyecto', 'tpl_company': f'{LN}-tpl-empresa', 'tpl_course': f'{LN}-tpl-curso',
-                    'page_access': f'{LN}-acceso', 'page_cases': f'{LN}-mis-solicitudes', 'page_cases_new': f'{LN}-ventanilla', 'page_company': f'{LN}-mi-empresa',
-                    'page_student': f'{LN}-mi-aprendizaje', 'page_verify': f'{LN}-verificar',
+                    'tpl_project': 'es-tpl-proyecto', 'tpl_company': 'es-tpl-empresa', 'tpl_course': 'es-tpl-curso',
+                    'page_access': 'es-acceso', 'page_cases': 'es-mis-solicitudes', 'page_cases_new': 'es-ventanilla', 'page_company': 'es-mi-empresa',
+                    'page_student': 'es-mi-aprendizaje', 'page_verify': 'es-verificar', 'page_hub': 'es-hub',
                     'prefix': 'ORI', 'center': '8.4,-64.3', 'zoom': 8, 'register': 1, 'issuer': 'Academia Orinoco de Nuevos Negocios',
-                    'terms': terms,
+                    'terms': terms, 'i18n': i18n,
                 },
             },
         },
     }
     os.makedirs(out, exist_ok=True)
     json.dump(pack, open(os.path.join(out, 'wakoo-pack.json'), 'w'), ensure_ascii=False, indent=1)
+    miss = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'faltan-traducciones.json')
+    if MISSING:
+        json.dump({k: sorted(v) for k, v in MISSING.items()}, open(miss, 'w'), ensure_ascii=False, indent=1)
+    elif os.path.exists(miss):
+        os.remove(miss)
     return pack
+
+
+COMPANY_CATS = ['Empresas públicas', 'Transporte especializado', 'Izamiento y manejo de cargas', 'Tubulares y componentes', 'Mantenimiento industrial',
+                'Fabricación metalmecánica', 'Seguridad industrial', 'Servicios al personal', 'Tecnología operacional', 'Servicios ambientales',
+                'Producción agropecuaria y alimentos', 'Comercio y otros servicios']
+EXTRA_LAYERS = [('Corredores viales', '#C5A15B'), ('Accesos fluviales y embarcaderos', '#2A6DB0'), ('Zonas industriales y logísticas', '#10355B'),
+                ('Servicios públicos', '#1E6B45'), ('Áreas de preservación', '#4F7A3A')]
+# Textos de la interfaz del módulo Territorio (los genera herramientas: ver BITACORA). Se traducen como el resto.
+UI_STRINGS = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'datos', 'interfaz-territorio.json'), encoding='utf-8'))
 
 
 def el_slug(t):
@@ -710,5 +924,5 @@ def el_slug(t):
 
 
 if __name__ == '__main__':
-    pk = build(sys.argv[1] if len(sys.argv) > 1 else 'pack')
-    print(len(pk['items']), 'items')
+    pk = build(sys.argv[1] if len(sys.argv) > 1 else 'pack', sys.argv[2].split(',') if len(sys.argv) > 2 else LANGS)
+    print(len(pk['items']), 'items', f'· faltan {len(MISSING)} traducciones' if MISSING else '')

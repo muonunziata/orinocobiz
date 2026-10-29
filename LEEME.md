@@ -12,15 +12,14 @@ Portal institucional de la Subregión Orinoco (sur de Anzoátegui), hecho a part
 
 ## Instalar
 
-1. WordPress + Elementor (gratis).
-2. Plugin Wakoo **alpha69 o superior**: `instaladores/wakoo-1.0.0-alpha69.zip` → WordPress → Plugins → Añadir nuevo → Subir plugin → activar.
-3. Wakoo → Exportar / importar → Importar → subir `orinoco-wakoo.zip` (raíz del repositorio).
-4. Ajustes → Lectura: «Inicio» ya queda como portada. Revisa Wakoo → Territorio (estados, requisitos y emisor de certificados).
+1. WordPress + Elementor (gratis) + Wakoo **alpha70 o superior** (`instaladores/` en la raíz del repositorio).
+2. Wakoo → Exportar / importar → subir `orinoco-wakoo.zip`.
+3. Ajustes → Lectura ya queda con «Inicio» como portada. Revisa Wakoo → Territorio (estados, requisitos y emisor de certificados).
 
 ## Rehacer el paquete
 
 ```bash
-cd generador
+cd proyectos/orinocobiz/generador
 ./make.sh                                   # → ../orinoco-wakoo.zip
 node importar.mjs ../orinoco-wakoo.zip      # lo importa en el WordPress de prueba (localhost:8080)
 ```
