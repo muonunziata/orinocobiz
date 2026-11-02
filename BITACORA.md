@@ -56,6 +56,10 @@ Widgets usados: los nativos de Elementor (Título, Editor de texto, Botón, Imag
 
 ## Historial
 
+### 30/10/2026: este es el portal vigente
+- michele eligió `proyectos/orinocobiz/` como portal de Orinoco. `proyectos/orinoco-inmersivo/` (línea delta, 28/10) queda como archivo, sin borrar y marcado en su `LEEME.md` y su `BITACORA.md`.
+- De aquella versión pueden aprovecharse sus ideas (páginas inmersivas, Academia, sexto idioma), pero hay que traerlas aquí a propósito: no se ha copiado nada.
+
 ### 29/10/2026: Google Maps, marco sin foto y textos con formato (Wakoo alpha72)
 - **Pedidos de michele:**
   1. Si no hay foto, un marco con icono.
