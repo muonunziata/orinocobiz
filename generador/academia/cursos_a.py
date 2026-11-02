@@ -1,0 +1,326 @@
+"""Cursos 1 a 5: Emprendimiento y Proveedores Industriales, y el primero de la Escuela Agroindustrial."""
+from .base import L, Q
+
+CURSOS_A = [
+    # ------------------------------------------------------------------ Escuela de Emprendimiento y Nuevos Negocios
+    dict(
+        clave='tecnico-a-proveedor', escuela='emprendimiento', orden=1,
+        titulo='De técnico a proveedor: cómo crear una empresa de servicios',
+        lema='Convierta su oficio en una empresa que las operadoras y contratistas puedan contratar.',
+        nivel='Inicial', horas=12, insignia='Proveedor en marcha',
+        dirigido='Técnicos, operarios y profesionales de oficio (mecánica, electricidad, soldadura, mantenimiento, transporte, servicios al personal) que quieren ofrecer sus servicios como empresa.',
+        requisitos='Experiencia en un oficio o servicio técnico. No hace falta formación previa en administración.',
+        objetivos=['Definir un servicio concreto que una empresa ancla o contratista pueda comprar.',
+                   'Calcular el precio de un servicio a partir de sus costos reales.',
+                   'Preparar una presentación de empresa y una oferta técnica sencilla.',
+                   'Organizar los primeros pasos de formalización, seguridad y calidad.'],
+        competencias=['Oferta de servicios', 'Costeo y precio', 'Presentación comercial', 'Plan de arranque'],
+        lecciones=[
+            L('Del oficio a la empresa: qué cambia',
+              '<p>Un buen técnico resuelve problemas; una empresa de servicios, además, <strong>promete un resultado, lo cumple y lo puede demostrar</strong>. Las operadoras, contratistas y empresas ancla no contratan personas sueltas: contratan organizaciones que responden por el trabajo, tienen sus papeles al día y trabajan con seguridad.</p>'
+              '<ul><li><strong>Responsabilidad:</strong> la empresa responde por el trabajo, aunque lo haga otra persona del equipo.</li><li><strong>Continuidad:</strong> el cliente necesita saber que usted seguirá ahí mañana.</li><li><strong>Evidencia:</strong> cada servicio deja registros (orden, informe, fotos, firma de recibido).</li><li><strong>Gestión:</strong> además del trabajo técnico, hay compras, cobros, impuestos y personal.</li></ul>',
+              'Escriba en una hoja tres trabajos que usted ya sabe hacer bien y, al lado de cada uno, qué tendría que demostrar a una empresa para que se lo encargue a usted y no a otro.'),
+            L('Elegir el servicio y el cliente',
+              '<p>Empezar con «hago de todo» confunde al cliente. Es mejor <strong>un servicio claro para un cliente concreto</strong>, y crecer desde ahí. En la Subregión Orinoco la demanda viene de las operaciones energéticas e industriales, de sus contratistas y de las actividades agroindustriales, logísticas y de servicios que las rodean.</p>'
+              '<ul><li>Defina el servicio en una frase: qué hace, para quién y con qué resultado (por ejemplo, «mantenimiento preventivo de bombas para patios de tubulares, con informe de cada intervención»).</li><li>Identifique quién compra ese servicio: el departamento de compras, el supervisor de mantenimiento o el contratista principal.</li><li>Averigüe qué piden para registrar a un proveedor nuevo: suelen pedir documentos legales, experiencia, seguridad y referencias.</li><li>Mire a su competencia: qué ofrecen, cuánto tardan y qué se les reclama.</li></ul>',
+              'Redacte la frase de su servicio (qué, para quién, con qué resultado) y haga una lista de cinco posibles clientes de la zona y de la persona o el área que compra en cada uno.'),
+            L('Costos y precio: no trabajar a pérdida',
+              '<p>Muchos emprendimientos fracasan porque cobran «lo que cobra todo el mundo» sin saber cuánto les cuesta trabajar. El precio debe cubrir <strong>todos los costos</strong> y dejar un margen para crecer y para imprevistos.</p>'
+              '<ul><li><strong>Costos directos</strong> de cada trabajo: materiales, repuestos, horas de mano de obra, transporte y alquiler de equipos.</li><li><strong>Costos fijos</strong> del mes: local, teléfono, contabilidad, seguros, desgaste de herramientas; repártalos entre los trabajos que hace al mes.</li><li><strong>Impuestos y cargas</strong> que le corresponden según su forma legal: confírmelos con su contador.</li><li><strong>Margen:</strong> lo que queda después de pagar todo; sin margen no hay reposición de equipos ni capital de trabajo.</li><li>Tenga en cuenta los plazos de pago: si el cliente paga a 30 o 60 días, usted financia ese tiempo.</li></ul>',
+              'Tome un trabajo que hizo hace poco y calcule su costo real con la lista de esta lección. Compare el resultado con lo que cobró y anote qué cambiaría en su próxima cotización.'),
+            L('La oferta técnica y la presentación de empresa',
+              '<p>Una buena oferta ahorra preguntas al comprador y demuestra seriedad. No necesita diseño caro: necesita ser <strong>clara, completa y verificable</strong>.</p>'
+              '<ul><li><strong>Presentación de empresa</strong> (una o dos páginas): quiénes son, qué servicios prestan, equipos, personal clave, experiencia y contactos.</li><li><strong>Oferta técnica:</strong> alcance del trabajo, lo que incluye y lo que no, método, plazo, personal y equipos asignados, medidas de seguridad y entregables.</li><li><strong>Oferta económica:</strong> precio desglosado, moneda, validez de la oferta, forma y plazo de pago.</li><li><strong>Referencias:</strong> trabajos anteriores con nombre del cliente y un contacto que pueda confirmarlos.</li></ul>'
+              '<p>El perfil de su empresa en el Directorio B2B de este portal le sirve como presentación pública.</p>',
+              'Prepare el borrador de su presentación de empresa en una página y complete el perfil de su empresa en «Mi empresa» del portal.'),
+            L('Formalizar, asegurar y trabajar con seguridad',
+              '<p>Para facturar a una empresa grande necesita estar formalizado. Los pasos se ven en detalle en el curso «Formalización empresarial paso a paso»; aquí los ordenamos.</p>'
+              '<ul><li>Elegir la forma jurídica con un asesor (firma personal o sociedad) y registrarla.</li><li>Inscribirse ante la administración tributaria (RIF) y llevar la facturación como corresponda.</li><li>Cumplir las obligaciones laborales y de seguridad social con sus trabajadores.</li><li>Tener un programa básico de seguridad y salud en el trabajo: las operadoras lo exigen antes de dejar entrar a su personal.</li><li>Valorar seguros de responsabilidad civil y de equipos según el tipo de servicio.</li></ul>'
+              '<p>Los requisitos concretos los fija cada organismo: confírmelos con él antes de empezar.</p>',
+              'Haga una lista de los documentos que ya tiene y de los que le faltan para registrarse como proveedor, y marque cuáles puede resolver este mes.'),
+            L('Plan de arranque de 90 días',
+              '<p>Un plan corto y concreto vale más que un plan de negocios largo que nadie lee. Organice los próximos 90 días en tres bloques.</p>'
+              '<ul><li><strong>Días 1 a 30:</strong> definir servicio y precio, ordenar documentos, abrir cuenta bancaria de la empresa.</li><li><strong>Días 31 a 60:</strong> presentación y oferta tipo listas, visitas a cinco clientes, registro como proveedor donde se pueda.</li><li><strong>Días 61 a 90:</strong> primer servicio, informe de cierre, pedido de referencia al cliente, revisión de costos reales.</li></ul>'
+              '<p>Mida pocas cosas: visitas hechas, ofertas enviadas, ofertas ganadas y margen real de cada trabajo.</p>',
+              'Escriba su plan de 90 días con una acción por semana y póngale fecha a la primera visita comercial.'),
+        ],
+        evaluacion=[
+            Q('one', '¿Qué espera una contratista de un proveedor de servicios, además del trabajo técnico?',
+              o='*Que responda por el resultado y lo pueda demostrar con registros\nQue sea el más barato aunque no deje evidencia\nQue haga cualquier tipo de trabajo que se le pida',
+              w='Una empresa promete un resultado, lo cumple y lo demuestra: órdenes, informes y firma de recibido.'),
+            Q('one', '¿Qué definición de servicio es más útil para empezar?',
+              sc='Pedro es mecánico y quiere ofrecer sus servicios a los patios de tubulares de la zona.',
+              o='*Mantenimiento preventivo de bombas para patios de tubulares, con informe de cada intervención\nHacemos de todo en mecánica, electricidad y lo que haga falta\nServicios industriales en general',
+              w='Un servicio claro para un cliente concreto es más fácil de vender, de cotizar y de cumplir.'),
+            Q('many', '¿Qué debe cubrir el precio de un servicio?',
+              o='*Materiales, repuestos y mano de obra del trabajo\n*La parte de los costos fijos del mes que le toca\n*Los impuestos y cargas que correspondan\n*Un margen para reponer equipos e imprevistos\nSolo lo que cobra la competencia',
+              w='Cobrar «lo que cobra todo el mundo» sin conocer los costos lleva a trabajar a pérdida.'),
+            Q('tf', 'Si el cliente paga a 60 días, el proveedor está financiando ese tiempo con su propio capital.', tf='v',
+              w='Por eso hay que considerar el plazo de pago al calcular el capital de trabajo y el precio.'),
+            Q('match', 'Une cada documento con lo que debe contener',
+              o='Presentación de empresa = Quiénes son, servicios, equipos y experiencia\nOferta técnica = Alcance, método, plazo y seguridad\nOferta económica = Precio desglosado, validez y forma de pago\nReferencias = Trabajos anteriores con un contacto que los confirme'),
+            Q('order', 'Ordena los bloques del plan de arranque',
+              o='Definir servicio y precio y ordenar documentos\nPreparar la oferta tipo y visitar clientes\nPrestar el primer servicio y pedir una referencia\nRevisar los costos reales y ajustar el precio'),
+            Q('one', '¿Qué hace usted?',
+              sc='Un contratista le pide arrancar mañana un trabajo en planta. Su personal no tiene aún la inducción de seguridad que exige la operadora.',
+              o='*Explicar la situación y acordar la fecha de inicio después de completar la inducción\nEmpezar igual y hacer la inducción después\nEnviar a otra persona sin decir nada',
+              w='La seguridad no se negocia: entrar sin los requisitos pone en riesgo a las personas y su registro como proveedor.'),
+            Q('one', '¿Qué indicador le dice si su empresa realmente gana dinero?',
+              o='*El margen real de cada trabajo, calculado con sus costos reales\nEl número de llamadas recibidas\nLo que cobró en total este mes, sin restar costos',
+              w='Facturar mucho no significa ganar: el margen real es lo que queda después de pagar todo.'),
+            Q('reflect', 'Escriba la frase que define su servicio: qué hace, para quién y con qué resultado.'),
+        ],
+    ),
+    dict(
+        clave='formalizacion', escuela='emprendimiento', orden=2,
+        titulo='Formalización empresarial paso a paso',
+        lema='Ordene los papeles de su negocio para poder facturar, contratar y crecer.',
+        nivel='Inicial', horas=10, insignia='Empresa formal',
+        dirigido='Emprendedores y pequeños negocios de la subregión que trabajan de manera informal o con los papeles incompletos.',
+        requisitos='Ninguno. Es útil tener a mano los documentos que ya posea su negocio.',
+        objetivos=['Entender qué ventajas da la formalización y qué obligaciones trae.',
+                   'Distinguir las formas jurídicas más comunes y cuándo conviene cada una.',
+                   'Conocer la secuencia general de trámites y los organismos que intervienen.',
+                   'Organizar un archivo de empresa y un calendario de obligaciones.'],
+        competencias=['Formas jurídicas', 'Registro y trámites', 'Obligaciones tributarias y laborales', 'Archivo y calendario'],
+        lecciones=[
+            L('Por qué formalizarse',
+              '<p>La formalización es la puerta de entrada a clientes grandes, crédito y contratos. Un negocio informal puede funcionar, pero tiene un techo: no puede facturar a empresas que exigen factura y registro, le cuesta acceder a financiamiento y queda expuesto a sanciones.</p>'
+              '<ul><li><strong>Ventajas:</strong> vender a empresas e instituciones, acceder a crédito, contratar con seguridad jurídica, proteger el patrimonio personal (según la forma jurídica).</li><li><strong>Obligaciones:</strong> llevar contabilidad, declarar y pagar impuestos, cumplir con trabajadores y renovar registros.</li><li>La formalización es un proceso: se puede hacer por etapas, empezando por lo que exige su primer cliente.</li></ul>',
+              'Escriba qué clientes u oportunidades está perdiendo hoy por no estar formalizado o por tener los papeles incompletos.'),
+            L('Elegir la forma jurídica',
+              '<p>La forma jurídica define quién responde por las deudas, cómo se reparten las ganancias y qué trámites hay que cumplir. Elija con un abogado o contador; aquí verá las preguntas que debe llevar a esa reunión.</p>'
+              '<ul><li><strong>Firma personal:</strong> el titular responde con su patrimonio; es más sencilla de constituir y llevar.</li><li><strong>Sociedad (por ejemplo, compañía anónima o de responsabilidad limitada):</strong> separa el patrimonio de la empresa del de los socios y facilita sumar socios o capital, con más formalidades.</li><li>Preguntas clave: ¿trabajará solo o con socios? ¿Qué riesgos asume su actividad? ¿Qué le piden sus clientes? ¿Cuánto capital necesita?</li></ul>',
+              'Responda por escrito las cuatro preguntas clave de esta lección y llévelas a su reunión con un abogado o contador.'),
+            L('Registro mercantil e identificación fiscal',
+              '<p>La empresa nace legalmente con su inscripción en el registro mercantil y obtiene su identificación fiscal ante la administración tributaria.</p>'
+              '<ul><li><strong>Registro mercantil (SAREN):</strong> búsqueda y reserva del nombre, redacción del documento constitutivo, inscripción y publicación según corresponda.</li><li><strong>RIF ante el SENIAT:</strong> identificación fiscal de la empresa, necesaria para facturar y declarar.</li><li><strong>Permisos municipales:</strong> licencia de actividades económicas en la alcaldía donde opere.</li><li>Guarde copias de todo y anote fechas de vencimiento.</li></ul>'
+              '<p>Requisitos, costos y plazos cambian: confírmelos en el organismo antes de empezar.</p>',
+              'Haga una tabla con tres columnas, trámite, organismo y documento que obtiene, y complétela para su caso.'),
+            L('Obligaciones tributarias básicas',
+              '<p>Estar al día con los impuestos protege a la empresa y es un requisito habitual para registrarse como proveedor.</p>'
+              '<ul><li><strong>Facturación:</strong> emita facturas con los requisitos vigentes en cada venta.</li><li><strong>Declaraciones periódicas:</strong> las que correspondan a su empresa (por ejemplo, IVA e impuesto sobre la renta) en los plazos del calendario oficial.</li><li><strong>Impuestos municipales</strong> de la alcaldía donde opera.</li><li><strong>Libros y soportes:</strong> compras y ventas registradas y respaldadas.</li><li>Un contador le ayudará a saber qué le corresponde según su actividad y su condición de contribuyente.</li></ul>',
+              'Pida a un contador la lista de declaraciones que le corresponden y anótelas en un calendario con sus fechas.'),
+            L('Trabajadores y seguridad social',
+              '<p>Contratar personal trae obligaciones que las empresas compradoras revisan antes de dejar entrar a su gente a una instalación.</p>'
+              '<ul><li><strong>Contrato y nómina</strong> según la legislación laboral vigente.</li><li><strong>Inscripción en la seguridad social</strong> y en los demás fondos y registros que correspondan.</li><li><strong>Seguridad y salud en el trabajo:</strong> la LOPCYMAT y su reglamento exigen, entre otras cosas, un programa de seguridad y salud y la participación de los trabajadores; el organismo de referencia es el INPSASEL.</li><li>Guarde soportes de pagos, inscripciones y formaciones de cada trabajador.</li></ul>',
+              'Revise si cada persona que trabaja con usted tiene contrato, inscripción y soportes, y anote lo que falta.'),
+            L('Archivo de empresa y calendario de obligaciones',
+              '<p>Una empresa formal necesita encontrar cualquier documento en minutos. Un archivo ordenado le ahorra multas y le abre puertas cuando una empresa le pide su expediente de proveedor.</p>'
+              '<ul><li><strong>Carpeta legal:</strong> documento constitutivo, actas, RIF, licencias.</li><li><strong>Carpeta tributaria:</strong> declaraciones, pagos y certificados de solvencia.</li><li><strong>Carpeta laboral:</strong> contratos, nóminas, inscripciones, seguridad y salud.</li><li><strong>Carpeta comercial:</strong> referencias, certificaciones y ofertas.</li><li><strong>Calendario:</strong> fechas de vencimiento y de declaración con un aviso una semana antes.</li></ul>'
+              '<p>Puede subir sus documentos privados en «Mi empresa → Documentos» de este portal para la verificación de su perfil.</p>',
+              'Cree las cuatro carpetas (en papel o digitales) y ponga en el calendario los tres próximos vencimientos.'),
+        ],
+        evaluacion=[
+            Q('many', '¿Qué le permite a un negocio estar formalizado?',
+              o='*Facturar a empresas e instituciones\n*Acceder a crédito con más facilidad\n*Registrarse como proveedor\nNo pagar impuestos',
+              w='La formalización abre clientes, crédito y contratos; a cambio trae obligaciones como declarar y pagar impuestos.'),
+            Q('one', '¿Qué forma jurídica conviene considerar?',
+              sc='Ana y dos socios van a montar un taller con equipos costosos y quieren separar las deudas de la empresa de su patrimonio personal.',
+              o='*Una sociedad, después de consultarlo con un abogado o contador\nTrabajar sin registro hasta que el taller crezca\nUna firma personal a nombre de uno de los socios, sin decir nada a los otros',
+              w='Las sociedades separan el patrimonio de la empresa del de los socios y facilitan sumar socios o capital.'),
+            Q('match', 'Une cada trámite con su organismo',
+              o='Inscripción de la empresa = Registro mercantil (SAREN)\nIdentificación fiscal (RIF) = SENIAT\nLicencia de actividades económicas = Alcaldía\nSeguridad y salud en el trabajo = INPSASEL'),
+            Q('tf', 'Los requisitos y costos de un trámite son siempre los mismos, así que basta con lo que contó un conocido el año pasado.', tf='f',
+              w='Los requisitos cambian: confírmelos en el organismo antes de empezar.'),
+            Q('order', 'Ordena la secuencia general para formalizar una sociedad',
+              o='Elegir la forma jurídica con un asesor\nReservar el nombre e inscribir la empresa en el registro mercantil\nObtener el RIF de la empresa\nTramitar la licencia municipal y empezar a facturar'),
+            Q('one', '¿Qué hace primero?',
+              sc='Una operadora le pide su expediente de proveedor para la semana próxima y usted no sabe dónde está la mitad de sus documentos.',
+              o='*Ordenar el archivo por carpetas (legal, tributaria, laboral, comercial) y anotar lo que falta\nEnviar lo que encuentre sin revisar\nPedir que esperen hasta el próximo año',
+              w='Un archivo ordenado permite responder rápido y muestra seriedad.'),
+            Q('many', '¿Qué debe guardar en la carpeta laboral?',
+              o='*Contratos de trabajo\n*Soportes de nómina y pagos\n*Inscripciones en la seguridad social\n*Registros de formación en seguridad\nFacturas de venta'),
+            Q('tf', 'Antes de dejar entrar a su personal a una instalación, una empresa compradora puede revisar sus obligaciones laborales y de seguridad.', tf='v'),
+            Q('reflect', 'Escriba los tres próximos trámites o vencimientos de su negocio y la fecha en que los atenderá.'),
+        ],
+    ),
+    # ------------------------------------------------------------------ Escuela de Proveedores Industriales
+    dict(
+        clave='seguridad-industrial', escuela='proveedores-industriales', orden=3,
+        titulo='Seguridad industrial para empresas proveedoras',
+        lema='Trabajar seguro es la primera condición para entrar a una planta y para volver a casa.',
+        nivel='Inicial', horas=14, insignia='Seguridad primero',
+        dirigido='Dueños, supervisores y trabajadores de empresas que prestan servicios en instalaciones industriales, energéticas o agroindustriales.',
+        requisitos='Ninguno. Recomendado para todo el personal que entrará a una instalación.',
+        objetivos=['Identificar peligros y evaluar riesgos antes de empezar un trabajo.',
+                   'Aplicar la jerarquía de controles y elegir el equipo de protección adecuado.',
+                   'Conocer los permisos de trabajo y el bloqueo de energías en tareas de alto riesgo.',
+                   'Reportar incidentes y organizar la respuesta ante emergencias.'],
+        competencias=['Análisis de riesgos', 'Jerarquía de controles', 'Permisos de trabajo', 'Respuesta a emergencias'],
+        lecciones=[
+            L('Por qué la seguridad es parte del servicio',
+              '<p>Para una operadora o contratista, un proveedor inseguro es un riesgo para su gente, sus instalaciones y su reputación. Por eso <strong>la seguridad se evalúa antes que el precio</strong>: se piden programas, registros de formación e historial de incidentes.</p>'
+              '<ul><li>La seguridad protege a las personas: ningún trabajo es tan urgente como para hacerlo de forma insegura.</li><li>Es un requisito legal: en Venezuela, la LOPCYMAT y su reglamento obligan al empleador a garantizar condiciones seguras.</li><li>Es una ventaja comercial: un buen historial de seguridad abre contratos.</li><li>Todos tienen autoridad para detener un trabajo inseguro.</li></ul>',
+              'Pregunte a su equipo cuál fue el último «casi accidente» que vivieron en un trabajo y qué lo habría evitado. Anote las respuestas.'),
+            L('Peligro, riesgo y análisis de trabajo seguro',
+              '<p>Un <strong>peligro</strong> es algo que puede causar daño (electricidad, altura, una sustancia química). El <strong>riesgo</strong> combina la probabilidad de que el daño ocurra y su gravedad. Antes de cada tarea se hace un análisis de trabajo seguro (ATS o AST).</p>'
+              '<ul><li>Divida la tarea en pasos.</li><li>Para cada paso, identifique los peligros.</li><li>Evalúe el riesgo: ¿qué tan probable? ¿qué tan grave?</li><li>Defina los controles y quién los aplica.</li><li>Revise el análisis con el equipo antes de empezar y firme.</li></ul>',
+              'Haga el análisis de trabajo seguro de una tarea que su empresa realiza con frecuencia, con al menos cinco pasos.'),
+            L('Jerarquía de controles y equipo de protección',
+              '<p>No todos los controles protegen igual. La jerarquía ordena las medidas de la más eficaz a la menos eficaz.</p>'
+              '<ul><li><strong>Eliminar</strong> el peligro (hacer el trabajo desde el suelo en vez de en altura).</li><li><strong>Sustituir</strong> por algo menos peligroso (un producto menos tóxico).</li><li><strong>Controles de ingeniería</strong> (resguardos, ventilación, barandas).</li><li><strong>Controles administrativos</strong> (procedimientos, permisos, señalización, turnos).</li><li><strong>Equipo de protección personal</strong> (casco, lentes, guantes, botas, protección auditiva o respiratoria): la última barrera, nunca la única.</li></ul>'
+              '<p>El equipo de protección debe ser adecuado al riesgo, estar en buen estado y usarse bien.</p>',
+              'Elija un peligro de su trabajo y escriba un control para cada nivel de la jerarquía, del más eficaz al menos eficaz.'),
+            L('Permisos de trabajo y bloqueo de energías',
+              '<p>Las tareas de alto riesgo requieren un <strong>permiso de trabajo</strong> emitido por la instalación: trabajos en caliente, espacios confinados, altura, excavaciones, izamientos y trabajos eléctricos.</p>'
+              '<ul><li>El permiso define la tarea, el lugar, el tiempo, los riesgos, los controles y los responsables.</li><li>Se revisa en el sitio antes de empezar y se cierra al terminar.</li><li><strong>Bloqueo y etiquetado:</strong> antes de intervenir un equipo, se aíslan sus energías (eléctrica, mecánica, hidráulica, neumática, térmica), se bloquean con candado personal, se etiquetan y se verifica que no haya energía.</li><li>Cada persona que interviene pone su propio candado.</li></ul>',
+              'Escriba los pasos de bloqueo y etiquetado para un equipo que su empresa mantiene, incluyendo cómo verificará la ausencia de energía.'),
+            L('Orden, herramientas y sustancias peligrosas',
+              '<p>Muchos accidentes empiezan con desorden o con una herramienta en mal estado.</p>'
+              '<ul><li><strong>Orden y limpieza:</strong> pasillos libres, materiales apilados, derrames limpiados de inmediato.</li><li><strong>Herramientas:</strong> inspección antes de usarlas; las dañadas se retiran y se etiquetan.</li><li><strong>Sustancias peligrosas:</strong> recipientes etiquetados, hoja de datos de seguridad disponible, almacenamiento separado por compatibilidad.</li><li><strong>Residuos:</strong> separados y entregados según las reglas de la instalación.</li></ul>',
+              'Haga una inspección de 15 minutos de su taller o vehículo de trabajo con la lista de esta lección y corrija tres cosas.'),
+            L('Incidentes, emergencias y mejora continua',
+              '<p>Reportar no es delatar: es aprender. Un sistema de seguridad mejora cuando se reportan también los casi accidentes.</p>'
+              '<ul><li><strong>Reporte</strong> de inmediato todo incidente o casi accidente al supervisor y a la instalación.</li><li><strong>Investigación:</strong> buscar causas (no culpables) y definir acciones.</li><li><strong>Emergencias:</strong> conocer rutas de evacuación, punto de encuentro, alarmas, extintores y primeros auxilios del lugar.</li><li><strong>Charlas diarias</strong> de cinco minutos antes de empezar.</li><li>Registre las formaciones y simulacros: son evidencia ante sus clientes y ante la autoridad.</li></ul>',
+              'Prepare una charla de cinco minutos para su equipo sobre un riesgo de esta semana y regístrela con la firma de los asistentes.'),
+        ],
+        evaluacion=[
+            Q('one', '¿Cuál es la diferencia entre peligro y riesgo?',
+              o='*El peligro puede causar daño; el riesgo combina la probabilidad de que ocurra y su gravedad\nSon lo mismo\nEl riesgo es lo que causa el daño y el peligro es la consecuencia'),
+            Q('order', 'Ordena los controles de la jerarquía, del más eficaz al menos eficaz',
+              o='Eliminar el peligro\nSustituir por algo menos peligroso\nControles de ingeniería\nControles administrativos\nEquipo de protección personal'),
+            Q('one', '¿Qué hace usted?',
+              sc='Va a cambiar el rodamiento de una bomba. El operador de turno le dice que ya la apagó desde el tablero.',
+              o='*Aplicar su propio candado y etiqueta y verificar que no haya energía antes de intervenir\nEmpezar, porque el operador ya la apagó\nPedir a un compañero que vigile el tablero mientras trabaja',
+              w='Cada persona que interviene pone su candado y verifica la ausencia de energía: apagar no es aislar.'),
+            Q('many', '¿Qué tareas suelen necesitar un permiso de trabajo?',
+              o='*Trabajos en caliente (soldadura, corte)\n*Entrada a espacios confinados\n*Trabajos en altura\n*Izamientos de cargas\nBarrer la oficina'),
+            Q('tf', 'El equipo de protección personal es la medida de control más eficaz.', tf='f',
+              w='Es la última barrera: primero se elimina, se sustituye o se controla con ingeniería y procedimientos.'),
+            Q('match', 'Une cada situación con la medida correcta',
+              o='Herramienta con el cable pelado = Retirarla y etiquetarla\nRecipiente sin etiqueta = No usarlo hasta identificar el producto\nDerrame de aceite en el pasillo = Limpiarlo de inmediato\nCasi accidente = Reportarlo al supervisor'),
+            Q('one', '¿Qué hace usted?',
+              sc='Durante un trabajo en altura ve que la línea de vida de un compañero está mal anclada. El supervisor no está cerca.',
+              o='*Detener el trabajo y avisar, porque todos tienen autoridad para parar un trabajo inseguro\nEsperar a que vuelva el supervisor\nNo decir nada para no retrasar el trabajo'),
+            Q('tf', 'Investigar un incidente sirve para encontrar causas y evitar que se repita, no para buscar culpables.', tf='v'),
+            Q('reflect', 'Escriba el riesgo principal del trabajo que hará esta semana y los dos controles que aplicará.'),
+        ],
+    ),
+    dict(
+        clave='proveer-operadoras', escuela='proveedores-industriales', orden=4,
+        titulo='Cómo prepararse para proveer a operadoras y contratistas',
+        lema='Lo que piden las empresas ancla a un proveedor y cómo demostrarlo.',
+        nivel='Intermedio', horas=12, insignia='Proveedor preparado',
+        dirigido='Pequeñas y medianas empresas de la subregión que quieren entrar en las cadenas de suministro de operadoras, contratistas y empresas ancla.',
+        requisitos='Tener una empresa constituida o en proceso. Recomendado haber hecho «Formalización empresarial paso a paso».',
+        objetivos=['Entender cómo compran las operadoras y contratistas y cómo registran proveedores.',
+                   'Armar un expediente de proveedor completo y verificable.',
+                   'Aplicar principios básicos de gestión de calidad y trazabilidad.',
+                   'Responder solicitudes de cotización y cumplir un contrato con evidencias.'],
+        competencias=['Registro de proveedores', 'Expediente y homologación', 'Calidad y trazabilidad', 'Cotización y cumplimiento'],
+        lecciones=[
+            L('Cómo compra una empresa ancla',
+              '<p>Las grandes empresas compran con procesos: no basta con conocer a alguien. Entender el proceso le ahorra tiempo y frustraciones.</p>'
+              '<ul><li><strong>Necesidad:</strong> un área (mantenimiento, operaciones) pide un bien o servicio.</li><li><strong>Compras o contratación:</strong> busca proveedores registrados y pide cotizaciones.</li><li><strong>Evaluación:</strong> técnica (¿cumple?), de seguridad y económica.</li><li><strong>Adjudicación y contrato u orden de compra.</strong></li><li><strong>Ejecución y evaluación del desempeño</strong> del proveedor, que pesa en las próximas compras.</li></ul>'
+              '<p>Para contratar con el Estado venezolano, el registro de referencia es el Registro Nacional de Contratistas; las empresas privadas tienen sus propios registros.</p>',
+              'Elija una empresa a la que quiera proveer y averigüe cómo se registra un proveedor nuevo y quién es el contacto de compras.'),
+            L('El expediente de proveedor',
+              '<p>El expediente es su carta de presentación formal. Debe estar <strong>completo, vigente y ordenado</strong>.</p>'
+              '<ul><li><strong>Legal:</strong> documento constitutivo y modificaciones, RIF, licencias, representantes.</li><li><strong>Tributario:</strong> declaraciones y solvencias vigentes.</li><li><strong>Laboral y seguridad:</strong> inscripciones, programa de seguridad y salud, estadísticas de incidentes.</li><li><strong>Técnico:</strong> servicios, capacidades, equipos, personal clave con sus credenciales.</li><li><strong>Comercial:</strong> referencias, certificaciones, estados financieros si se piden.</li></ul>'
+              '<p>Revise vencimientos cada mes: un documento vencido puede dejarle fuera de una licitación.</p>',
+              'Haga la lista de su expediente con la fecha de vencimiento de cada documento y suba los documentos privados a «Mi empresa → Documentos».'),
+            L('Calidad: hacer bien a la primera y poder demostrarlo',
+              '<p>Calidad es cumplir lo acordado de forma consistente. Las empresas grandes valoran a los proveedores con un sistema de gestión de calidad, como los basados en la norma ISO 9001, aunque al principio basta con aplicar sus principios.</p>'
+              '<ul><li><strong>Procedimientos escritos</strong> para los trabajos que se repiten.</li><li><strong>Inspecciones</strong> antes de entregar.</li><li><strong>Equipos de medición calibrados</strong> cuando el trabajo depende de una medida.</li><li><strong>No conformidades:</strong> registrar lo que salió mal, corregirlo y evitar que se repita.</li><li><strong>Satisfacción del cliente:</strong> preguntar y registrar.</li></ul>',
+              'Escriba en una página el procedimiento del servicio que más presta, con sus pasos y su inspección final.'),
+            L('Trazabilidad y registros',
+              '<p>Trazabilidad es poder reconstruir quién hizo qué, cuándo, con qué materiales y con qué resultado. En la industria es tan importante como el trabajo mismo.</p>'
+              '<ul><li><strong>Orden de trabajo</strong> con número único.</li><li><strong>Materiales</strong> con su certificado o factura de origen.</li><li><strong>Personal</strong> asignado y sus credenciales.</li><li><strong>Informe de cierre</strong> con mediciones, fotos y firma de recibido del cliente.</li><li>Archivo digital ordenado por cliente y número de orden.</li></ul>',
+              'Diseñe el formato de orden de trabajo e informe de cierre de su empresa, con los campos de esta lección.'),
+            L('Responder una solicitud de cotización',
+              '<p>Una solicitud de cotización trae reglas. Si no se siguen, la oferta se descarta aunque sea buena.</p>'
+              '<ul><li>Lea todo el pliego y anote fechas, formato y documentos exigidos.</li><li>Haga preguntas por el canal y en el plazo indicados.</li><li>Responda <strong>punto por punto</strong> a los requisitos técnicos.</li><li>Desglose el precio y diga qué incluye y qué no.</li><li>Entregue a tiempo y guarde el comprobante de entrega.</li></ul>'
+              '<p>En este portal, las necesidades de compra publicadas en «Proveedores» se responden desde la cuenta de su empresa, y puede recibir avisos de su sector en «Mi empresa → Avisos».</p>',
+              'Active los avisos de su sector en «Mi empresa → Avisos» y prepare una plantilla de cotización con las cinco partes de esta lección.'),
+            L('Cumplir el contrato y crecer como proveedor',
+              '<p>El primer contrato es una prueba. Cumplirlo bien le abre el segundo; cumplirlo mal puede cerrarle la puerta por años.</p>'
+              '<ul><li><strong>Reunión de arranque:</strong> alcance, contactos, permisos, plan de trabajo.</li><li><strong>Informes de avance</strong> en las fechas acordadas.</li><li><strong>Cambios:</strong> todo cambio de alcance o precio se acuerda por escrito antes de hacerlo.</li><li><strong>Cierre:</strong> acta de recepción y factura con sus soportes.</li><li><strong>Evaluación:</strong> pida su evaluación de desempeño y una carta de referencia.</li><li><strong>Homologación:</strong> con buenos resultados, solicite ser proveedor homologado; en el directorio de este portal se muestra cuando un comprador lo confirma.</li></ul>',
+              'Escriba la lista de verificación de cierre de un contrato: documentos, firmas y soportes que entregará al cliente.'),
+        ],
+        evaluacion=[
+            Q('order', 'Ordena el proceso habitual de compra de una empresa ancla',
+              o='Un área detecta la necesidad\nCompras pide cotizaciones a proveedores registrados\nSe evalúan las ofertas técnica, de seguridad y económica\nSe adjudica y se emite la orden o el contrato\nSe evalúa el desempeño del proveedor'),
+            Q('many', '¿Qué suele incluir un expediente de proveedor?',
+              o='*Documentos legales y RIF\n*Solvencias tributarias vigentes\n*Programa de seguridad y salud\n*Referencias de trabajos anteriores\nFotos personales de los socios'),
+            Q('one', '¿Qué hace usted?',
+              sc='Le invitan a cotizar. El pliego pide la oferta en un formato concreto y una carta de seguridad firmada. Usted tiene una oferta muy buena en otro formato.',
+              o='*Presentar la oferta en el formato pedido, con la carta firmada y punto por punto\nEnviar su formato, porque la oferta es buena\nLlamar al comprador para que acepte su formato después del plazo',
+              w='Una oferta que no sigue las reglas del pliego suele descartarse, aunque sea buena.'),
+            Q('tf', 'La trazabilidad permite saber quién hizo un trabajo, cuándo, con qué materiales y con qué resultado.', tf='v'),
+            Q('match', 'Une cada registro con su propósito',
+              o='Orden de trabajo = Identificar el trabajo con un número único\nCertificado del material = Demostrar el origen y la calidad del material\nInforme de cierre = Dejar constancia del resultado y las mediciones\nFirma de recibido = Confirmar que el cliente aceptó el trabajo'),
+            Q('one', '¿Qué hace usted?',
+              sc='En plena obra, el supervisor del cliente le pide de palabra un trabajo adicional que no está en el contrato.',
+              o='*Acordar por escrito el cambio de alcance y su precio antes de hacerlo\nHacerlo y cobrarlo en la factura final\nNegarse sin explicar',
+              w='Todo cambio de alcance o precio se acuerda por escrito antes de ejecutarlo.'),
+            Q('tf', 'Si un documento del expediente vence, no pasa nada mientras el trabajo se haga bien.', tf='f',
+              w='Un documento vencido puede dejarle fuera de una licitación o detener un pago.'),
+            Q('many', '¿Qué principios de calidad puede aplicar desde ya, sin certificación?',
+              o='*Procedimientos escritos para los trabajos repetitivos\n*Inspección antes de entregar\n*Registrar y corregir las no conformidades\n*Preguntar al cliente por su satisfacción\nCambiar el método en cada trabajo sin dejar registro'),
+            Q('reflect', 'Escriba qué empresa quiere tener como cliente en un año y los tres pasos que dará para registrarse como su proveedor.'),
+        ],
+    ),
+    # ------------------------------------------------------------------ Escuela Agroindustrial y Productiva
+    dict(
+        clave='inocuidad', escuela='agroindustrial', orden=5,
+        titulo='Inocuidad alimentaria y control sanitario',
+        lema='Alimentos seguros: buenas prácticas desde la cosecha hasta la mesa.',
+        nivel='Inicial', horas=14, insignia='Alimento seguro',
+        dirigido='Productores, procesadores, comerciantes y trabajadores de pesca, agroindustria, mataderos, panaderías, comedores y servicios de alimentación.',
+        requisitos='Ninguno.',
+        objetivos=['Reconocer los peligros biológicos, químicos y físicos de los alimentos.',
+                   'Aplicar buenas prácticas de manufactura e higiene del personal.',
+                   'Controlar temperaturas, limpieza y plagas con registros.',
+                   'Entender los principios del sistema HACCP y la relación con la autoridad sanitaria.'],
+        competencias=['Peligros alimentarios', 'Buenas prácticas de manufactura', 'Registros de control', 'Principios HACCP'],
+        lecciones=[
+            L('Qué es la inocuidad y por qué importa',
+              '<p>Un alimento <strong>inocuo</strong> es el que no hace daño a quien lo consume. La inocuidad protege la salud, la reputación del negocio y el acceso a mercados y a clientes institucionales.</p>'
+              '<ul><li><strong>Peligros biológicos:</strong> bacterias, virus y parásitos (por ejemplo, Salmonella en aves y huevos).</li><li><strong>Peligros químicos:</strong> restos de plaguicidas, productos de limpieza, alérgenos no declarados.</li><li><strong>Peligros físicos:</strong> vidrio, metal, piedras, astillas.</li><li>La inocuidad es responsabilidad de toda la cadena: producción, transporte, procesamiento, venta y consumo.</li></ul>',
+              'Elija un producto que usted produce, vende o prepara y anote un peligro biológico, uno químico y uno físico que podrían afectarlo.'),
+            L('Higiene del personal',
+              '<p>Las personas que manipulan alimentos son la primera barrera, o la primera fuente de contaminación.</p>'
+              '<ul><li><strong>Lavado de manos</strong> con agua y jabón: al entrar, después del baño, al cambiar de tarea, después de tocar basura o dinero.</li><li><strong>Ropa de trabajo limpia</strong>, cabello recogido y cubierto, uñas cortas, sin joyas.</li><li><strong>Salud:</strong> quien tenga diarrea, vómitos, fiebre o heridas infectadas no manipula alimentos.</li><li>No comer, fumar ni escupir en las áreas de proceso.</li><li>Las certificaciones de salud del personal las exige la autoridad sanitaria: confirme las vigentes.</li></ul>',
+              'Coloque un cartel de lavado de manos en su área de trabajo y explique a su equipo los cinco momentos de esta lección.'),
+            L('Buenas prácticas de manufactura (BPM)',
+              '<p>Las BPM son las condiciones básicas de instalaciones, equipos y procesos para producir alimentos seguros.</p>'
+              '<ul><li><strong>Instalaciones:</strong> superficies lavables, buena iluminación y ventilación, separación de áreas sucias y limpias.</li><li><strong>Agua potable</strong> para el proceso y la limpieza.</li><li><strong>Flujo hacia adelante:</strong> la materia prima no se cruza con el producto terminado.</li><li><strong>Materias primas</strong> de proveedores conocidos, revisadas al recibirlas.</li><li><strong>Separación de crudos y cocidos.</strong></li></ul>',
+              'Dibuje el recorrido de su producto desde la recepción hasta la salida y marque un punto donde lo sucio y lo limpio se cruzan. Proponga cómo separarlo.'),
+            L('Temperatura: la herramienta más poderosa',
+              '<p>Las bacterias se multiplican rápido entre los 5 °C y los 60 °C: es la <strong>zona de peligro</strong>. Controlar la temperatura en cada etapa evita la mayoría de las intoxicaciones.</p>'
+              '<ul><li>Mantener lo refrigerado frío y lo caliente caliente.</li><li>Cocinar completamente, sobre todo carnes, aves y pescados.</li><li>Enfriar rápido lo cocinado que se guardará.</li><li>Descongelar en refrigeración, no a temperatura ambiente.</li><li><strong>Medir y registrar</strong> con termómetro: lo que no se mide no se controla.</li></ul>'
+              '<p>El curso «Refrigeración, almacenamiento y cadena de frío» profundiza en estos controles.</p>',
+              'Durante una semana, mida y registre dos veces al día la temperatura de su nevera o cava, y anote qué hizo cuando estuvo fuera de rango.'),
+            L('Limpieza, desinfección y control de plagas',
+              '<p>Limpiar quita la suciedad visible; <strong>desinfectar</strong> reduce los microorganismos a un nivel seguro. Hacen falta las dos cosas, en ese orden.</p>'
+              '<ul><li><strong>Plan de limpieza:</strong> qué se limpia, con qué producto y dilución, cada cuánto y quién lo hace.</li><li><strong>Productos</strong> de uso alimentario, etiquetados y guardados lejos de los alimentos.</li><li><strong>Control de plagas:</strong> impedir la entrada (mallas, puertas cerradas, sellado de huecos), no dejar comida ni agua a su alcance y contratar un servicio autorizado cuando haga falta.</li><li>Registro firmado de cada limpieza y de cada servicio de control de plagas.</li></ul>',
+              'Escriba el plan de limpieza de su área de trabajo con la tabla qué, con qué, cada cuánto y quién.'),
+            L('Principios HACCP y relación con la autoridad sanitaria',
+              '<p>El sistema HACCP (análisis de peligros y puntos críticos de control), recogido por el Codex Alimentarius, organiza la inocuidad en siete principios. Se aplica sobre una base de buenas prácticas.</p>'
+              '<ul><li>Analizar los peligros de cada etapa.</li><li>Determinar los puntos críticos de control.</li><li>Fijar límites críticos (por ejemplo, una temperatura mínima de cocción).</li><li>Vigilar los puntos críticos.</li><li>Definir acciones correctivas.</li><li>Verificar que el sistema funciona.</li><li>Llevar documentación y registros.</li></ul>'
+              '<p>Los permisos sanitarios, registros de productos y certificados los otorga la autoridad sanitaria (en Venezuela, la Contraloría Sanitaria del Ministerio de Salud). Confirme con ella los requisitos vigentes para su actividad.</p>',
+              'Elija una etapa de su proceso que considere crítica y defina para ella un límite, cómo lo vigilará y qué hará si se sale del límite.'),
+        ],
+        evaluacion=[
+            Q('match', 'Une cada peligro con su tipo',
+              o='Salmonella en huevos = Biológico\nRestos de cloro en un envase = Químico\nUn trozo de vidrio = Físico\nManí no declarado en la etiqueta = Químico (alérgeno)'),
+            Q('one', '¿Qué hace usted?',
+              sc='Un trabajador de su planta de procesamiento de pescado llega con diarrea y fiebre, pero dice que se siente capaz de trabajar.',
+              o='*Apartarlo de la manipulación de alimentos hasta que se recupere\nDejarlo trabajar con guantes\nDejarlo trabajar en el empaque, que es menos importante',
+              w='Las personas con diarrea, vómitos o fiebre no deben manipular alimentos: pueden contaminarlos aunque usen guantes.'),
+            Q('one', '¿Cuál es la zona de peligro de temperatura para las bacterias?',
+              o='*Entre 5 °C y 60 °C\nPor debajo de 0 °C\nPor encima de 100 °C'),
+            Q('order', 'Ordena los pasos correctos de higiene de una superficie',
+              o='Retirar los restos de alimento\nLavar con agua y detergente\nEnjuagar\nAplicar el desinfectante\nDejar actuar y secar al aire'),
+            Q('tf', 'Descongelar la carne sobre el mesón durante la noche es una buena práctica.', tf='f',
+              w='Se descongela en refrigeración: a temperatura ambiente la superficie pasa horas en la zona de peligro.'),
+            Q('many', '¿Qué medidas ayudan a controlar las plagas?',
+              o='*Mallas en ventanas y puertas cerradas\n*Sellar huecos y grietas\n*No dejar comida ni agua a su alcance\n*Contratar un servicio autorizado cuando haga falta\nDejar la basura abierta cerca del área de proceso'),
+            Q('one', '¿Qué es un límite crítico en el sistema HACCP?',
+              o='*Un valor que separa lo aceptable de lo inaceptable en un punto crítico, como una temperatura mínima de cocción\nEl número máximo de trabajadores en la planta\nEl precio máximo de venta del producto'),
+            Q('tf', 'Lo que no se mide y se registra no se puede demostrar ni controlar.', tf='v'),
+            Q('reflect', 'Escriba el control de inocuidad que aplicará primero en su negocio y cómo lo registrará.'),
+        ],
+    ),
+]

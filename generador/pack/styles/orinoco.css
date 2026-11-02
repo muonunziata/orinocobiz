@@ -467,3 +467,12 @@ body .orn-mini h4.elementor-heading-title{font-size:.95rem;font-weight:700;color
 }
 .orn-apphead .orn-crumbs .elementor-icon-list-items{margin-left:0!important;margin-right:0!important}
 .orn-apphead .orn-crumbs .elementor-icon-list-item:first-child{margin-left:0!important;padding-left:0!important}
+
+/* Academia Orinoco (widgets Wakoo · Academia) */
+.orn-sec.orn-ac-top{padding-top:clamp(28px,4vw,52px);padding-bottom:clamp(20px,3vw,36px)}
+.orn-sec.orn-sec--tight{padding-top:clamp(24px,3vw,40px);padding-bottom:clamp(24px,3vw,40px)}
+.orn-ac-top > .e-con-inner{gap:18px}
+.orn-ac-skills .elementor-icon-list-item{margin-bottom:6px}
+.orn-ac-ficha .orn-defs .orn-def{padding:10px 0}
+#aula.orn-sec,#evaluacion.orn-sec{scroll-margin-top:90px}
+.orn-ac-how .elementor-icon-box-description{font-size:.95rem}

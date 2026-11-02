@@ -9070,5 +9070,809 @@
   "en": "Send the summary now",
   "it": "Invia il riepilogo ora",
   "zh-tw": "立即寄送摘要"
+ },
+ "Lección": {
+  "fr": "Leçon",
+  "en": "Lesson",
+  "it": "Lezione",
+  "zh-tw": "課程單元"
+ },
+ "de": {
+  "fr": "sur",
+  "en": "of",
+  "it": "di",
+  "zh-tw": "／"
+ },
+ "Marcar como estudiada": {
+  "fr": "Marquer comme étudiée",
+  "en": "Mark as studied",
+  "it": "Segna come studiata",
+  "zh-tw": "標記為已學習"
+ },
+ "Estudiada": {
+  "fr": "Étudiée",
+  "en": "Studied",
+  "it": "Studiata",
+  "zh-tw": "已學習"
+ },
+ "Anterior": {
+  "fr": "Précédente",
+  "en": "Previous",
+  "it": "Precedente",
+  "zh-tw": "上一個"
+ },
+ "Siguiente": {
+  "fr": "Suivante",
+  "en": "Next",
+  "it": "Successiva",
+  "zh-tw": "下一個"
+ },
+ "El video de esta lección está en preparación. Mientras tanto, aquí tiene el contenido completo.": {
+  "fr": "La vidéo de cette leçon est en préparation. En attendant, voici le contenu complet.",
+  "en": "The video for this lesson is being prepared. In the meantime, here is the full content.",
+  "it": "Il video di questa lezione è in preparazione. Nel frattempo, ecco il contenuto completo.",
+  "zh-tw": "本單元影片製作中。在此期間，請參閱完整內容。"
+ },
+ "Contenido de la lección": {
+  "fr": "Contenu de la leçon",
+  "en": "Lesson content",
+  "it": "Contenuto della lezione",
+  "zh-tw": "單元內容"
+ },
+ "Práctica aplicada": {
+  "fr": "Exercice appliqué",
+  "en": "Applied practice",
+  "it": "Esercitazione pratica",
+  "zh-tw": "應用練習"
+ },
+ "Mis notas": {
+  "fr": "Mes notes",
+  "en": "My notes",
+  "it": "I miei appunti",
+  "zh-tw": "我的筆記"
+ },
+ "Escriba aquí lo que quiera recordar. Se guarda en este dispositivo.": {
+  "fr": "Écrivez ici ce que vous voulez retenir. C’est enregistré sur cet appareil.",
+  "en": "Write here what you want to remember. It is saved on this device.",
+  "it": "Scriva qui ciò che vuole ricordare. Si salva su questo dispositivo.",
+  "zh-tw": "在此寫下您想記住的內容。內容會儲存在此裝置上。"
+ },
+ "Material": {
+  "fr": "Ressource",
+  "en": "Material",
+  "it": "Materiale",
+  "zh-tw": "教材"
+ },
+ "Lecciones del curso": {
+  "fr": "Leçons du cours",
+  "en": "Course lessons",
+  "it": "Lezioni del corso",
+  "zh-tw": "課程單元列表"
+ },
+ "Ir a la evaluación": {
+  "fr": "Aller à l’évaluation",
+  "en": "Go to the assessment",
+  "it": "Vai alla valutazione",
+  "zh-tw": "前往評量"
+ },
+ "Ha estudiado todas las lecciones. Ya puede presentar la evaluación final.": {
+  "fr": "Vous avez étudié toutes les leçons. Vous pouvez passer l’évaluation finale.",
+  "en": "You have studied every lesson. You can now take the final assessment.",
+  "it": "Ha studiato tutte le lezioni. Ora può sostenere la valutazione finale.",
+  "zh-tw": "您已學完所有單元，現在可以參加期末評量。"
+ },
+ "Reproducir": {
+  "fr": "Lire",
+  "en": "Play",
+  "it": "Riproduci",
+  "zh-tw": "播放"
+ },
+ "El video se carga desde": {
+  "fr": "La vidéo est chargée depuis",
+  "en": "The video loads from",
+  "it": "Il video viene caricato da",
+  "zh-tw": "影片來源："
+ },
+ "Su progreso se guarda en este dispositivo. Inicie sesión para conservarlo en su cuenta.": {
+  "fr": "Votre progression est enregistrée sur cet appareil. Connectez-vous pour la conserver dans votre compte.",
+  "en": "Your progress is saved on this device. Sign in to keep it in your account.",
+  "it": "Il suo progresso si salva su questo dispositivo. Acceda per conservarlo nel suo account.",
+  "zh-tw": "您的進度儲存在此裝置上。請登入以保存到您的帳戶。"
+ },
+ "Empezar el curso": {
+  "fr": "Commencer le cours",
+  "en": "Start the course",
+  "it": "Inizia il corso",
+  "zh-tw": "開始課程"
+ },
+ "Repasar el curso": {
+  "fr": "Revoir le cours",
+  "en": "Review the course",
+  "it": "Ripassa il corso",
+  "zh-tw": "複習課程"
+ },
+ "lecciones": {
+  "fr": "leçons",
+  "en": "lessons",
+  "it": "lezioni",
+  "zh-tw": "個單元"
+ },
+ "evaluación final": {
+  "fr": "évaluation finale",
+  "en": "final assessment",
+  "it": "valutazione finale",
+  "zh-tw": "期末評量"
+ },
+ "Imparte": {
+  "fr": "Proposé par",
+  "en": "By",
+  "it": "A cura di",
+  "zh-tw": "授課："
+ },
+ "Insignia al aprobar:": {
+  "fr": "Badge à la réussite :",
+  "en": "Badge when you pass:",
+  "it": "Distintivo al superamento:",
+  "zh-tw": "通過後獲得徽章："
+ },
+ "Su progreso": {
+  "fr": "Votre progression",
+  "en": "Your progress",
+  "it": "Il suo progresso",
+  "zh-tw": "您的進度"
+ },
+ "Ver presentación": {
+  "fr": "Voir la présentation",
+  "en": "Watch the introduction",
+  "it": "Guarda la presentazione",
+  "zh-tw": "觀看介紹"
+ },
+ "Guía del curso (PDF)": {
+  "fr": "Guide du cours (PDF)",
+  "en": "Course guide (PDF)",
+  "it": "Guida del corso (PDF)",
+  "zh-tw": "課程指南（PDF）"
+ },
+ "Guía del curso": {
+  "fr": "Guide du cours",
+  "en": "Course guide",
+  "it": "Guida del corso",
+  "zh-tw": "課程指南"
+ },
+ "Contenido": {
+  "fr": "Sommaire",
+  "en": "Contents",
+  "it": "Indice",
+  "zh-tw": "目錄"
+ },
+ "Haga la evaluación final en línea para recibir su certificado con código de verificación:": {
+  "fr": "Passez l’évaluation finale en ligne pour recevoir votre certificat avec code de vérification :",
+  "en": "Take the final assessment online to receive your certificate with a verification code:",
+  "it": "Sostenga la valutazione finale online per ricevere il certificato con codice di verifica:",
+  "zh-tw": "請於線上完成期末評量，以取得附驗證碼的證書："
+ },
+ "Busque un curso…": {
+  "fr": "Rechercher un cours…",
+  "en": "Search for a course…",
+  "it": "Cerchi un corso…",
+  "zh-tw": "搜尋課程…"
+ },
+ "Todos los niveles": {
+  "fr": "Tous les niveaux",
+  "en": "All levels",
+  "it": "Tutti i livelli",
+  "zh-tw": "所有程度"
+ },
+ "Ver curso": {
+  "fr": "Voir le cours",
+  "en": "See course",
+  "it": "Vedi il corso",
+  "zh-tw": "查看課程"
+ },
+ "No hay cursos con ese filtro.": {
+  "fr": "Aucun cours ne correspond à ce filtre.",
+  "en": "No courses match that filter.",
+  "it": "Nessun corso con questo filtro.",
+  "zh-tw": "沒有符合此篩選條件的課程。"
+ },
+ "Insignia": {
+  "fr": "Badge",
+  "en": "Badge",
+  "it": "Distintivo",
+  "zh-tw": "徽章"
+ },
+ "Videos en preparación": {
+  "fr": "Vidéos en préparation",
+  "en": "Videos coming soon",
+  "it": "Video in preparazione",
+  "zh-tw": "影片製作中"
+ },
+ "Certificado de aprobación": {
+  "fr": "Certificat de réussite",
+  "en": "Certificate of completion",
+  "it": "Attestato di superamento",
+  "zh-tw": "結業證書"
+ },
+ "certifica que": {
+  "fr": "certifie que",
+  "en": "certifies that",
+  "it": "certifica che",
+  "zh-tw": "茲證明"
+ },
+ "aprobó el curso": {
+  "fr": "a réussi le cours",
+  "en": "has passed the course",
+  "it": "ha superato il corso",
+  "zh-tw": "已通過課程"
+ },
+ "el": {
+  "fr": "le",
+  "en": "on",
+  "it": "il",
+  "zh-tw": "日期："
+ },
+ "Calificación": {
+  "fr": "Note",
+  "en": "Score",
+  "it": "Punteggio",
+  "zh-tw": "成績"
+ },
+ "Inicie sesión para ver sus certificados.": {
+  "fr": "Connectez-vous pour voir vos certificats.",
+  "en": "Sign in to see your certificates.",
+  "it": "Acceda per vedere i suoi certificati.",
+  "zh-tw": "請登入以查看您的證書。"
+ },
+ "Aún no tiene el certificado de este curso: apruebe la evaluación final.": {
+  "fr": "Vous n’avez pas encore le certificat de ce cours : réussissez l’évaluation finale.",
+  "en": "You do not have this course’s certificate yet: pass the final assessment.",
+  "it": "Non ha ancora il certificato di questo corso: superi la valutazione finale.",
+  "zh-tw": "您尚未取得本課程的證書：請先通過期末評量。"
+ },
+ "Elija un curso desde «Mi aprendizaje».": {
+  "fr": "Choisissez un cours dans « Mon apprentissage ».",
+  "en": "Choose a course from “My learning”.",
+  "it": "Scelga un corso da «Il mio apprendimento».",
+  "zh-tw": "請從「我的學習」選擇課程。"
+ },
+ "No encontramos ningún certificado con ese código.": {
+  "fr": "Aucun certificat ne correspond à ce code.",
+  "en": "We could not find a certificate with that code.",
+  "it": "Non troviamo nessun certificato con questo codice.",
+  "zh-tw": "查無此驗證碼的證書。"
+ },
+ "Comprobar un código": {
+  "fr": "Vérifier un code",
+  "en": "Check a code",
+  "it": "Verifica un codice",
+  "zh-tw": "查驗驗證碼"
+ },
+ "Empezar la evaluación": {
+  "fr": "Commencer l’évaluation",
+  "en": "Start the assessment",
+  "it": "Inizia la valutazione",
+  "zh-tw": "開始評量"
+ },
+ "Pregunta": {
+  "fr": "Question",
+  "en": "Question",
+  "it": "Domanda",
+  "zh-tw": "問題"
+ },
+ "Comprobar": {
+  "fr": "Vérifier",
+  "en": "Check",
+  "it": "Verifica",
+  "zh-tw": "確認"
+ },
+ "Ver mi resultado": {
+  "fr": "Voir mon résultat",
+  "en": "See my result",
+  "it": "Vedi il mio risultato",
+  "zh-tw": "查看結果"
+ },
+ "Correcto": {
+  "fr": "Correct",
+  "en": "Correct",
+  "it": "Corretto",
+  "zh-tw": "正確"
+ },
+ "No es correcto": {
+  "fr": "Ce n’est pas correct",
+  "en": "Not correct",
+  "it": "Non è corretto",
+  "zh-tw": "不正確"
+ },
+ "Gracias, su respuesta quedó guardada.": {
+  "fr": "Merci, votre réponse a été enregistrée.",
+  "en": "Thank you, your answer has been saved.",
+  "it": "Grazie, la sua risposta è stata salvata.",
+  "zh-tw": "謝謝，您的回答已儲存。"
+ },
+ "Elija una respuesta": {
+  "fr": "Choisissez une réponse",
+  "en": "Choose one answer",
+  "it": "Scelga una risposta",
+  "zh-tw": "請選擇一個答案"
+ },
+ "Elija todas las que sean correctas": {
+  "fr": "Choisissez toutes les bonnes réponses",
+  "en": "Choose all that are correct",
+  "it": "Scelga tutte quelle corrette",
+  "zh-tw": "請選擇所有正確答案"
+ },
+ "Verdadero": {
+  "fr": "Vrai",
+  "en": "True",
+  "it": "Vero",
+  "zh-tw": "對"
+ },
+ "Falso": {
+  "fr": "Faux",
+  "en": "False",
+  "it": "Falso",
+  "zh-tw": "錯"
+ },
+ "Arrastre para ordenar (o use las flechas)": {
+  "fr": "Faites glisser pour ordonner (ou utilisez les flèches)",
+  "en": "Drag to reorder (or use the arrows)",
+  "it": "Trascini per ordinare (o usi le frecce)",
+  "zh-tw": "拖曳排序（或使用箭頭）"
+ },
+ "Relacione cada elemento con su pareja": {
+  "fr": "Associez chaque élément à son correspondant",
+  "en": "Match each item with its pair",
+  "it": "Abbini ogni elemento alla sua coppia",
+  "zh-tw": "請將每一項配對"
+ },
+ "Elija…": {
+  "fr": "Choisir…",
+  "en": "Choose…",
+  "it": "Scelga…",
+  "zh-tw": "請選擇…"
+ },
+ "Mueva el control: no hay respuestas buenas ni malas": {
+  "fr": "Déplacez le curseur : il n’y a pas de bonne ou de mauvaise réponse",
+  "en": "Move the slider: there are no right or wrong answers",
+  "it": "Sposti il cursore: non ci sono risposte giuste o sbagliate",
+  "zh-tw": "移動滑桿：沒有對錯之分"
+ },
+ "Responda con sus palabras (no suma puntos)": {
+  "fr": "Répondez avec vos mots (non noté)",
+  "en": "Answer in your own words (not scored)",
+  "it": "Risponda con parole sue (non conta per il punteggio)",
+  "zh-tw": "請用自己的話回答（不計分）"
+ },
+ "Ver una pista": {
+  "fr": "Voir un indice",
+  "en": "Show a hint",
+  "it": "Vedi un suggerimento",
+  "zh-tw": "查看提示"
+ },
+ "Su resultado": {
+  "fr": "Votre résultat",
+  "en": "Your result",
+  "it": "Il suo risultato",
+  "zh-tw": "您的成績"
+ },
+ "Para aprobar se necesita": {
+  "fr": "Pour réussir, il faut",
+  "en": "To pass you need",
+  "it": "Per superarla serve",
+  "zh-tw": "及格需達"
+ },
+ "Aprobado. ¡Felicitaciones!": {
+  "fr": "Réussi. Félicitations !",
+  "en": "Passed. Congratulations!",
+  "it": "Superata. Complimenti!",
+  "zh-tw": "通過，恭喜您！"
+ },
+ "Todavía no. Repase las lecciones y vuelva a intentarlo.": {
+  "fr": "Pas encore. Revoyez les leçons et réessayez.",
+  "en": "Not yet. Review the lessons and try again.",
+  "it": "Non ancora. Ripassi le lezioni e riprovi.",
+  "zh-tw": "尚未通過。請複習單元後再試一次。"
+ },
+ "Intentarlo otra vez": {
+  "fr": "Réessayer",
+  "en": "Try again",
+  "it": "Riprova",
+  "zh-tw": "再試一次"
+ },
+ "Revise sus respuestas": {
+  "fr": "Revoyez vos réponses",
+  "en": "Review your answers",
+  "it": "Riveda le sue risposte",
+  "zh-tw": "檢視您的答案"
+ },
+ "Ver mi certificado": {
+  "fr": "Voir mon certificat",
+  "en": "See my certificate",
+  "it": "Vedi il mio certificato",
+  "zh-tw": "查看我的證書"
+ },
+ "Se habilita cuando haya estudiado todas las lecciones.": {
+  "fr": "Disponible quand vous aurez étudié toutes les leçons.",
+  "en": "Available once you have studied every lesson.",
+  "it": "Disponibile quando avrà studiato tutte le lezioni.",
+  "zh-tw": "學完所有單元後即可開始。"
+ },
+ "Tiempo": {
+  "fr": "Temps",
+  "en": "Time",
+  "it": "Tempo",
+  "zh-tw": "時間"
+ },
+ "Inicie sesión para guardar su resultado y recibir el certificado.": {
+  "fr": "Connectez-vous pour enregistrer votre résultat et recevoir le certificat.",
+  "en": "Sign in to save your result and get the certificate.",
+  "it": "Acceda per salvare il risultato e ricevere il certificato.",
+  "zh-tw": "請登入以儲存成績並取得證書。"
+ },
+ "Su aprendizaje": {
+  "fr": "Votre apprentissage",
+  "en": "Your learning",
+  "it": "Il suo apprendimento",
+  "zh-tw": "您的學習"
+ },
+ "cursos iniciados": {
+  "fr": "cours commencés",
+  "en": "courses started",
+  "it": "corsi iniziati",
+  "zh-tw": "門已開始的課程"
+ },
+ "lecciones estudiadas": {
+  "fr": "leçons étudiées",
+  "en": "lessons studied",
+  "it": "lezioni studiate",
+  "zh-tw": "個已學習單元"
+ },
+ "Continúe donde lo dejó": {
+  "fr": "Reprenez là où vous en étiez",
+  "en": "Pick up where you left off",
+  "it": "Riprenda da dove era rimasto",
+  "zh-tw": "從上次中斷處繼續"
+ },
+ "Completados": {
+  "fr": "Terminés",
+  "en": "Completed",
+  "it": "Completati",
+  "zh-tw": "已完成"
+ },
+ "Cursos sugeridos": {
+  "fr": "Cours suggérés",
+  "en": "Suggested courses",
+  "it": "Corsi consigliati",
+  "zh-tw": "推薦課程"
+ },
+ "Certificado": {
+  "fr": "Certificat",
+  "en": "Certificate",
+  "it": "Certificato",
+  "zh-tw": "證書"
+ },
+ "Todavía no ha empezado ningún curso. Elija uno y empiece por la primera lección.": {
+  "fr": "Vous n’avez encore commencé aucun cours. Choisissez-en un et commencez par la première leçon.",
+  "en": "You have not started any course yet. Choose one and begin with the first lesson.",
+  "it": "Non ha ancora iniziato nessun corso. Ne scelga uno e cominci dalla prima lezione.",
+  "zh-tw": "您尚未開始任何課程。請選擇一門課程，從第一個單元開始。"
+ },
+ "Este progreso está guardado en este dispositivo. Inicie sesión para guardarlo en su cuenta.": {
+  "fr": "Cette progression est enregistrée sur cet appareil. Connectez-vous pour la garder dans votre compte.",
+  "en": "This progress is saved on this device. Sign in to keep it in your account.",
+  "it": "Questo progresso è salvato su questo dispositivo. Acceda per salvarlo nel suo account.",
+  "zh-tw": "此進度儲存在此裝置上。請登入以保存到您的帳戶。"
+ },
+ "Temario del curso": {
+  "fr": "Programme du cours",
+  "en": "Course outline",
+  "it": "Programma del corso",
+  "zh-tw": "課程大綱"
+ },
+ "Evaluación final con casos": {
+  "fr": "Évaluation finale par études de cas",
+  "en": "Case-based final assessment",
+  "it": "Valutazione finale con casi",
+  "zh-tw": "個案式期末評量"
+ },
+ "video": {
+  "fr": "vidéo",
+  "en": "video",
+  "it": "video",
+  "zh-tw": "影片"
+ },
+ "Formación profesional para el empleo productivo y los nuevos negocios": {
+  "fr": "Formation professionnelle pour l’emploi productif et les nouvelles entreprises",
+  "en": "Professional training for productive employment and new businesses",
+  "it": "Formazione professionale per l’occupazione produttiva e le nuove imprese",
+  "zh-tw": "面向生產性就業與新創事業的專業培訓"
+ },
+ "Cómo se estudia": {
+  "fr": "Comment on étudie",
+  "en": "How you study",
+  "it": "Come si studia",
+  "zh-tw": "學習方式"
+ },
+ "<p>Cada curso tiene ficha, temario, aula, guía en PDF para estudiar sin conexión, evaluación y certificado. Su progreso se guarda en su cuenta.</p>": {
+  "fr": "<p>Chaque cours comprend une fiche, un programme, une salle de cours, un guide PDF pour étudier hors connexion, une évaluation et un certificat. Votre progression est enregistrée dans votre compte.</p>",
+  "en": "<p>Each course has a fact sheet, an outline, a classroom, a PDF guide for offline study, an assessment and a certificate. Your progress is saved in your account.</p>",
+  "it": "<p>Ogni corso ha una scheda, un programma, un’aula, una guida PDF per studiare offline, una valutazione e un certificato. Il suo progresso si salva nel suo account.</p>",
+  "zh-tw": "<p>每門課程皆有課程簡介、大綱、線上教室、可離線學習的 PDF 指南、評量與證書。您的進度會儲存在帳戶中。</p>"
+ },
+ "Seis lecciones por curso": {
+  "fr": "Six leçons par cours",
+  "en": "Six lessons per course",
+  "it": "Sei lezioni per corso",
+  "zh-tw": "每門課程六個單元"
+ },
+ "Textos claros con ejemplos de la región. Los vídeos se añadirán a cada lección cuando estén grabados.": {
+  "fr": "Des textes clairs avec des exemples de la région. Les vidéos seront ajoutées à chaque leçon une fois enregistrées.",
+  "en": "Clear texts with examples from the region. Videos will be added to each lesson once they are recorded.",
+  "it": "Testi chiari con esempi della regione. I video verranno aggiunti a ogni lezione quando saranno registrati.",
+  "zh-tw": "以清楚的文字搭配本地區實例。影片錄製完成後將加入各單元。"
+ },
+ "Una práctica en cada lección": {
+  "fr": "Un exercice dans chaque leçon",
+  "en": "A practice in every lesson",
+  "it": "Un’esercitazione in ogni lezione",
+  "zh-tw": "每個單元一項練習"
+ },
+ "Ejercicios para aplicar en su negocio o en su puesto de trabajo, y un espacio para sus notas.": {
+  "fr": "Des exercices à appliquer dans votre entreprise ou à votre poste de travail, et un espace pour vos notes.",
+  "en": "Exercises to apply in your business or at your job, and a space for your notes.",
+  "it": "Esercizi da applicare nella sua impresa o nel suo posto di lavoro, e uno spazio per i suoi appunti.",
+  "zh-tw": "可應用於您的事業或工作崗位的練習，並附筆記空間。"
+ },
+ "Evaluación con casos": {
+  "fr": "Évaluation par études de cas",
+  "en": "Case-based assessment",
+  "it": "Valutazione con casi",
+  "zh-tw": "個案式評量"
+ },
+ "Situaciones reales: elegir, ordenar, emparejar y razonar. A pantalla completa y sin límite de tiempo.": {
+  "fr": "Des situations réelles : choisir, ordonner, associer et argumenter. En plein écran et sans limite de temps.",
+  "en": "Real situations: choose, order, match and reason. Full screen and with no time limit.",
+  "it": "Situazioni reali: scegliere, ordinare, abbinare e ragionare. A schermo intero e senza limite di tempo.",
+  "zh-tw": "真實情境：選擇、排序、配對與推理。全螢幕作答，不限時間。"
+ },
+ "Certificado verificable": {
+  "fr": "Certificat vérifiable",
+  "en": "Verifiable certificate",
+  "it": "Certificato verificabile",
+  "zh-tw": "可驗證的證書"
+ },
+ "Al aprobar recibe la insignia del curso y un certificado con un código que cualquier empleador puede comprobar.": {
+  "fr": "En cas de réussite, vous recevez le badge du cours et un certificat avec un code que tout employeur peut vérifier.",
+  "en": "When you pass you receive the course badge and a certificate with a code any employer can check.",
+  "it": "Superata la valutazione riceve il distintivo del corso e un certificato con un codice che qualsiasi datore di lavoro può verificare.",
+  "zh-tw": "通過後可獲得課程徽章及附驗證碼的證書，任何雇主皆可查驗。"
+ },
+ "Elija su curso": {
+  "fr": "Choisissez votre cours",
+  "en": "Choose your course",
+  "it": "Scelga il suo corso",
+  "zh-tw": "選擇您的課程"
+ },
+ "<p>Busque por tema o filtre por escuela. Puede empezar sin cuenta; para guardar el progreso y recibir el certificado, inicie sesión.</p>": {
+  "fr": "<p>Recherchez par thème ou filtrez par école. Vous pouvez commencer sans compte ; pour enregistrer votre progression et recevoir le certificat, connectez-vous.</p>",
+  "en": "<p>Search by topic or filter by school. You can start without an account; to save your progress and get the certificate, sign in.</p>",
+  "it": "<p>Cerchi per tema o filtri per scuola. Può iniziare senza account; per salvare il progresso e ricevere il certificato, acceda.</p>",
+  "zh-tw": "<p>可依主題搜尋或依學院篩選。無需帳戶即可開始；如要儲存進度並取得證書，請登入。</p>"
+ },
+ "<p>Al aprobar la evaluación final, la academia emite un certificado con un código único. Cualquier empleador o contratista puede comprobarlo en línea.</p>": {
+  "fr": "<p>Après réussite de l’évaluation finale, l’académie délivre un certificat avec un code unique. Tout employeur ou entrepreneur peut le vérifier en ligne.</p>",
+  "en": "<p>When you pass the final assessment, the academy issues a certificate with a unique code. Any employer or contractor can check it online.</p>",
+  "it": "<p>Superata la valutazione finale, l’accademia rilascia un certificato con un codice unico. Qualsiasi datore di lavoro o appaltatore può verificarlo online.</p>",
+  "zh-tw": "<p>通過期末評量後，學院將核發附唯一驗證碼的證書，任何雇主或承包商皆可線上查驗。</p>"
+ },
+ "Contenido formativo general de la Academia Orinoco. Los requisitos legales, tributarios y sanitarios cambian: confírmelos siempre con el organismo competente antes de presentar un trámite.": {
+  "fr": "Contenu de formation générale de l’Académie Orinoco. Les exigences légales, fiscales et sanitaires évoluent : confirmez-les toujours auprès de l’organisme compétent avant toute démarche.",
+  "en": "General training content from the Orinoco Academy. Legal, tax and health requirements change: always confirm them with the competent authority before filing any procedure.",
+  "it": "Contenuto formativo generale dell’Accademia Orinoco. I requisiti legali, fiscali e sanitari cambiano: li confermi sempre con l’ente competente prima di presentare una pratica.",
+  "zh-tw": "奧里諾科學院之一般培訓內容。法律、稅務與衛生要求會變動：辦理任何手續前，請務必向主管機關確認。"
+ },
+ "<p>Contenido formativo general de la Academia Orinoco. Los requisitos legales, tributarios y sanitarios cambian: confírmelos siempre con el organismo competente antes de presentar un trámite.</p>": {
+  "fr": "<p>Contenu de formation générale de l’Académie Orinoco. Les exigences légales, fiscales et sanitaires évoluent : confirmez-les toujours auprès de l’organisme compétent avant toute démarche.</p>",
+  "en": "<p>General training content from the Orinoco Academy. Legal, tax and health requirements change: always confirm them with the competent authority before filing any procedure.</p>",
+  "it": "<p>Contenuto formativo generale dell’Accademia Orinoco. I requisiti legali, fiscali e sanitari cambiano: li confermi sempre con l’ente competente prima di presentare una pratica.</p>",
+  "zh-tw": "<p>奧里諾科學院之一般培訓內容。法律、稅務與衛生要求會變動：辦理任何手續前，請務必向主管機關確認。</p>"
+ },
+ "Panel del estudiante: cursos, progreso y certificados.": {
+  "fr": "Espace apprenant : cours, progression et certificats.",
+  "en": "Learner dashboard: courses, progress and certificates.",
+  "it": "Area dello studente: corsi, progresso e certificati.",
+  "zh-tw": "學員專區：課程、進度與證書。"
+ },
+ "Certificados de la Academia": {
+  "fr": "Certificats de l’Académie",
+  "en": "Academy certificates",
+  "it": "Certificati dell’Accademia",
+  "zh-tw": "學院證書"
+ },
+ "<p>Vea e imprima sus certificados, o escriba el código impreso en un certificado para comprobarlo.</p>": {
+  "fr": "<p>Consultez et imprimez vos certificats, ou saisissez le code imprimé sur un certificat pour le vérifier.</p>",
+  "en": "<p>View and print your certificates, or type the code printed on a certificate to check it.</p>",
+  "it": "<p>Veda e stampi i suoi certificati, o scriva il codice stampato su un certificato per verificarlo.</p>",
+  "zh-tw": "<p>檢視並列印您的證書，或輸入證書上的驗證碼進行查驗。</p>"
+ },
+ "ORINOCO BUSINESS & INVESTMENT": {
+  "fr": "ORINOCO BUSINESS & INVESTMENT",
+  "en": "ORINOCO BUSINESS & INVESTMENT",
+  "it": "ORINOCO BUSINESS & INVESTMENT",
+  "zh-tw": "ORINOCO BUSINESS & INVESTMENT"
+ },
+ "Certificado de un curso en línea de la Academia Orinoco. No es un título oficial.": {
+  "fr": "Certificat d’un cours en ligne de l’Académie Orinoco. Ce n’est pas un diplôme officiel.",
+  "en": "Certificate of an online course of the Orinoco Academy. It is not an official qualification.",
+  "it": "Certificato di un corso online dell’Accademia Orinoco. Non è un titolo ufficiale.",
+  "zh-tw": "奧里諾科學院線上課程證書，非正式學歷文憑。"
+ },
+ "Certificados de la Academia Orinoco: verificación por código.": {
+  "fr": "Certificats de l’Académie Orinoco : vérification par code.",
+  "en": "Orinoco Academy certificates: verification by code.",
+  "it": "Certificati dell’Accademia Orinoco: verifica tramite codice.",
+  "zh-tw": "奧里諾科學院證書：以驗證碼查驗。"
+ },
+ "Al terminar el curso podrá": {
+  "fr": "À la fin du cours, vous saurez",
+  "en": "By the end of the course you will be able to",
+  "it": "Al termine del corso potrà",
+  "zh-tw": "完成課程後，您將能夠"
+ },
+ "Competencias que trabaja": {
+  "fr": "Compétences travaillées",
+  "en": "Skills you will build",
+  "it": "Competenze sviluppate",
+  "zh-tw": "培養的能力"
+ },
+ "Ficha del curso": {
+  "fr": "Fiche du cours",
+  "en": "Course fact sheet",
+  "it": "Scheda del corso",
+  "zh-tw": "課程簡介"
+ },
+ "A quién va dirigido": {
+  "fr": "Public visé",
+  "en": "Who it is for",
+  "it": "A chi si rivolge",
+  "zh-tw": "適合對象"
+ },
+ "Requisitos": {
+  "fr": "Prérequis",
+  "en": "Requirements",
+  "it": "Requisiti",
+  "zh-tw": "先備條件"
+ },
+ "<p>En línea y a su ritmo, con guía en PDF para estudiar sin conexión</p>": {
+  "fr": "<p>En ligne et à votre rythme, avec un guide PDF pour étudier hors connexion</p>",
+  "en": "<p>Online and at your own pace, with a PDF guide for offline study</p>",
+  "it": "<p>Online e al suo ritmo, con guida PDF per studiare offline</p>",
+  "zh-tw": "<p>線上自主學習，並提供可離線使用的 PDF 指南</p>"
+ },
+ "<p>Certificado con código verificable al aprobar la evaluación final (70 % o más)</p>": {
+  "fr": "<p>Certificat avec code vérifiable après réussite de l’évaluation finale (70 % ou plus)</p>",
+  "en": "<p>Certificate with a verifiable code when you pass the final assessment (70% or more)</p>",
+  "it": "<p>Certificato con codice verificabile al superamento della valutazione finale (70 % o più)</p>",
+  "zh-tw": "<p>通過期末評量（70% 以上）即可取得附驗證碼的證書</p>"
+ },
+ "Evaluación final": {
+  "fr": "Évaluation finale",
+  "en": "Final assessment",
+  "it": "Valutazione finale",
+  "zh-tw": "期末評量"
+ },
+ "Siga aprendiendo": {
+  "fr": "Continuez à apprendre",
+  "en": "Keep learning",
+  "it": "Continui a imparare",
+  "zh-tw": "繼續學習"
+ },
+ "Otros cursos de la escuela": {
+  "fr": "Autres cours de l’école",
+  "en": "More courses from this school",
+  "it": "Altri corsi della scuola",
+  "zh-tw": "本學院其他課程"
+ },
+ "Antes de presentar un trámite": {
+  "fr": "Avant toute démarche",
+  "en": "Before filing a procedure",
+  "it": "Prima di presentare una pratica",
+  "zh-tw": "辦理手續前"
+ },
+ "Toda la academia": {
+  "fr": "Toute l’académie",
+  "en": "The whole academy",
+  "it": "Tutta l’accademia",
+  "zh-tw": "整個學院"
+ },
+ "Inicial": {
+  "fr": "Débutant",
+  "en": "Beginner",
+  "it": "Base",
+  "zh-tw": "初級"
+ },
+ "Intermedio": {
+  "fr": "Intermédiaire",
+  "en": "Intermediate",
+  "it": "Intermedio",
+  "zh-tw": "中級"
+ },
+ "<p>Inicial</p>": {
+  "fr": "<p>Débutant</p>",
+  "en": "<p>Beginner</p>",
+  "it": "<p>Base</p>",
+  "zh-tw": "<p>初級</p>"
+ },
+ "<p>Intermedio</p>": {
+  "fr": "<p>Intermédiaire</p>",
+  "en": "<p>Intermediate</p>",
+  "it": "<p>Intermedio</p>",
+  "zh-tw": "<p>中級</p>"
+ },
+ "10 horas": {
+  "fr": "10 heures",
+  "en": "10 hours",
+  "it": "10 ore",
+  "zh-tw": "10 小時"
+ },
+ "<p>10 horas de estudio y práctica · 6 lecciones</p>": {
+  "fr": "<p>10 heures d’étude et de pratique · 6 leçons</p>",
+  "en": "<p>10 hours of study and practice · 6 lessons</p>",
+  "it": "<p>10 ore di studio e pratica · 6 lezioni</p>",
+  "zh-tw": "<p>10 小時學習與練習 · 6 個單元</p>"
+ },
+ "12 horas": {
+  "fr": "12 heures",
+  "en": "12 hours",
+  "it": "12 ore",
+  "zh-tw": "12 小時"
+ },
+ "<p>12 horas de estudio y práctica · 6 lecciones</p>": {
+  "fr": "<p>12 heures d’étude et de pratique · 6 leçons</p>",
+  "en": "<p>12 hours of study and practice · 6 lessons</p>",
+  "it": "<p>12 ore di studio e pratica · 6 lezioni</p>",
+  "zh-tw": "<p>12 小時學習與練習 · 6 個單元</p>"
+ },
+ "14 horas": {
+  "fr": "14 heures",
+  "en": "14 hours",
+  "it": "14 ore",
+  "zh-tw": "14 小時"
+ },
+ "<p>14 horas de estudio y práctica · 6 lecciones</p>": {
+  "fr": "<p>14 heures d’étude et de pratique · 6 leçons</p>",
+  "en": "<p>14 hours of study and practice · 6 lessons</p>",
+  "it": "<p>14 ore di studio e pratica · 6 lezioni</p>",
+  "zh-tw": "<p>14 小時學習與練習 · 6 個單元</p>"
+ },
+ "<p>Escuela de Emprendimiento y Nuevos Negocios</p>": {
+  "fr": "<p>École d’entrepreneuriat et de nouvelles entreprises</p>",
+  "en": "<p>School of Entrepreneurship and New Business</p>",
+  "it": "<p>Scuola di imprenditorialità e nuove imprese</p>",
+  "zh-tw": "<p>創業與新事業學院</p>"
+ },
+ "<p>Escuela de Proveedores Industriales</p>": {
+  "fr": "<p>École des fournisseurs industriels</p>",
+  "en": "<p>School of Industrial Suppliers</p>",
+  "it": "<p>Scuola dei fornitori industriali</p>",
+  "zh-tw": "<p>工業供應商學院</p>"
+ },
+ "<p>Escuela Agroindustrial y Productiva</p>": {
+  "fr": "<p>École agro-industrielle et productive</p>",
+  "en": "<p>School of Agribusiness and Production</p>",
+  "it": "<p>Scuola agroindustriale e produttiva</p>",
+  "zh-tw": "<p>農產加工與生產學院</p>"
+ },
+ "<p>Escuela de Logística y Comercio</p>": {
+  "fr": "<p>École de logistique et de commerce</p>",
+  "en": "<p>School of Logistics and Trade</p>",
+  "it": "<p>Scuola di logistica e commercio</p>",
+  "zh-tw": "<p>物流與貿易學院</p>"
+ },
+ "<p>Escuela de Gestión Empresarial y Transformación Digital</p>": {
+  "fr": "<p>École de gestion d’entreprise et de transformation numérique</p>",
+  "en": "<p>School of Business Management and Digital Transformation</p>",
+  "it": "<p>Scuola di gestione d’impresa e trasformazione digitale</p>",
+  "zh-tw": "<p>企業管理與數位轉型學院</p>"
  }
 }

@@ -2,10 +2,11 @@
 
 Portal institucional de la Subregión Orinoco (sur de Anzoátegui, Venezuela), construido en Wakoo como paquete importable. Lema: «Donde el potencial se convierte en inversión y la inversión en prosperidad».
 
-## Estado actual (29/10/2026)
+## Estado actual (02/11/2026)
 
-- Paquete `orinoco-wakoo.zip` (≈2,1 MB, 381 elementos). Requiere Wakoo **alpha80**.
-  - Contenido: 36 páginas por idioma en es (maestro), fr, en, zh-tw e it, con plantillas, menús, proyectos, indicadores, cursos y lecciones en cada idioma.
+- Paquete `orinoco-wakoo.zip` (≈2,6 MB, 356 elementos). Requiere Wakoo **alpha81**.
+  - Contenido: 46 páginas por idioma en es (maestro), fr, en, zh-tw e it (36 del portal y 10 cursos de la Academia), con plantillas, menús, proyectos e indicadores en cada idioma.
+  - Academia: 10 cursos con el módulo Academia (ver «Academia Orinoco» abajo). El contenido de las lecciones y de las evaluaciones está solo en español; las demás lenguas tienen ya la interfaz, los títulos y la ficha. Lo que falta traducir está en `generador/faltan-traducciones.json`.
   - Además, 6 empresas públicas de referencia y los límites de referencia del mapa.
 - Selector de idioma en la barra superior. Las traducciones son un **borrador de trabajo**: falta la revisión de una persona nativa. Las empresas y las capas del mapa solo están en español; en los listados de los otros idiomas, el resumen de cada empresa sale traducido.
 - Hub administrativo en `/hub-administrativo/` (y su versión en cada idioma), solo para el equipo.
@@ -20,6 +21,9 @@ Portal institucional de la Subregión Orinoco (sur de Anzoátegui, Venezuela), c
 |---|---|
 | `generador/content.py` | Todos los textos, tomados de la ponencia (fuente única). Si cambia un texto, se cambia aquí. |
 | `generador/build.py` | Las páginas, las plantillas, el menú, los términos y el contenido (proyectos, indicadores, cursos y lecciones). |
+| `generador/academia/` | Contenido de los 10 cursos (`cursos_a.py`, `cursos_b.py`): ficha, 6 lecciones con práctica y evaluación con casos. `palabras.py`: palabras de los widgets de la Academia en el tono del portal (usted) con su traducción. |
+| `generador/academia_web.py` | Páginas de la Academia: portada, una página por curso, Mi aprendizaje y Certificados. |
+| `generador/portadas_academia.py` | Genera las portadas de los cursos (`pack/images/academia/`): gráfico de marca con la foto de la escuela oscurecida, el icono y el nombre de la escuela. Se ejecuta a mano si cambian los cursos. |
 | `generador/el.py` | Ayudantes que generan el JSON de Elementor (contenedores, títulos, botones, iconos…). Prefijo de clases `orn-`. |
 | `generador/pack/styles/orinoco.css` | Sistema de diseño: tokens de color (#10355B, #174A7E, #C5A15B solo de acento, #F4F6F8, #465363), Inter, cabecera de cristal oscuro, tarjetas, paneles y la parte responsive. |
 | `generador/pack/images/` | 10 imágenes sacadas del PDF (.webp) y el propio PDF de la ponencia. |
@@ -54,7 +58,33 @@ Widgets usados: los nativos de Elementor (Título, Editor de texto, Botón, Imag
 - Fotos: PDVSA y Corpoelec tienen fotos de Wikimedia Commons que se descargan en el sitio real. Las de Corpoelec son de la Central Hidroeléctrica Simón Bolívar (Guri, estado Bolívar), operada por Corpoelec. Las otras 4 empresas no tienen fotos libres verificables: las suben ellas desde «Mi empresa» → Fotos, o el equipo desde la caja «Fotos de la empresa».
 - Repositorio aparte `muonunziata/orinocobiz`: se sube cuando exista.
 
+## Academia Orinoco
+
+| Escuela | Cursos (horas, nivel) |
+|---|---|
+| Emprendimiento y Nuevos Negocios | De técnico a proveedor (12 h, inicial) · Formalización empresarial paso a paso (10 h, inicial) |
+| Proveedores Industriales | Seguridad industrial para empresas proveedoras (14 h, inicial) · Cómo prepararse para proveer a operadoras y contratistas (12 h, intermedio) |
+| Agroindustrial y Productiva | Inocuidad alimentaria y control sanitario (14 h, inicial) · Refrigeración, almacenamiento y cadena de frío (12 h, intermedio) |
+| Logística y Comercio | Inventarios y gestión de almacenes (10 h, inicial) · Documentación comercial y gestión de carga (10 h, intermedio) |
+| Gestión Empresarial y Transformación Digital | Administración y contabilidad para pequeñas empresas (12 h, inicial) · Comercio electrónico y sistemas de información (10 h, inicial) |
+
+- Cada curso es una página hija de «Academia» (clave = slug en español; la misma clave en todos los idiomas, así el progreso se comparte). Widgets: Cabecera del curso (con guía PDF), ficha con widgets nativos, Temario, Aula, Evaluación (70 % para aprobar, se abre al terminar las lecciones), otros cursos de la escuela.
+- 9 preguntas por curso (90 en total): casos de la región, una respuesta, varias, verdadero o falso, ordenar, emparejar y una reflexión que no puntúa.
+- Regla de contenido: formación general y práctica. No se inventan cifras, plazos ni requisitos oficiales; cuando algo depende de un organismo (SENIAT, INPSASEL, sanidad, aduanas…) se nombra y se pide confirmarlo con él. Cada curso y cada guía llevan ese aviso.
+- Sin vídeos todavía: cada lección se estudia en texto y muestra «video en preparación». Se pueden preparar guiones como en Serenna.
+- Certificados: «Mi cuenta → Certificados» (`/verificar-certificado/`) muestra e imprime los propios y verifica cualquiera por código. El indicador «Certificados emitidos por la academia» del observatorio los cuenta.
+- La evaluación se corrige en el navegador (así funciona el módulo): sirve para formación y certificados de aprovechamiento, no para exámenes con valor oficial.
+
 ## Historial
+
+### 02/11/2026: Academia profesional con el módulo Academia (alpha81)
+- michele pidió formaciones «sumamente profesionales» usando la Academia nueva de Wakoo (alpha79).
+- Antes: catálogo de 10 cursos «en diseño» y un curso de demostración (Academia de Territorio). Ahora: 10 cursos completos con el módulo Academia (tabla arriba). Ya no se generan `wakoo_course` ni `wakoo_lesson` ni la plantilla «Ficha de curso»; Mi aprendizaje y Verificar certificado usan los widgets de la Academia.
+- Plugin (alpha81): «Guía del curso (PDF)» y «Duración total» en la Cabecera del curso; el observatorio cuenta los certificados de la Academia. Detalle en la `BITACORA.md` de la raíz.
+- Portadas propias (gráficos de marca, no fotos de otros lugares), 196 traducciones de la interfaz y la ficha y 340 de las palabras de los widgets (fr, en, it, zh-tw).
+- En un sitio donde ya se importó una versión anterior: los cursos antiguos de Territorio quedan en wp-admin (Territorio → Cursos) sin usarse; se pueden borrar. Si las portadas no cambian al reimportar es porque el importador reutiliza la imagen con el mismo nombre: borrar las antiguas de la biblioteca antes.
+- Probado en el WordPress de prueba: curso completo con una cuenta de prueba (lecciones, evaluación, certificado, verificación), guía PDF en es y zh-tw, 390/820/1440 px, editor de Elementor.
+- Siguiente entrega: traducir el contenido de las lecciones y evaluaciones (`faltan-traducciones.json`, ≈500 textos) y, si michele quiere, guiones de vídeo.
 
 ### 02/11/2026: avisos por correo y ficha PDF de proyectos (alpha80)
 - michele pidió, de las propuestas, las de avisos automáticos entre empresas y proveedores y la ficha descargable de cada proyecto.

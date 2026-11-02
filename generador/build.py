@@ -540,20 +540,6 @@ def page_observatorio():
     ]
 
 
-def page_academia():
-    schools = [reveal(iconbox(sc['icon'], sc['name'], sc['desc'], cls='orn-iconbox orn-school', position='top'), delay=i * 50) for i, sc in enumerate(C.SCHOOLS)]
-    return [
-        pagehead('Academia Orinoco de Nuevos Negocios', 'Formación para el empleo productivo y los nuevos negocios', C.ACADEMY_INTRO),
-        section([head('Escuelas', 'Cinco escuelas'), grid(schools, 5, tablet=3, mobile=1, gap=18)], cls='orn-sec'),
-        section([head('Cursos', 'Oferta de cursos', 'Toque un curso para ver su ficha. Los cursos en diseño aceptan registro de interés; el curso de demostración permite probar la plataforma completa.'),
-                 tw('wakoo-t-courses', {'layout': 'icons', 'group': 'yes', 'demo': 'yes'})], cls='orn-sec orn-soft'),
-        section([grid([col([head('Líneas del programa', 'Programa Regional de Formación para el Empleo Productivo'), *[iconbox('fas fa-check-circle', t, d, cls='orn-iconbox') for t, d in C.TRAINING_LINES]], 'orn-stack'),
-                       col([head('Certificados verificables', 'Cada certificado tiene un código'), p('Al completar un curso, la academia emite un certificado con un código único. Cualquier empleador puede comprobarlo en línea.'),
-                            btns([btn('Mi aprendizaje', L('mi-aprendizaje'), 'primary', icon='fas fa-user-graduate'), btn('Verificar un certificado', L('verificar'), 'outline')]),
-                            p('Los cursos también pueden impartirse en un aula Moodle externa: cada curso admite un enlace a su aula.', 'orn-small')], 'orn-stack orn-panel')], 2, tablet=1, mobile=1, gap=40, cls='orn-split')], cls='orn-sec'),
-    ]
-
-
 def page_noticias():
     return [
         pagehead('Noticias y agenda', 'Noticias, rondas de negocios y presentaciones', 'Novedades del portal y de la agenda de promoción de inversiones.'),
@@ -617,14 +603,10 @@ def tpl_sheet(widget, crumbs_label, crumbs_key):
                      tw(widget, {'contact': lnk(L('ventanilla'))} if widget == 'wakoo-t-project' else {})], cls='orn-sec orn-sheet', css_id='contenido')]
 
 
-def tpl_course():
-    title = w('heading', {'title': 'Curso', 'header_size': 'h1', '__dynamic__': {'title': '[elementor-tag id="orntitle" name="wakoo-post-title" settings="%7B%7D"]'}})
-    head_ = section([col([iconlist([('Inicio', None, L('inicio')), ('Academia', None, L('academia'))], 'orn-crumbs', inline=True),
-                          eyebrow('Academia Orinoco de Nuevos Negocios'), title], 'orn-pagehead__inner')], cls='orn-pagehead orn-pagehead--sm orn-dark', css_id='contenido')
-    return [topo(head_, alpha=20, levels=10), section([tw('wakoo-t-course')], cls='orn-sec')]
-
-
 # ------------------------------------------------------------------ ensamblado
+
+import academia_web as AW  # noqa: E402
+AW.bind(globals())
 
 PAGES = [
     # key, slug, title, builder, seo description, parent
@@ -641,21 +623,23 @@ PAGES = [
     ('directorio', 'directorio', 'Directorio B2B', page_directorio, 'Directorio empresarial B2B de la Subregión Orinoco.', None),
     ('proveedores', 'proveedores', 'Proveedores', page_proveedores, 'Proveeduría para operadoras, contratistas y empresas ancla; necesidades de compra.', None),
     ('observatorio', 'observatorio', 'Observatorio', page_observatorio, 'Observatorio de inversión y desarrollo: indicadores con ficha técnica.', None),
-    ('academia', 'academia', 'Academia Orinoco', page_academia, 'Academia Orinoco de Nuevos Negocios: cinco escuelas y certificados verificables.', None),
+    ('academia', 'academia', 'Academia Orinoco', AW.page_academia, 'Academia Orinoco de Nuevos Negocios: cinco escuelas y certificados verificables.', None),
     ('noticias', 'noticias', 'Noticias', page_noticias, 'Noticias, rondas de negocios y agenda de ORINOCO BUSINESS & INVESTMENT.', None),
     ('contacto', 'contacto', 'Contacto', page_contacto, 'Contacto con ORINOCO BUSINESS & INVESTMENT.', None),
     ('acceso', 'acceso', 'Acceso', lambda: page_panel('acceso', 'Iniciar sesión o crear una cuenta', 'Una sola cuenta para la ventanilla, el directorio y la academia.', 'wakoo-t-access', {'privacy': lnk(L('privacidad'))}), 'Acceso a la cuenta del portal.', None),
     ('mis-solicitudes', 'mis-solicitudes', 'Mis solicitudes', lambda: page_panel('mis-solicitudes', 'Mis solicitudes', 'Estado, historial, mensajes y documentos de sus solicitudes en la ventanilla.', 'wakoo-t-cases'), 'Solicitudes en la ventanilla.', None),
     ('mi-empresa', 'mi-empresa', 'Mi empresa', lambda: page_panel('mi-empresa', 'Mi empresa', 'Perfil para el directorio, documentos privados, consultas recibidas y necesidades de compra.', 'wakoo-t-companypanel'), 'Panel de empresa.', None),
-    ('mi-aprendizaje', 'mi-aprendizaje', 'Mi aprendizaje', lambda: page_panel('mi-aprendizaje', 'Mi aprendizaje', 'Sus cursos, su progreso y sus certificados.', 'wakoo-t-student', {'catalog': lnk(L('academia'))}), 'Panel del estudiante.', None),
+    ('mi-aprendizaje', 'mi-aprendizaje', 'Mi aprendizaje', AW.page_aprendizaje, 'Panel del estudiante: cursos, progreso y certificados.', None),
     ('hub', 'hub-administrativo', 'Hub administrativo', lambda: page_panel('hub', 'Hub administrativo', 'Solicitudes de la ventanilla, usuarios y cuentas de las empresas. Solo para el equipo del portal.', 'wakoo-t-hub'), 'Hub administrativo del equipo del portal.', None),
-    ('verificar', 'verificar-certificado', 'Verificar certificado', lambda: page_panel('verificar', 'Verificar un certificado', 'Escriba el código impreso en el certificado de la Academia Orinoco.', 'wakoo-t-verify'), 'Verificación de certificados de la Academia Orinoco.', None),
+    ('verificar', 'verificar-certificado', 'Verificar certificado', AW.page_verificar, 'Certificados de la Academia Orinoco: verificación por código.', None),
     ('privacidad', 'privacidad', 'Privacidad', lambda: page_legal('privacidad'), 'Privacidad y datos personales.', None),
     ('terminos', 'terminos-de-uso', 'Términos de uso', lambda: page_legal('terminos'), 'Términos de uso del portal.', None),
     ('accesibilidad', 'accesibilidad', 'Accesibilidad', lambda: page_legal('accesibilidad'), 'Declaración de accesibilidad.', None),
 ]
 for _sc in C.SECTORS:
     PAGES.append(('sector-' + _sc['slug'], _sc['slug'], _sc['name'], (lambda sc=_sc: page_sector(sc)), _sc['lead'], 'sectores'))
+
+PAGES += AW.pages()
 
 SECTOR_NAME = {sc['slug']: sc['name'] for sc in C.SECTORS}
 PANELS = {'acceso', 'mis-solicitudes', 'mi-empresa', 'mi-aprendizaje', 'hub'}
@@ -727,25 +711,6 @@ def content_items():
             meta['_wakoo_t_public'] = ['web']
         items.append({'key': f'co-{co["key"]}', 'title': co['title'], 'type': 'wakoo_company', 'slug': co['key'], 'menu_order': i,
                       'excerpt': co['excerpt'], 'content': co['content'], 'terms': terms, 'meta': meta})
-    order = 0
-    for sc in C.SCHOOLS:
-        for t in sc['courses']:
-            order += 1
-            items.append({'key': f'c-{order}', 'title': t, 'type': 'wakoo_course', 'menu_order': order, 'excerpt': 'Curso en diseño. Registre su interés y le avisaremos cuando abra la inscripción.',
-                          'content': f'<p>{sc["desc"]}</p><p>El programa, la duración, la modalidad y el costo se publicarán cuando el curso esté listo.</p>',
-                          'terms': {'wakoo_school': [{'name': sc['name'], 'slug': sc['slug']}]},
-                          'meta': {'_wakoo_t_cstatus': 'design', '_wakoo_t_cost': 'Por definir', '_wakoo_t_certify': 'yes', '_wakoo_t_icon': C.COURSE_ICONS.get(t, ''), '_wakoo_lang': LN}})
-    d = C.DEMO_COURSE
-    items.append({'key': 'c-demo', 'title': d['title'], 'type': 'wakoo_course', 'menu_order': 0, 'excerpt': d['excerpt'], 'content': f'<p>{d["content"]}</p>',
-                  'terms': {'wakoo_school': [{'name': C.SCHOOLS[-1]['name'], 'slug': 'gestion-digital'}]},
-                  'meta': {'_wakoo_t_cstatus': 'open', '_wakoo_t_demo': 'yes', '_wakoo_t_icon': C.COURSE_ICONS[d['title']], '_wakoo_t_mode': 'virtual', '_wakoo_t_certify': 'yes', '_wakoo_t_hours': '1',
-                           '_wakoo_t_criteria': 'Completar las tres lecciones y aprobar la evaluación con 70 % o más.', '_wakoo_lang': LN}})
-    for i, (t, body, quiz) in enumerate(d['lessons']):
-        m = {'_wakoo_t_course': 'wakoo-pack://post/c-demo'}
-        if quiz:
-            m['_wakoo_t_quiz'] = json.dumps(quiz, ensure_ascii=False)
-            m['_wakoo_t_pass'] = '70'
-        items.append({'key': f'l-demo-{i + 1}', 'title': t, 'type': 'wakoo_lesson', 'menu_order': i + 1, 'content': body, 'meta': m})
     return items
 
 
@@ -757,7 +722,10 @@ MISSING = {}
 
 # Ajustes de widget que llevan texto visible (se traducen por idioma; el resto es configuración).
 TXT_KEYS = {'title', 'editor', 'text', 'title_text', 'description_text', 'caption', 'toggle_label', 'label', 'empty', 'zoom_title', 'zoom_hint',
-            'zoom_source', 'button_text', 'email_subject', 'form_name', 'success_msg', 'flabel', 'foptions', 'alt', 'legend', 'placeholder'}
+            'zoom_source', 'button_text', 'email_subject', 'form_name', 'success_msg', 'flabel', 'foptions', 'alt', 'legend', 'placeholder',
+            # Academia: cabecera, aula, evaluación, catálogo y certificado (más todos los textos t_*).
+            'titulo', 'lema', 'cat', 'nivel', 'autora', 'insignia', 'horas', 'guia_nota', 'summary', 'practice', 'q', 'opts', 'scene', 'why', 'hint',
+            'intro', 'only_cat', 'note', 'signer', 'signer_role', 'org'}
 # Campos de texto del contenido (proyectos, indicadores, cursos, lecciones).
 META_TXT = {'_wakoo_t_objective', '_wakoo_t_precond', '_wakoo_t_infra', '_wakoo_t_location', '_wakoo_t_source', '_wakoo_t_pending', '_wakoo_t_cost',
             '_wakoo_t_criteria', '_wakoo_t_method', '_wakoo_t_period', '_wakoo_t_owner', '_wakoo_t_unit'}
@@ -784,7 +752,7 @@ def tr_elements(els):
 
 def tr_settings(st):
     for k, v in list(st.items()):
-        if isinstance(v, str) and k in TXT_KEYS:
+        if isinstance(v, str) and (k in TXT_KEYS or k.startswith('t_')):
             st[k] = t_(v)
         elif isinstance(v, dict):
             tr_settings(v)
@@ -847,8 +815,7 @@ def build(out, langs=LANGS):
                     it['parent'] = f'{ln}-{parent}' if parent else f'{ln}-inicio'
             part.append(it)
         part += [template_item('tpl-proyecto', 'Ficha de proyecto', tpl_sheet('wakoo-t-project', 'Proyectos', 'proyectos'), 'page'),
-                 template_item('tpl-empresa', 'Ficha de empresa', tpl_sheet('wakoo-t-company', 'Directorio', 'directorio'), 'page'),
-                 template_item('tpl-curso', 'Ficha de curso', tpl_course(), 'page')]
+                 template_item('tpl-empresa', 'Ficha de empresa', tpl_sheet('wakoo-t-company', 'Directorio', 'directorio'), 'page')]
         if ln != 'es':
             part = [localize_item(x) for x in part]
             for x in part:
@@ -919,7 +886,7 @@ def build(out, langs=LANGS):
             ('pesca-acuicultura.webp', 'Productores junto a una laguna de cultivo de peces'), ('plantacion-forestal-uverito.webp', 'Vista aérea de una plantación forestal'),
             ('taller-metalmecanico.webp', 'Soldador en un taller industrial'), ('operaciones-planta-energia.webp', 'Operarios en una planta de energía'),
             ('rio-curiaras.webp', 'Curiaras en la orilla de un río'), ('franja-territorio.webp', 'Ilustración del río, la industria, la agroindustria y el puerto'),
-            (C.PDF, 'Ponencia ORINOCO BUSINESS & INVESTMENT FORUM')]},
+            (C.PDF, 'Ponencia ORINOCO BUSINESS & INVESTMENT FORUM')] + AW.media()},
         'site': {
             'front_page': 'es-inicio',
             'css_file': 'styles/orinoco.css',
@@ -930,7 +897,7 @@ def build(out, langs=LANGS):
                 'public_default': 'es',
                 'seo': {'org_name': 'ORINOCO BUSINESS & INVESTMENT', 'meta_desc': 1, 'og': 1, 'jsonld': 1, 'llms': 1},
                 'territorio': {
-                    'tpl_project': 'es-tpl-proyecto', 'tpl_company': 'es-tpl-empresa', 'tpl_course': 'es-tpl-curso',
+                    'tpl_project': 'es-tpl-proyecto', 'tpl_company': 'es-tpl-empresa',
                     'page_access': 'es-acceso', 'page_cases': 'es-mis-solicitudes', 'page_cases_new': 'es-ventanilla', 'page_company': 'es-mi-empresa',
                     'page_student': 'es-mi-aprendizaje', 'page_verify': 'es-verificar', 'page_hub': 'es-hub',
                     'prefix': 'ORI', 'center': '8.4,-64.3', 'zoom': 8, 'register': 1, 'pdf_color': '#10355B', 'pdf_accent': '#C5A15B', 'issuer': 'Academia Orinoco de Nuevos Negocios',
