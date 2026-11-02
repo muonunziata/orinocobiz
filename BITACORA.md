@@ -4,7 +4,7 @@ Portal institucional de la Subregión Orinoco (sur de Anzoátegui, Venezuela), c
 
 ## Estado actual (29/10/2026)
 
-- Paquete `orinoco-wakoo.zip` (≈2,1 MB, 381 elementos). Requiere Wakoo **alpha70**.
+- Paquete `orinoco-wakoo.zip` (≈2,1 MB, 381 elementos). Requiere Wakoo **alpha80**.
   - Contenido: 36 páginas por idioma en es (maestro), fr, en, zh-tw e it, con plantillas, menús, proyectos, indicadores, cursos y lecciones en cada idioma.
   - Además, 6 empresas públicas de referencia y los límites de referencia del mapa.
 - Selector de idioma en la barra superior. Las traducciones son un **borrador de trabajo**: falta la revisión de una persona nativa. Las empresas y las capas del mapa solo están en español; en los listados de los otros idiomas, el resumen de cada empresa sale traducido.
@@ -55,6 +55,13 @@ Widgets usados: los nativos de Elementor (Título, Editor de texto, Botón, Imag
 - Repositorio aparte `muonunziata/orinocobiz`: se sube cuando exista.
 
 ## Historial
+
+### 02/11/2026: avisos por correo y ficha PDF de proyectos (alpha80)
+- michele pidió, de las propuestas, las de avisos automáticos entre empresas y proveedores y la ficha descargable de cada proyecto.
+- Plugin (alpha80): pestaña «Mi empresa → Avisos», aviso de necesidad nueva por sector, resumen de cada lunes, tarjeta en el Hub, botón «Descargar ficha (PDF)» en la ficha de proyecto. Detalle en la `BITACORA.md` de la raíz.
+- Paquete: `site.territorio.pdf_color` = #10355B y `pdf_accent` = #C5A15B; 20 textos nuevos en `datos/interfaz-territorio.json` y `traducciones.json` (fr, en, it, zh-tw).
+- Los correos salen en español (el idioma maestro): el envío corre en segundo plano, sin página ni idioma de visitante.
+- Para que lleguen, el sitio real necesita un proveedor de correo (plugin SMTP); sin él el portal funciona igual pero los correos pueden no llegar.
 
 ### 30/10/2026: este es el portal vigente
 - michele eligió `proyectos/orinocobiz/` como portal de Orinoco. `proyectos/orinoco-inmersivo/` (línea delta, 28/10) queda como archivo, sin borrar y marcado en su `LEEME.md` y su `BITACORA.md`.

@@ -8950,5 +8950,125 @@
   "fr": "Dernière erreur",
   "it": "Ultimo errore",
   "zh-tw": "最近的錯誤"
+ },
+ "Ficha de proyecto": {
+  "fr": "Fiche de projet",
+  "en": "Project sheet",
+  "it": "Scheda di progetto",
+  "zh-tw": "專案資料表"
+ },
+ "Generada el %s": {
+  "fr": "Générée le %s",
+  "en": "Generated on %s",
+  "it": "Generata il %s",
+  "zh-tw": "產生日期：%s"
+ },
+ "Página %1$d de %2$d": {
+  "fr": "Page %1$d sur %2$d",
+  "en": "Page %1$d of %2$d",
+  "it": "Pagina %1$d di %2$d",
+  "zh-tw": "第 %1$d 頁，共 %2$d 頁"
+ },
+ "Ficha en línea": {
+  "fr": "Fiche en ligne",
+  "en": "Online sheet",
+  "it": "Scheda online",
+  "zh-tw": "線上資料表"
+ },
+ "Descargar ficha (PDF)": {
+  "fr": "Télécharger la fiche (PDF)",
+  "en": "Download sheet (PDF)",
+  "it": "Scarica la scheda (PDF)",
+  "zh-tw": "下載資料表（PDF）"
+ },
+ "Avisos": {
+  "fr": "Alertes",
+  "en": "Alerts",
+  "it": "Avvisi",
+  "zh-tw": "通知"
+ },
+ "Elija qué correos quiere recibir del directorio. Los avisos llegan a la dirección de la cuenta de su empresa.": {
+  "fr": "Choisissez les e-mails que vous souhaitez recevoir de l'annuaire. Les alertes arrivent à l'adresse du compte de votre entreprise.",
+  "en": "Choose which emails you want to receive from the directory. Alerts go to your company account's address.",
+  "it": "Scegli quali email ricevere dalla directory. Gli avvisi arrivano all'indirizzo dell'account della tua azienda.",
+  "zh-tw": "選擇您希望從名錄收到哪些電子郵件。通知會寄到貴公司帳戶的電子郵件地址。"
+ },
+ "Avisarme cuando se publique una necesidad de compra de mis sectores": {
+  "fr": "M'avertir lorsqu'un besoin d'achat de mes secteurs est publié",
+  "en": "Notify me when a purchase need in my sectors is published",
+  "it": "Avvisami quando viene pubblicato un fabbisogno di acquisto dei miei settori",
+  "zh-tw": "當我的產業發布採購需求時通知我"
+ },
+ "Enviarme cada lunes un resumen: consultas, ofertas y respuestas de la semana": {
+  "fr": "M'envoyer chaque lundi un résumé : demandes, offres et réponses de la semaine",
+  "en": "Send me a summary every Monday: the week's enquiries, offers and replies",
+  "it": "Inviami ogni lunedì un riepilogo: richieste, offerte e risposte della settimana",
+  "zh-tw": "每週一寄送摘要給我：本週的詢問、報價與回覆"
+ },
+ "Sectores que me interesan": {
+  "fr": "Secteurs qui m'intéressent",
+  "en": "Sectors I am interested in",
+  "it": "Settori che mi interessano",
+  "zh-tw": "我感興趣的產業"
+ },
+ "Todas las necesidades, de cualquier sector": {
+  "fr": "Tous les besoins, de tous les secteurs",
+  "en": "All needs, from any sector",
+  "it": "Tutti i fabbisogni, di qualsiasi settore",
+  "zh-tw": "所有產業的全部需求"
+ },
+ "Guardar avisos": {
+  "fr": "Enregistrer les alertes",
+  "en": "Save alerts",
+  "it": "Salva avvisi",
+  "zh-tw": "儲存通知設定"
+ },
+ "Su cuenta todavía no tiene un correo real, así que no recibirá avisos. Pida al equipo del portal que lo actualice.": {
+  "fr": "Votre compte n'a pas encore d'adresse e-mail réelle : vous ne recevrez donc pas d'alertes. Demandez à l'équipe du portail de la mettre à jour.",
+  "en": "Your account does not have a real email address yet, so you will not receive alerts. Ask the portal team to update it.",
+  "it": "Il tuo account non ha ancora un indirizzo email reale, quindi non riceverai avvisi. Chiedi al team del portale di aggiornarlo.",
+  "zh-tw": "您的帳戶尚未設定真實的電子郵件，因此不會收到通知。請聯絡入口網站團隊更新。"
+ },
+ "Los avisos empiezan cuando su perfil esté publicado en el directorio.": {
+  "fr": "Les alertes commencent lorsque votre profil est publié dans l'annuaire.",
+  "en": "Alerts start once your profile is published in the directory.",
+  "it": "Gli avvisi iniziano quando il tuo profilo è pubblicato nella directory.",
+  "zh-tw": "您的資料在名錄中發布後即開始發送通知。"
+ },
+ "Preferencias de avisos guardadas.": {
+  "fr": "Préférences d'alertes enregistrées.",
+  "en": "Alert preferences saved.",
+  "it": "Preferenze degli avvisi salvate.",
+  "zh-tw": "通知偏好已儲存。"
+ },
+ "Resumen enviado a las empresas que tenían novedades.": {
+  "fr": "Résumé envoyé aux entreprises qui avaient des nouveautés.",
+  "en": "Summary sent to the companies that had news.",
+  "it": "Riepilogo inviato alle aziende che avevano novità.",
+  "zh-tw": "已將摘要寄給有新動態的公司。"
+ },
+ "Las empresas reciben un aviso cuando se publica una necesidad de compra de su sector y, cada lunes, un resumen de su semana. Cada empresa elige qué recibe en «Mi empresa → Avisos».": {
+  "fr": "Les entreprises reçoivent une alerte lorsqu'un besoin d'achat de leur secteur est publié et, chaque lundi, un résumé de leur semaine. Chaque entreprise choisit ce qu'elle reçoit dans « Mon entreprise → Alertes ».",
+  "en": "Companies get an alert when a purchase need in their sector is published and, every Monday, a summary of their week. Each company chooses what it receives in “My company → Alerts”.",
+  "it": "Le aziende ricevono un avviso quando viene pubblicato un fabbisogno di acquisto del loro settore e, ogni lunedì, un riepilogo della settimana. Ogni azienda sceglie cosa ricevere in «La mia azienda → Avvisi».",
+  "zh-tw": "當有所屬產業的採購需求發布時，公司會收到通知；每週一另收到一週摘要。各公司可在「我的公司 → 通知」選擇要收到的內容。"
+ },
+ "Último resumen: %1$s, enviado a %2$d de %3$d empresas con correo (las demás no tenían novedades).": {
+  "fr": "Dernier résumé : %1$s, envoyé à %2$d des %3$d entreprises avec e-mail (les autres n'avaient pas de nouveautés).",
+  "en": "Last summary: %1$s, sent to %2$d of %3$d companies with email (the others had no news).",
+  "it": "Ultimo riepilogo: %1$s, inviato a %2$d di %3$d aziende con email (le altre non avevano novità).",
+  "zh-tw": "上次摘要：%1$s，已寄給 %3$d 家有電子郵件的公司中的 %2$d 家（其餘沒有新動態）。"
+ },
+ "Todavía no se ha enviado ningún resumen.": {
+  "fr": "Aucun résumé n'a encore été envoyé.",
+  "en": "No summary has been sent yet.",
+  "it": "Non è ancora stato inviato alcun riepilogo.",
+  "zh-tw": "尚未寄出任何摘要。"
+ },
+ "Enviar el resumen ahora": {
+  "fr": "Envoyer le résumé maintenant",
+  "en": "Send the summary now",
+  "it": "Invia il riepilogo ora",
+  "zh-tw": "立即寄送摘要"
  }
 }

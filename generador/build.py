@@ -933,7 +933,7 @@ def build(out, langs=LANGS):
                     'tpl_project': 'es-tpl-proyecto', 'tpl_company': 'es-tpl-empresa', 'tpl_course': 'es-tpl-curso',
                     'page_access': 'es-acceso', 'page_cases': 'es-mis-solicitudes', 'page_cases_new': 'es-ventanilla', 'page_company': 'es-mi-empresa',
                     'page_student': 'es-mi-aprendizaje', 'page_verify': 'es-verificar', 'page_hub': 'es-hub',
-                    'prefix': 'ORI', 'center': '8.4,-64.3', 'zoom': 8, 'register': 1, 'issuer': 'Academia Orinoco de Nuevos Negocios',
+                    'prefix': 'ORI', 'center': '8.4,-64.3', 'zoom': 8, 'register': 1, 'pdf_color': '#10355B', 'pdf_accent': '#C5A15B', 'issuer': 'Academia Orinoco de Nuevos Negocios',
                     'terms': terms, 'i18n': i18n,
                 },
             },
